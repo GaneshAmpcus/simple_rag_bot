@@ -1,0 +1,17 @@
+FAISS is a library developed by Meta AI for efficient similarity search
+and clustering of dense vectors. It supports algorithms that search in
+sets of vectors of any size, up to ones that possibly do not fit in RAM.
+FAISS is written in C++ with complete wrappers for Python. Some of the
+most useful algorithms are implemented on the GPU.
+
+Retrieval-Augmented Generation, or RAG, combines a retriever with a
+generator. The retriever finds relevant chunks of text from a knowledge
+base, usually using vector similarity search, and the generator (an LLM)
+uses those chunks as context to produce a grounded answer. This reduces
+hallucination compared to asking an LLM a question with no supporting
+context, because the model can point to the retrieved passages instead
+of relying purely on what it memorized during training.
+
+Groq is known for running open models such as Llama with very low
+inference latency, thanks to their custom LPU hardware. This makes it a
+popular choice for RAG systems where a fast response matters.

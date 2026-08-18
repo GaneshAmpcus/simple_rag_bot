@@ -1,0 +1,1538 @@
+{
+  "docstore": {
+    "8c86f09d-60b4-47f2-ac5f-fe0b6388ca8b": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "User inquired about evaluation in the RAG pipeline, not related to music",
+      "text_lemmatized": "User inquired about evaluation in the RAG pipeline, not related to music",
+      "hash": "6d6e4a43e4bbf0a37715d766a7b3f8b5",
+      "created_at": "2026-07-24T12:06:23.790838+00:00",
+      "updated_at": "2026-07-24T12:06:23.790838+00:00",
+      "attributed_to": "user"
+    },
+    "548bbfbe-114c-4c76-8036-734a74f6cb99": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "User was informed that evaluation in the RAG pipeline refers to assessing the quality and accuracy of generated text",
+      "text_lemmatized": "User was informed that evaluation in the RAG pipeline refers to assessing the quality and accuracy of generated text",
+      "hash": "9a65a14578c7fd84c70b73ce53ee7392",
+      "created_at": "2026-07-24T12:06:23.790838+00:00",
+      "updated_at": "2026-07-24T12:06:23.790838+00:00",
+      "attributed_to": "assistant"
+    },
+    "31cdbf2a-8f1c-442e-846a-acf8122a32d1": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "User's name is Ganesh and they inquired about nemoguradrails being used as guard rails",
+      "text_lemmatized": "User's name is Ganesh and they inquired about nemoguradrails being used as guard rails",
+      "hash": "0031006d946892c97a70710935c67d36",
+      "created_at": "2026-07-24T12:07:32.046643+00:00",
+      "updated_at": "2026-07-24T12:07:32.046643+00:00",
+      "attributed_to": "user"
+    },
+    "a1004634-fe6d-4495-bb8b-7b9e66ca1c49": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "User was informed that guard rails are typically used to prevent vehicles from leaving the roadway or to protect pedestrians and workers from hazards",
+      "text_lemmatized": "User was informed that guard rails are typically used to prevent vehicles from leaving the roadway or to protect pedestrians and workers from hazards",
+      "hash": "2786ace88e122d82025c92ed8902be5f",
+      "created_at": "2026-07-24T12:07:32.046643+00:00",
+      "updated_at": "2026-07-24T12:07:32.046643+00:00",
+      "attributed_to": "assistant"
+    },
+    "d26b4f78-87f3-432f-9c75-a055c8117054": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "Ganesh was asked to provide more context or information about nemoguradrails as the term is not familiar",
+      "text_lemmatized": "Ganesh was asked to provide more context or information about nemoguradrails as the term is not familiar",
+      "hash": "c9465858dadc914cd4cce9b634c4d4e5",
+      "created_at": "2026-07-24T12:07:32.046643+00:00",
+      "updated_at": "2026-07-24T12:07:32.046643+00:00",
+      "attributed_to": "assistant"
+    },
+    "6a366c7c-58b3-480f-a1fb-52f4977e70cf": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "User inquired about guard rails in general in Gen AI applications",
+      "text_lemmatized": "User inquired about guard rails in general in Gen AI applications",
+      "hash": "685b8277771e274cfa20a0b4a567c044",
+      "created_at": "2026-07-24T12:09:04.886885+00:00",
+      "updated_at": "2026-07-24T12:09:04.886885+00:00",
+      "attributed_to": "user"
+    },
+    "6bae6c2b-c398-4198-85fe-06580352322a": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "Guard rails in AI refer to design and implementation of constraints, guidelines, and safety mechanisms to ensure AI systems operate within predetermined boundaries",
+      "text_lemmatized": "Guard rails in AI refer to design and implementation of constraints, guidelines, and safety mechanisms to ensure AI systems operate within predetermined boundaries",
+      "hash": "fee9db14513425168ebc292f9437c00a",
+      "created_at": "2026-07-24T12:09:04.886885+00:00",
+      "updated_at": "2026-07-24T12:09:04.886885+00:00",
+      "attributed_to": "assistant"
+    },
+    "d1320756-8729-4193-bc5d-07383692cab5": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "Examples of guard rails in AI include value alignment, robustness and security, explainability and interpretability, human oversight and feedback, and safety protocols",
+      "text_lemmatized": "Examples of guard rails in AI include value alignment, robustness and security, explainability and interpretability, human oversight and feedback, and safety protocols",
+      "hash": "a9a6f8a29ff85dcf4285a6d9006049f5",
+      "created_at": "2026-07-24T12:09:04.886885+00:00",
+      "updated_at": "2026-07-24T12:09:04.886885+00:00",
+      "attributed_to": "assistant"
+    },
+    "2a0fc62d-bb60-41de-ab90-c58aa427a80d": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "Guard rails can be applied at various levels of AI development, including data curation, model design, and deployment",
+      "text_lemmatized": "Guard rails can be applied at various levels of AI development, including data curation, model design, and deployment",
+      "hash": "23e4d2eb9df384c590b5d472384b2bb3",
+      "created_at": "2026-07-24T12:09:04.886885+00:00",
+      "updated_at": "2026-07-24T12:09:04.886885+00:00",
+      "attributed_to": "assistant"
+    },
+    "2cd92e40-3e81-4040-aa9b-7954d4168b2e": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "In the context of the RAG pipeline, guard rails can be used to ensure generated text is accurate, informative, and aligned with human values",
+      "text_lemmatized": "In the context of the RAG pipeline, guard rails can be used to ensure generated text is accurate, informative, and aligned with human values",
+      "hash": "6b84face87cf9e1be44f2538b0acf433",
+      "created_at": "2026-07-24T12:09:04.886885+00:00",
+      "updated_at": "2026-07-24T12:09:04.886885+00:00",
+      "attributed_to": "assistant"
+    },
+    "1f52f7b4-f67d-4595-b4ba-2500d177dbe8": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "User's name is Ganesh and they are interested in learning about AI and its applications, specifically guard rails in AI and the RAG pipeline",
+      "text_lemmatized": "User's name is Ganesh and they are interested in learning about AI and its applications, specifically guard rails in AI and the RAG pipeline",
+      "hash": "bccb5ead2cba6b91ecb79973f96970b8",
+      "created_at": "2026-07-24T12:12:44.850467+00:00",
+      "updated_at": "2026-07-24T12:12:44.850467+00:00",
+      "attributed_to": "user"
+    },
+    "df29ad49-fb21-45c6-928b-024543ecf4ab": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "Ganesh is interested in understanding the concept of guard rails in general AI applications and the RAG pipeline's evaluation process",
+      "text_lemmatized": "Ganesh is interested in understanding the concept of guard rails in general AI applications and the RAG pipeline's evaluation process",
+      "hash": "afe44bf14f8ab8a87e0fde06d15080fc",
+      "created_at": "2026-07-24T12:12:44.850467+00:00",
+      "updated_at": "2026-07-24T12:12:44.850467+00:00",
+      "attributed_to": "user"
+    },
+    "574aec4f-0044-4b22-a88f-25ad7b12f3b1": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "User's name is Ganesh and they like backend development",
+      "text_lemmatized": "User's name is Ganesh and they like backend development",
+      "hash": "36c35993b3ed321d83103ed944a51d93",
+      "created_at": "2026-07-24T12:14:47.483156+00:00",
+      "updated_at": "2026-07-24T12:14:47.483156+00:00",
+      "attributed_to": "user"
+    },
+    "a1071df7-d51c-424c-a448-c5300f4d18cc": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "Ganesh's favorite programming language is Python",
+      "text_lemmatized": "Ganesh's favorite programming language is Python",
+      "hash": "dd396d9117b59f354a27ec2f996dab8f",
+      "created_at": "2026-07-24T12:14:47.483156+00:00",
+      "updated_at": "2026-07-24T12:14:47.483156+00:00",
+      "attributed_to": "user"
+    },
+    "295845cf-4b05-4fbc-81ec-b3dd737d39f7": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "Ganesh works on Gen AI and enjoys building Gen AI applications",
+      "text_lemmatized": "Ganesh works on Gen AI and enjoys building Gen AI applications",
+      "hash": "c146c6610a13cfaacbb03567c87f5a14",
+      "created_at": "2026-07-24T12:14:47.484155+00:00",
+      "updated_at": "2026-07-24T12:14:47.484155+00:00",
+      "attributed_to": "user"
+    },
+    "a71afc7e-ede1-4d0a-bc94-aa3c1b89c810": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "User's name is Ganesh and they like backend development, with Python as their favorite programming language, and they work on and enjoy building Gen AI applications",
+      "text_lemmatized": "User's name is Ganesh and they like backend development, with Python as their favorite programming language, and they work on and enjoy building Gen AI applications",
+      "hash": "4c9a3f6092030ea8b93fe61a4efa5628",
+      "created_at": "2026-07-24T12:16:03.481910+00:00",
+      "updated_at": "2026-07-24T12:16:03.481910+00:00",
+      "attributed_to": "user"
+    },
+    "3c429504-b4ee-4d65-9617-116256c69a8f": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "User introduced themselves and expressed interest in learning more about the assistant",
+      "text_lemmatized": "User introduced themselves and expressed interest in learning more about the assistant",
+      "hash": "64fac810c7965b26bde390ed6690b2fb",
+      "created_at": "2026-07-24T12:16:03.481910+00:00",
+      "updated_at": "2026-07-24T12:16:03.481910+00:00",
+      "attributed_to": "user"
+    },
+    "97ae8d6a-c2ac-44b9-b170-8b007d124fe0": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "User was informed about the reasons why Redis is being used, including its in-memory storage, no disk I/O, single-threaded architecture, optimized data structures, and cache-friendly design",
+      "text_lemmatized": "User was informed about the reasons why Redis is being used, including its in-memory storage, no disk I/O, single-threaded architecture, optimized data structures, and cache-friendly design",
+      "hash": "0eca108c2986c23ebdeb451b03d77814",
+      "created_at": "2026-07-24T12:17:04.391550+00:00",
+      "updated_at": "2026-07-24T12:17:04.391550+00:00",
+      "attributed_to": "assistant"
+    },
+    "27b7c671-4bcb-4cee-80d5-43cdd8044ccd": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "Redis stores data in RAM, which makes it faster due to reduced latency and overhead associated with disk access",
+      "text_lemmatized": "Redis stores data in RAM, which makes it faster due to reduced latency and overhead associated with disk access",
+      "hash": "7eb63bab8d502de3d6185f5cbfcde226",
+      "created_at": "2026-07-24T12:17:04.391550+00:00",
+      "updated_at": "2026-07-24T12:17:04.391550+00:00",
+      "attributed_to": "assistant"
+    },
+    "dd71af45-b81a-49e2-986b-c13edcf9544c": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "User learned about the use cases where Redis is an ideal choice, including real-time analytics, gaming, social media, e-commerce, and content delivery networks",
+      "text_lemmatized": "User learned about the use cases where Redis is an ideal choice, including real-time analytics, gaming, social media, e-commerce, and content delivery networks",
+      "hash": "709df69d06afe956f364f72536fcc4a4",
+      "created_at": "2026-07-24T12:17:04.391550+00:00",
+      "updated_at": "2026-07-24T12:17:04.391550+00:00",
+      "attributed_to": "assistant"
+    },
+    "08c27708-09f9-4280-9fcf-abea197b6457": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "Redis is not designed for durable storage and can lose data in the event of a power failure or restart, so it's often used with other storage systems",
+      "text_lemmatized": "Redis is not designed for durable storage and can lose data in the event of a power failure or restart, so it's often used with other storage systems",
+      "hash": "4dd417e4ed3e05048713eb79f453d068",
+      "created_at": "2026-07-24T12:17:04.392551+00:00",
+      "updated_at": "2026-07-24T12:17:04.392551+00:00",
+      "attributed_to": "assistant"
+    },
+    "0f824e70-2ddb-4e46-bb55-5f0354d02a60": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "User was informed about their profile based on the conversation: name is Ganesh, likes backend development, favorite programming language is Python, and works on and enjoys building Gen AI applications",
+      "text_lemmatized": "User was informed about their profile based on the conversation: name is Ganesh, likes backend development, favorite programming language is Python, and works on and enjoys building Gen AI applications",
+      "hash": "e27e931d3a1e5fea8200307a11f9bb1c",
+      "created_at": "2026-07-24T12:19:34.811075+00:00",
+      "updated_at": "2026-07-24T12:19:34.811075+00:00",
+      "attributed_to": "assistant"
+    },
+    "af2d8982-37fd-413f-ad63-338bf5f9f15b": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "User had a burger on July 24, 2026",
+      "text_lemmatized": "User had a burger on July 24, 2026",
+      "hash": "479553bdca646833abb8a6c7f0a6a1d9",
+      "created_at": "2026-07-24T12:46:52.376048+00:00",
+      "updated_at": "2026-07-24T12:46:52.376048+00:00",
+      "attributed_to": "user"
+    },
+    "c7575146-7d64-413b-a28a-49fa807b48a4": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "User discussed Redis and its use as a caching layer with the assistant",
+      "text_lemmatized": "User discussed Redis and its use as a caching layer with the assistant",
+      "hash": "eadd34f89bfa53875ef470016ab8a1c9",
+      "created_at": "2026-07-24T12:49:57.256696+00:00",
+      "updated_at": "2026-07-24T12:49:57.256696+00:00",
+      "attributed_to": "assistant"
+    },
+    "3269fdd6-ea06-4ae7-b381-ce7c8223970b": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "User asked about the necessity of using RAGAs in the RAG pipeline",
+      "text_lemmatized": "User asked about the necessity of using RAGAs in the RAG pipeline",
+      "hash": "25f1a299cd1b206bc4a5e06265461d99",
+      "created_at": "2026-07-24T13:14:05.739889+00:00",
+      "updated_at": "2026-07-24T13:14:05.739889+00:00",
+      "attributed_to": "user"
+    },
+    "85fe8c87-443a-47bc-9443-63b8b96a4971": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "User was previously informed they had a burger, but this information is not related to the RAG pipeline or technical discussion",
+      "text_lemmatized": "User was previously informed they had a burger, but this information is not related to the RAG pipeline or technical discussion",
+      "hash": "860271ff52fe57c4075643ae2072bb0e",
+      "created_at": "2026-07-24T13:14:05.739889+00:00",
+      "updated_at": "2026-07-24T13:14:05.739889+00:00",
+      "attributed_to": "assistant"
+    },
+    "16f3ec6a-2808-4a1e-b126-d76465e89bc6": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "User inquired about the necessity of using RAGs in the RAG pipeline",
+      "text_lemmatized": "User inquired about the necessity of using RAGs in the RAG pipeline",
+      "hash": "07d4d03aa5670397d9120b07627c0712",
+      "created_at": "2026-07-24T13:14:44.644226+00:00",
+      "updated_at": "2026-07-24T13:14:44.644226+00:00",
+      "attributed_to": "user"
+    },
+    "2cda1482-2856-428a-8324-e843a8f7ae44": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "User was informed that RAGs are required in the pipeline to improve the accuracy and relevance of generated text by incorporating external knowledge and context",
+      "text_lemmatized": "User was informed that RAGs are required in the pipeline to improve the accuracy and relevance of generated text by incorporating external knowledge and context",
+      "hash": "7e93e51d6f12e9ab4cd3a1b7fe112905",
+      "created_at": "2026-07-24T13:14:44.644226+00:00",
+      "updated_at": "2026-07-24T13:14:44.644226+00:00",
+      "attributed_to": "assistant"
+    },
+    "f1e5ecdf-4577-4783-a383-28404f534085": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "User had a burger on July 24, 2026",
+      "text_lemmatized": "User had a burger on July 24, 2026",
+      "hash": "479553bdca646833abb8a6c7f0a6a1d9",
+      "created_at": "2026-07-24T13:15:39.560702+00:00",
+      "updated_at": "2026-07-24T13:15:39.560702+00:00",
+      "attributed_to": "user"
+    },
+    "632dea46-dc9b-493f-a296-4f016c7745cc": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "User was discussing Redis and its use as a caching layer on July 24, 2026",
+      "text_lemmatized": "User was discussing Redis and its use as a caching layer on July 24, 2026",
+      "hash": "b81db2262b9673a609c4a2f4ea9de0dc",
+      "created_at": "2026-07-24T13:15:39.560702+00:00",
+      "updated_at": "2026-07-24T13:15:39.560702+00:00",
+      "attributed_to": "user"
+    },
+    "6626ca14-cc78-477f-85ad-92abd19561c1": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "User inquired about the purpose of RAGs in the RAG pipeline on July 24, 2026",
+      "text_lemmatized": "User inquired about the purpose of RAGs in the RAG pipeline on July 24, 2026",
+      "hash": "1bd0d3b5048b74b9dad9bb95de374405",
+      "created_at": "2026-07-24T13:15:39.560702+00:00",
+      "updated_at": "2026-07-24T13:15:39.560702+00:00",
+      "attributed_to": "user"
+    },
+    "eace825a-b4e3-4de0-836b-1ef79b9f0eb2": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "User learned that RAGs are required in the pipeline to improve the accuracy and relevance of generated text by incorporating external knowledge and context on July 24, 2026",
+      "text_lemmatized": "User learned that RAGs are required in the pipeline to improve the accuracy and relevance of generated text by incorporating external knowledge and context on July 24, 2026",
+      "hash": "2e11f0b36c6659637dd8c489ff2ffb39",
+      "created_at": "2026-07-24T13:15:39.560702+00:00",
+      "updated_at": "2026-07-24T13:15:39.560702+00:00",
+      "attributed_to": "assistant"
+    },
+    "79a9f01c-12a3-476d-bf8c-c1a800bfcfac": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "User was informed about harness engineering, which involves the design, development, and testing of harnesses for various industries, including aerospace and automotive, on July 24, 2026",
+      "text_lemmatized": "User was informed about harness engineering, which involves the design, development, and testing of harnesses for various industries, including aerospace and automotive, on July 24, 2026",
+      "hash": "dbf99ca6cf64a25e02b95a16c73c26e8",
+      "created_at": "2026-07-24T13:15:39.560702+00:00",
+      "updated_at": "2026-07-24T13:15:39.560702+00:00",
+      "attributed_to": "assistant"
+    },
+    "ac9abe6e-6bf0-4703-b772-1f465152822a": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "In Gen AI apps, a harness is a framework that enables the integration and deployment of AI models, consisting of components like model serving, API gateway, data ingestion, model monitoring, and orchestration",
+      "text_lemmatized": "In Gen AI apps, a harness is a framework that enables the integration and deployment of AI models, consisting of components like model serving, API gateway, data ingestion, model monitoring, and orchestration",
+      "hash": "8b42a1c0b537c714170613cabb3ff024",
+      "created_at": "2026-07-24T13:16:36.999593+00:00",
+      "updated_at": "2026-07-24T13:16:36.999593+00:00",
+      "attributed_to": "assistant"
+    },
+    "2479e28d-9649-49ad-87bd-beb762d9cb83": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "The harness in Gen AI apps is used for integrating AI models, managing model lifecycle, ensuring scalability and performance, providing security and access control, and enabling explainability and transparency",
+      "text_lemmatized": "The harness in Gen AI apps is used for integrating AI models, managing model lifecycle, ensuring scalability and performance, providing security and access control, and enabling explainability and transparency",
+      "hash": "6abe00578cfe24332994882a7c51b2f5",
+      "created_at": "2026-07-24T13:16:36.999593+00:00",
+      "updated_at": "2026-07-24T13:16:36.999593+00:00",
+      "attributed_to": "assistant"
+    },
+    "a1ca0f81-b479-445c-be21-94fd09d81683": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "User, an Indian developer, is looking for YouTube channels to learn advanced Gen AI concepts",
+      "text_lemmatized": "User, an Indian developer, is looking for YouTube channels to learn advanced Gen AI concepts",
+      "hash": "1e21f2929c6696926116aeffbf47c305",
+      "created_at": "2026-07-24T13:17:56.968550+00:00",
+      "updated_at": "2026-07-24T13:17:56.968550+00:00",
+      "attributed_to": "user"
+    },
+    "9acd548c-bd78-4713-9759-5ecd76aac95b": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "User was recommended YouTube channels for learning Gen AI, including Siraj Raval, CodeWithHarry, freeCodeCamp, Machine Learning Mastery, Data Science Handbook, Analytics Vidhya, and KDNuggets",
+      "text_lemmatized": "User was recommended YouTube channels for learning Gen AI, including Siraj Raval, CodeWithHarry, freeCodeCamp, Machine Learning Mastery, Data Science Handbook, Analytics Vidhya, and KDNuggets",
+      "hash": "abb55f561bbdb69f4d727266871fbda7",
+      "created_at": "2026-07-24T13:17:56.968550+00:00",
+      "updated_at": "2026-07-24T13:17:56.968550+00:00",
+      "attributed_to": "assistant"
+    },
+    "bef5db14-72d7-45a5-b8ea-63c35583b3a1": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "User was also suggested to check out Indian YouTubers like Rohan Shravan, Naveen Kumar, and Saurabh Shukla for Gen AI and related topics",
+      "text_lemmatized": "User was also suggested to check out Indian YouTubers like Rohan Shravan, Naveen Kumar, and Saurabh Shukla for Gen AI and related topics",
+      "hash": "ed835a10e210b949baa7216a89e37b5b",
+      "created_at": "2026-07-24T13:17:56.968550+00:00",
+      "updated_at": "2026-07-24T13:17:56.968550+00:00",
+      "attributed_to": "assistant"
+    },
+    "a0be5d64-2fee-4a84-ac50-ae5f2ccb0973": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "User was recommended to explore Natural Language Processing (NLP), Deep Learning, Transformers, Attention Mechanisms, Language Models, Generative Models, Reinforcement Learning, Explainability and Interpretability, Adversarial Attacks, and Ethics and Bias in the context of Gen AI",
+      "text_lemmatized": "User was recommended to explore Natural Language Processing (NLP), Deep Learning, Transformers, Attention Mechanisms, Language Models, Generative Models, Reinforcement Learning, Explainability and Interpretability, Adversarial Attacks, and Ethics and Bias in the context of Gen AI",
+      "hash": "59661f6e1d123dffa597faa53b5c63a5",
+      "created_at": "2026-07-24T13:20:13.889261+00:00",
+      "updated_at": "2026-07-24T13:20:13.889261+00:00",
+      "attributed_to": "assistant"
+    },
+    "adc5e791-81c6-471b-b790-00fcdf3ef8fe": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "User was suggested to learn about Multimodal Learning, Transfer Learning, Meta-Learning, Graph Neural Networks, and Cognitive Architectures as advanced topics in Gen AI",
+      "text_lemmatized": "User was suggested to learn about Multimodal Learning, Transfer Learning, Meta-Learning, Graph Neural Networks, and Cognitive Architectures as advanced topics in Gen AI",
+      "hash": "a6c3ecc4961965fa91f359b706e411c5",
+      "created_at": "2026-07-24T13:20:13.889261+00:00",
+      "updated_at": "2026-07-24T13:20:13.889261+00:00",
+      "attributed_to": "assistant"
+    },
+    "a21739c2-c794-49f4-8b53-956649529fdf": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "User was informed about popular datasets and challenges in Gen AI, including GLUE Benchmark, SuperGLUE Benchmark, Stanford Question Answering Dataset (SQuAD), Commonsense Reasoning datasets, and Text Generation challenges",
+      "text_lemmatized": "User was informed about popular datasets and challenges in Gen AI, including GLUE Benchmark, SuperGLUE Benchmark, Stanford Question Answering Dataset (SQuAD), Commonsense Reasoning datasets, and Text Generation challenges",
+      "hash": "d576185b51a13bcad5a85ddfa13ac36f",
+      "created_at": "2026-07-24T13:20:13.889261+00:00",
+      "updated_at": "2026-07-24T13:20:13.889261+00:00",
+      "attributed_to": "assistant"
+    },
+    "557823ec-b7fe-4c7d-8f0d-786419d803d6": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "User was informed about what the assistant knows about them, including being an Indian developer, interest in Gen AI, looking for YouTube channels and resources, and wanting to explore related concepts",
+      "text_lemmatized": "User was informed about what the assistant knows about them, including being an Indian developer, interest in Gen AI, looking for YouTube channels and resources, and wanting to explore related concepts",
+      "hash": "519790a888754cd09d206ed741809cbe",
+      "created_at": "2026-07-27T13:04:24.155781+00:00",
+      "updated_at": "2026-07-27T13:04:24.155781+00:00",
+      "attributed_to": "assistant"
+    },
+    "913be5d8-0c45-41d7-adfb-88ff6d152634": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "User is an Indian developer interested in learning about Gen AI and related concepts",
+      "text_lemmatized": "User is an Indian developer interested in learning about Gen AI and related concepts",
+      "hash": "f6ba1b3b99a139b9a353d74f7ee2ea54",
+      "created_at": "2026-07-27T13:04:24.155781+00:00",
+      "updated_at": "2026-07-27T13:04:24.155781+00:00",
+      "attributed_to": "user"
+    },
+    "71391808-795f-44a0-a4c0-569ea6a52d98": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "User wants to learn about YouTube channels and resources for advanced Gen AI concepts",
+      "text_lemmatized": "User wants to learn about YouTube channels and resources for advanced Gen AI concepts",
+      "hash": "6563d36cc5c5065f3bb5ddffaa407ed5",
+      "created_at": "2026-07-27T13:04:24.155781+00:00",
+      "updated_at": "2026-07-27T13:04:24.155781+00:00",
+      "attributed_to": "user"
+    },
+    "0561a578-5c6d-4fe1-b876-7d70111e18ab": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "User is interested in exploring related concepts such as computer vision, robotics, and natural language processing",
+      "text_lemmatized": "User is interested in exploring related concepts such as computer vision, robotics, and natural language processing",
+      "hash": "b73e4355ecf05a9f567007ff2c3f8fa8",
+      "created_at": "2026-07-27T13:04:24.155781+00:00",
+      "updated_at": "2026-07-27T13:04:24.155781+00:00",
+      "attributed_to": "user"
+    },
+    "ab7dddd7-f181-4177-bc84-722c9e344487": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "User asked about their name and was informed it was not known in the conversation",
+      "text_lemmatized": "User asked about their name and was informed it was not known in the conversation",
+      "hash": "7041067c25b1df5f4eaef08a9c5f00c3",
+      "created_at": "2026-07-27T13:05:24.865028+00:00",
+      "updated_at": "2026-07-27T13:05:24.865028+00:00",
+      "attributed_to": "user"
+    },
+    "f4782d47-76ce-427e-acff-29996c5adc98": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "User was told they had not mentioned their name in the conversation and were referred to as 'you' or 'Indian dev'",
+      "text_lemmatized": "User was told they had not mentioned their name in the conversation and were referred to as 'you' or 'Indian dev'",
+      "hash": "91212e26642278a1b1b7c2292e0c0def",
+      "created_at": "2026-07-27T13:05:24.865675+00:00",
+      "updated_at": "2026-07-27T13:05:24.865675+00:00",
+      "attributed_to": "assistant"
+    },
+    "d5873424-4f57-4d75-9199-ea15247c2419": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "User inquired about foundation models in AWS Bedrock on July 27, 2026",
+      "text_lemmatized": "User inquired about foundation models in AWS Bedrock on July 27, 2026",
+      "hash": "c1481a476f310615fe9dc9f9e5a5fbf9",
+      "created_at": "2026-07-27T13:18:05.834610+00:00",
+      "updated_at": "2026-07-27T13:18:05.834610+00:00",
+      "attributed_to": "user"
+    },
+    "9bf365e5-f444-4772-8478-dcbface501ab": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "Assistant was asked to find information about foundation models in AWS Bedrock",
+      "text_lemmatized": "Assistant was asked to find information about foundation models in AWS Bedrock",
+      "hash": "b349fbd54980ae40448fe98ff0f96df6",
+      "created_at": "2026-07-27T13:18:05.834610+00:00",
+      "updated_at": "2026-07-27T13:18:05.834610+00:00",
+      "attributed_to": "assistant"
+    },
+    "e410b8a7-faa0-4c6c-b4bd-03faa3934db9": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "AWS Bedrock includes over 100 foundation models, such as Claude Sonnet 5 agentic coding, for generative AI applications",
+      "text_lemmatized": "AWS Bedrock includes over 100 foundation models, such as Claude Sonnet 5 agentic coding, for generative AI applications",
+      "hash": "401fea0ff3cc5d754d825a9419d70f7c",
+      "created_at": "2026-07-27T13:18:56.276406+00:00",
+      "updated_at": "2026-07-27T13:18:56.276406+00:00",
+      "attributed_to": "assistant"
+    },
+    "b4e6b986-f802-4a0e-8a39-77873a58244a": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "User inquired about the benefits of using Bedrock with Lex on July 27, 2026",
+      "text_lemmatized": "User inquired about the benefits of using Bedrock with Lex on July 27, 2026",
+      "hash": "396a046016dbc8cc9c22c8532f8c5e07",
+      "created_at": "2026-07-27T13:21:20.549110+00:00",
+      "updated_at": "2026-07-27T13:21:20.549110+00:00",
+      "attributed_to": "user"
+    },
+    "a8f07aa1-71ee-4377-b121-41f58cf38fd7": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "Assistant was asked to find information about the benefits of using Bedrock with Lex",
+      "text_lemmatized": "Assistant was asked to find information about the benefits of using Bedrock with Lex",
+      "hash": "4650213323d959135e4f3b1a3c6225ac",
+      "created_at": "2026-07-27T13:21:20.550110+00:00",
+      "updated_at": "2026-07-27T13:21:20.550110+00:00",
+      "attributed_to": "assistant"
+    },
+    "8a34e25e-efed-41f3-9596-6cd9a1f024b4": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "The benefits of using Bedrock with Lex include creating a fully serverless, GenAI-powered chatbot with zero EC2 and infinite potential, enabling a dynamic and customized chatbot that understands specific business needs, and providing a seamless customer experience with omnichannel chatbot capabilities",
+      "text_lemmatized": "The benefits of using Bedrock with Lex include creating a fully serverless, GenAI-powered chatbot with zero EC2 and infinite potential, enabling a dynamic and customized chatbot that understands specific business needs, and providing a seamless customer experience with omnichannel chatbot capabilities",
+      "hash": "b1a007530d5b191accfdc1116c70bc66",
+      "created_at": "2026-07-27T13:22:10.214934+00:00",
+      "updated_at": "2026-07-27T13:22:10.214934+00:00",
+      "attributed_to": "assistant"
+    },
+    "7bd3e2ee-c2c9-440c-ad71-7189f897179c": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "Integrating Bedrock and Lex allows for secondary validation layers, enabling customers to provide out-of-band responses without being re-prompted",
+      "text_lemmatized": "Integrating Bedrock and Lex allows for secondary validation layers, enabling customers to provide out-of-band responses without being re-prompted",
+      "hash": "f24df939523302c462228731e7732aac",
+      "created_at": "2026-07-27T13:22:10.214934+00:00",
+      "updated_at": "2026-07-27T13:22:10.214934+00:00",
+      "attributed_to": "assistant"
+    },
+    "f1640356-9ff6-4573-bb73-63bdf4cee260": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "User inquired about the best practices for Amazon Bedrock on July 27, 2026",
+      "text_lemmatized": "User inquired about the best practices for Amazon Bedrock on July 27, 2026",
+      "hash": "631ddd2890c0d70e7edc2992eee53b51",
+      "created_at": "2026-07-27T13:24:13.584356+00:00",
+      "updated_at": "2026-07-27T13:24:13.584356+00:00",
+      "attributed_to": "user"
+    },
+    "7a384bb6-955f-44eb-9f90-3752164c5f56": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "The best practices for Amazon Bedrock include defining clear goals and objectives, choosing the right algorithm, preparing high-quality data, using data augmentation, monitoring and evaluating model performance, using hyperparameter tuning, using model interpretability techniques, using model deployment, using security and access control, and using cost optimization",
+      "text_lemmatized": "The best practices for Amazon Bedrock include defining clear goals and objectives, choosing the right algorithm, preparing high-quality data, using data augmentation, monitoring and evaluating model performance, using hyperparameter tuning, using model interpretability techniques, using model deployment, using security and access control, and using cost optimization",
+      "hash": "b61338cb1b0677f29cd3e219eb90fcc7",
+      "created_at": "2026-07-27T13:24:13.584862+00:00",
+      "updated_at": "2026-07-27T13:24:13.584862+00:00",
+      "attributed_to": "assistant"
+    },
+    "33616bf2-fecb-4bbc-a8f1-986492173c45": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "Amazon Bedrock provides built-in support for data augmentation, hyperparameter tuning, model deployment, and model versioning",
+      "text_lemmatized": "Amazon Bedrock provides built-in support for data augmentation, hyperparameter tuning, model deployment, and model versioning",
+      "hash": "08d4bbd10d05bbc63454d90d3294d3c2",
+      "created_at": "2026-07-27T13:24:13.584862+00:00",
+      "updated_at": "2026-07-27T13:24:13.584862+00:00",
+      "attributed_to": "assistant"
+    },
+    "7e2be7ab-cf33-4100-a0ee-051c875d1095": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "Amazon Bedrock offers various instance types, including GPU-accelerated instances, and provides features such as autoscaling, data storage, and collaboration",
+      "text_lemmatized": "Amazon Bedrock offers various instance types, including GPU-accelerated instances, and provides features such as autoscaling, data storage, and collaboration",
+      "hash": "3a7bb1165779eb3ec3a05ec35146d50e",
+      "created_at": "2026-07-27T13:24:13.584862+00:00",
+      "updated_at": "2026-07-27T13:24:13.584862+00:00",
+      "attributed_to": "assistant"
+    },
+    "18fbaeed-624a-44d5-a828-a9b33d7d35a6": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "In Amazon Bedrock, an agent is a software component that interacts with the Bedrock service to perform tasks such as training, testing, and deploying machine learning (ML) models",
+      "text_lemmatized": "In Amazon Bedrock, an agent is a software component that interacts with the Bedrock service to perform tasks such as training, testing, and deploying machine learning (ML) models",
+      "hash": "708c18a240e26543385a397c8821ad92",
+      "created_at": "2026-07-28T08:31:02.641125+00:00",
+      "updated_at": "2026-07-28T08:31:02.641125+00:00",
+      "attributed_to": "assistant"
+    },
+    "c5a724ad-118d-448b-883c-f0283d251315": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "Amazon Bedrock supports several types of agents, including Training Agents, Testing Agents, and Deployment Agents",
+      "text_lemmatized": "Amazon Bedrock supports several types of agents, including Training Agents, Testing Agents, and Deployment Agents",
+      "hash": "cdfdbd14be3b9a6f8e5669ff6e4febf5",
+      "created_at": "2026-07-28T08:31:02.641125+00:00",
+      "updated_at": "2026-07-28T08:31:02.641125+00:00",
+      "attributed_to": "assistant"
+    },
+    "89d82585-7664-4a82-8426-77de8b87e363": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "Agents in Amazon Bedrock can be configured to perform specific tasks, such as data preparation, model selection, and hyperparameter tuning",
+      "text_lemmatized": "Agents in Amazon Bedrock can be configured to perform specific tasks, such as data preparation, model selection, and hyperparameter tuning",
+      "hash": "a589c0d9ab9bf5c9a54d1bd2e56518be",
+      "created_at": "2026-07-28T08:31:02.641125+00:00",
+      "updated_at": "2026-07-28T08:31:02.641125+00:00",
+      "attributed_to": "assistant"
+    },
+    "7e191012-bb89-40e4-9a18-6896acd7a643": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "Agents in Amazon Bedrock can be deployed in various environments, including Amazon Bedrock, Amazon SageMaker, and on-premises",
+      "text_lemmatized": "Agents in Amazon Bedrock can be deployed in various environments, including Amazon Bedrock, Amazon SageMaker, and on-premises",
+      "hash": "b9bbd54736ec1c6ff9aedc691244716c",
+      "created_at": "2026-07-28T08:31:02.641125+00:00",
+      "updated_at": "2026-07-28T08:31:02.641125+00:00",
+      "attributed_to": "assistant"
+    },
+    "612326cb-ee00-4e86-bfc3-3b0e8c1b8fea": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "Amazon Bedrock provides tools and APIs for managing agents, including agent registration, monitoring, and updates",
+      "text_lemmatized": "Amazon Bedrock provides tools and APIs for managing agents, including agent registration, monitoring, and updates",
+      "hash": "b704cb6eb99e3b57146388f1c12de028",
+      "created_at": "2026-07-28T08:31:02.642118+00:00",
+      "updated_at": "2026-07-28T08:31:02.642118+00:00",
+      "attributed_to": "assistant"
+    },
+    "c0eee57a-abe3-42c5-a39a-a8040a7f40f6": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "The benefits of using agents in Amazon Bedrock include automation, flexibility, scalability, and integration with other Amazon services",
+      "text_lemmatized": "The benefits of using agents in Amazon Bedrock include automation, flexibility, scalability, and integration with other Amazon services",
+      "hash": "6e8c7132d550a3b44620b004c8040fc8",
+      "created_at": "2026-07-28T08:31:02.642118+00:00",
+      "updated_at": "2026-07-28T08:31:02.642118+00:00",
+      "attributed_to": "assistant"
+    },
+    "c00e983c-b3a6-49ba-ab98-28bb18022988": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "Examples of agents that can be used in Amazon Bedrock include Amazon SageMaker Autopilot, Amazon Bedrock Training Agent, Amazon Bedrock Testing Agent, and Amazon Bedrock Deployment Agent",
+      "text_lemmatized": "Examples of agents that can be used in Amazon Bedrock include Amazon SageMaker Autopilot, Amazon Bedrock Training Agent, Amazon Bedrock Testing Agent, and Amazon Bedrock Deployment Agent",
+      "hash": "d8174e59f56e116e25bc04c3e6b60662",
+      "created_at": "2026-07-28T08:31:02.642118+00:00",
+      "updated_at": "2026-07-28T08:31:02.642118+00:00",
+      "attributed_to": "assistant"
+    },
+    "5e6aac07-5bae-467d-bf21-ad01cb099961": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "User inquired about agents for Amazon Bedrock on July 28, 2026",
+      "text_lemmatized": "User inquired about agents for Amazon Bedrock on July 28, 2026",
+      "hash": "a627672ff46555a4174f271788656ea8",
+      "created_at": "2026-07-28T08:31:02.642118+00:00",
+      "updated_at": "2026-07-28T08:31:02.642118+00:00",
+      "attributed_to": "user"
+    },
+    "2a1e3304-bcac-4326-8c1a-eb3f797ab7ef": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "User inquired about Agents for Amazon Bedrock from the knowledge base",
+      "text_lemmatized": "User inquired about Agents for Amazon Bedrock from the knowledge base",
+      "hash": "839639d75c1e707a67f9fa5e7bdbd232",
+      "created_at": "2026-07-28T08:32:31.740802+00:00",
+      "updated_at": "2026-07-28T08:32:31.740802+00:00",
+      "attributed_to": "user"
+    },
+    "5b964c04-c754-44f6-b6eb-4fc16344917d": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "Assistant explained that Agents for Amazon Bedrock are software components that interact with the service to perform tasks such as training, testing, and deploying machine learning (ML) models",
+      "text_lemmatized": "Assistant explained that Agents for Amazon Bedrock are software components that interact with the service to perform tasks such as training, testing, and deploying machine learning (ML) models",
+      "hash": "f21282977ddf29d6e2d29c22ea5b4d17",
+      "created_at": "2026-07-28T08:32:31.740802+00:00",
+      "updated_at": "2026-07-28T08:32:31.740802+00:00",
+      "attributed_to": "assistant"
+    },
+    "1e72f621-1782-41ec-8b74-6aeb8c39a3e4": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "There are several types of agents that can be used with Amazon Bedrock, including Training Agents, Testing Agents, and Deployment Agents",
+      "text_lemmatized": "There are several types of agents that can be used with Amazon Bedrock, including Training Agents, Testing Agents, and Deployment Agents",
+      "hash": "26715664d61d176b79d8645bfa56e7f2",
+      "created_at": "2026-07-28T08:32:31.740802+00:00",
+      "updated_at": "2026-07-28T08:32:31.740802+00:00",
+      "attributed_to": "assistant"
+    },
+    "7f6d692c-9e13-49c4-b6dc-c418ee712a8e": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "Agents can be configured to perform specific tasks, such as data preparation, model selection, and hyperparameter tuning",
+      "text_lemmatized": "Agents can be configured to perform specific tasks, such as data preparation, model selection, and hyperparameter tuning",
+      "hash": "49c39323ba7d9c677853680b7c773f09",
+      "created_at": "2026-07-28T08:32:31.740802+00:00",
+      "updated_at": "2026-07-28T08:32:31.740802+00:00",
+      "attributed_to": "assistant"
+    },
+    "26a25cdb-2574-46a0-95a2-d6839548a091": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "Using agents with Amazon Bedrock can provide benefits such as automation, flexibility, and scalability",
+      "text_lemmatized": "Using agents with Amazon Bedrock can provide benefits such as automation, flexibility, and scalability",
+      "hash": "14919fded4080065f767833b88f0cc20",
+      "created_at": "2026-07-28T08:32:31.740802+00:00",
+      "updated_at": "2026-07-28T08:32:31.740802+00:00",
+      "attributed_to": "assistant"
+    },
+    "56ccf26f-107f-4d95-858c-29f7ee53e66d": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "Examples of agents that can be used with Amazon Bedrock include Amazon SageMaker Autopilot, Amazon Bedrock Training Agent, Amazon Bedrock Testing Agent, and Amazon Bedrock Deployment Agent",
+      "text_lemmatized": "Examples of agents that can be used with Amazon Bedrock include Amazon SageMaker Autopilot, Amazon Bedrock Training Agent, Amazon Bedrock Testing Agent, and Amazon Bedrock Deployment Agent",
+      "hash": "a00e50df6e7508e192a8d799bb713fd9",
+      "created_at": "2026-07-28T08:32:31.740802+00:00",
+      "updated_at": "2026-07-28T08:32:31.740802+00:00",
+      "attributed_to": "assistant"
+    },
+    "18946af5-1e65-400a-b1d8-870c8de14ce2": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "Amazon Lookout for Vision is a machine learning service that detects defects and anomalies in images using computer vision and machine learning algorithms",
+      "text_lemmatized": "Amazon Lookout for Vision is a machine learning service that detects defects and anomalies in images using computer vision and machine learning algorithms",
+      "hash": "34e2fabf74ef85677bd9bda623011856",
+      "created_at": "2026-07-28T09:29:13.908171+00:00",
+      "updated_at": "2026-07-28T09:29:13.908171+00:00",
+      "attributed_to": "assistant"
+    },
+    "04a991fb-9a12-43da-8003-7b5f2052052f": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "Amazon Lookout for Vision can detect defects in images, such as cracks or dents, and anomalies, such as unusual patterns or shapes",
+      "text_lemmatized": "Amazon Lookout for Vision can detect defects in images, such as cracks or dents, and anomalies, such as unusual patterns or shapes",
+      "hash": "60a50c4f4a955cc2590cf5cdf5344e07",
+      "created_at": "2026-07-28T09:29:13.909170+00:00",
+      "updated_at": "2026-07-28T09:29:13.909170+00:00",
+      "attributed_to": "assistant"
+    },
+    "0150f4b9-6d62-4c86-bb5b-84275c0b2c85": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "The service provides detailed information about detected defects or anomalies and improves its accuracy over time based on received data",
+      "text_lemmatized": "The service provides detailed information about detected defects or anomalies and improves its accuracy over time based on received data",
+      "hash": "1d4a073fcb5606a33b4c790865e394fd",
+      "created_at": "2026-07-28T09:29:13.909170+00:00",
+      "updated_at": "2026-07-28T09:29:13.909170+00:00",
+      "attributed_to": "assistant"
+    },
+    "91677ae8-1210-4a21-a02c-bb93aeea73ea": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "Amazon Lookout for Vision can be integrated with other AWS services like Amazon S3, Amazon SageMaker, and AWS Lambda",
+      "text_lemmatized": "Amazon Lookout for Vision can be integrated with other AWS services like Amazon S3, Amazon SageMaker, and AWS Lambda",
+      "hash": "4abd1b3e0bb4bb7920bb7c7e41fce266",
+      "created_at": "2026-07-28T09:29:13.909170+00:00",
+      "updated_at": "2026-07-28T09:29:13.909170+00:00",
+      "attributed_to": "assistant"
+    },
+    "5ee9f3e0-6e9f-4ae5-8af7-ea788a5e8da7": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "Potential use cases for Amazon Lookout for Vision include quality control, predictive maintenance, security, and medical imaging",
+      "text_lemmatized": "Potential use cases for Amazon Lookout for Vision include quality control, predictive maintenance, security, and medical imaging",
+      "hash": "c4fd964f02a3110935107a12b0e0f9c1",
+      "created_at": "2026-07-28T09:29:13.909170+00:00",
+      "updated_at": "2026-07-28T09:29:13.909170+00:00",
+      "attributed_to": "assistant"
+    },
+    "583362f2-509d-4c03-997e-9bb67b5c64d7": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "Amazon Lookout for Vision provides detailed information about detected defects or anomalies and improves its accuracy over time based on received data",
+      "text_lemmatized": "Amazon Lookout for Vision provides detailed information about detected defects or anomalies and improves its accuracy over time based on received data",
+      "hash": "4f8d825da0b7ecf529f81ee630b10bf2",
+      "created_at": "2026-07-28T12:02:14.138126+00:00",
+      "updated_at": "2026-07-28T12:02:14.138126+00:00",
+      "attributed_to": "assistant"
+    },
+    "c62e861d-1479-4cf3-8154-9712ff6d20a3": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "Potential use cases for Amazon Lookout for Vision include manufacturing, quality control, security, and medical imaging",
+      "text_lemmatized": "Potential use cases for Amazon Lookout for Vision include manufacturing, quality control, security, and medical imaging",
+      "hash": "d6fdb2157e7c9063c7480c788190209e",
+      "created_at": "2026-07-28T12:02:14.138126+00:00",
+      "updated_at": "2026-07-28T12:02:14.138126+00:00",
+      "attributed_to": "assistant"
+    },
+    "70402a77-72ad-423b-9dff-a57820fbf8a5": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "Amazon Lookout for Vision can help improve quality control, increase efficiency, and enhance customer experience by detecting and addressing defects or anomalies in images",
+      "text_lemmatized": "Amazon Lookout for Vision can help improve quality control, increase efficiency, and enhance customer experience by detecting and addressing defects or anomalies in images",
+      "hash": "fa5cd55976d9ec057e21f38e47eb3720",
+      "created_at": "2026-07-28T12:02:14.139123+00:00",
+      "updated_at": "2026-07-28T12:02:14.139123+00:00",
+      "attributed_to": "assistant"
+    },
+    "3898337a-bb70-4fd7-aad6-f21a832c77e5": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "User was provided information about Amazon Bedrock Agents from the knowledge base, including types of agents, agent configuration, and benefits of using agents",
+      "text_lemmatized": "User was provided information about Amazon Bedrock Agents from the knowledge base, including types of agents, agent configuration, and benefits of using agents",
+      "hash": "838995cfcc00d7dfa77745e2ad802e46",
+      "created_at": "2026-07-28T12:31:16.504102+00:00",
+      "updated_at": "2026-07-28T12:31:16.504102+00:00",
+      "attributed_to": "assistant"
+    },
+    "b542d984-5f1b-4de3-aa31-0af899a28cd0": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "Amazon Bedrock Agents are software components that interact with Amazon Bedrock to perform tasks such as training, testing, and deploying machine learning (ML) models",
+      "text_lemmatized": "Amazon Bedrock Agents are software components that interact with Amazon Bedrock to perform tasks such as training, testing, and deploying machine learning (ML) models",
+      "hash": "e8893ddeac5b3de7bd7c9d8d43e88296",
+      "created_at": "2026-07-28T12:31:16.504102+00:00",
+      "updated_at": "2026-07-28T12:31:16.504102+00:00",
+      "attributed_to": "assistant"
+    },
+    "491f075a-74a3-44b4-9b48-e6157e65ceec": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "Agents can be configured to perform specific tasks, such as data preparation, model selection, and hyperparameter tuning",
+      "text_lemmatized": "Agents can be configured to perform specific tasks, such as data preparation, model selection, and hyperparameter tuning",
+      "hash": "49c39323ba7d9c677853680b7c773f09",
+      "created_at": "2026-07-28T12:31:16.504102+00:00",
+      "updated_at": "2026-07-28T12:31:16.504102+00:00",
+      "attributed_to": "assistant"
+    },
+    "3049e121-ad30-4011-a0f2-66e59a548257": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "User was recommended best practices for Amazon Bedrock, including defining clear goals and objectives, choosing the right algorithm, preparing high-quality data, using data preprocessing techniques, monitoring and evaluating model performance, using hyperparameter tuning, using model interpretability techniques, deploying models in a scalable and secure manner, continuously monitoring and updating models, and following security and compliance best practices",
+      "text_lemmatized": "User was recommended best practices for Amazon Bedrock, including defining clear goals and objectives, choosing the right algorithm, preparing high-quality data, using data preprocessing techniques, monitoring and evaluating model performance, using hyperparameter tuning, using model interpretability techniques, deploying models in a scalable and secure manner, continuously monitoring and updating models, and following security and compliance best practices",
+      "hash": "f7215be979da029861c937afc2e9da9b",
+      "created_at": "2026-07-28T12:37:13.961402+00:00",
+      "updated_at": "2026-07-28T12:37:13.961402+00:00",
+      "attributed_to": "assistant"
+    },
+    "5b2edb0a-3208-4b25-91f5-9e0a907b461f": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "Best practices for Amazon Bedrock include using Amazon Bedrock's built-in features, collaborating with data scientists and engineers, using version control and model management, testing and validating models, and using explainability and transparency techniques",
+      "text_lemmatized": "Best practices for Amazon Bedrock include using Amazon Bedrock's built-in features, collaborating with data scientists and engineers, using version control and model management, testing and validating models, and using explainability and transparency techniques",
+      "hash": "99122320637bfc293aa3a439f3933644",
+      "created_at": "2026-07-28T12:37:13.961402+00:00",
+      "updated_at": "2026-07-28T12:37:13.961402+00:00",
+      "attributed_to": "assistant"
+    },
+    "6c243013-945f-4d3e-ae1a-7be26b785323": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "User was informed about the benefits of using Amazon Lookout for Vision, including improving quality control, increasing efficiency, enhancing customer experience, reducing costs, and improving supply chain management",
+      "text_lemmatized": "User was informed about the benefits of using Amazon Lookout for Vision, including improving quality control, increasing efficiency, enhancing customer experience, reducing costs, and improving supply chain management",
+      "hash": "e55897fc11a541ae573e99d4beda0108",
+      "created_at": "2026-07-28T12:52:32.789464+00:00",
+      "updated_at": "2026-07-28T12:52:32.789464+00:00",
+      "attributed_to": "assistant"
+    },
+    "9ad7ac78-0592-4600-8833-5327be2a4a3d": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "Amazon Lookout for Vision can be used for various applications such as manufacturing, quality control, security, medical imaging, and agriculture",
+      "text_lemmatized": "Amazon Lookout for Vision can be used for various applications such as manufacturing, quality control, security, medical imaging, and agriculture",
+      "hash": "b3918259a7c996acdb8c84523f07bc65",
+      "created_at": "2026-07-28T12:52:32.789464+00:00",
+      "updated_at": "2026-07-28T12:52:32.789464+00:00",
+      "attributed_to": "assistant"
+    },
+    "1937b377-d3d4-4ab8-bdf3-68d3a584c345": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "The benefits of using Amazon Lookout for Vision include high accuracy, ease of use, scalability, flexibility, and security",
+      "text_lemmatized": "The benefits of using Amazon Lookout for Vision include high accuracy, ease of use, scalability, flexibility, and security",
+      "hash": "dc029762577067e60d1fd79640df05a1",
+      "created_at": "2026-07-28T12:52:32.789464+00:00",
+      "updated_at": "2026-07-28T12:52:32.789464+00:00",
+      "attributed_to": "assistant"
+    },
+    "747899e5-d095-4fc1-b890-c58c6609e439": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "User was informed about the benefits of using Amazon Lookout for Vision, including improved quality control, increased efficiency, cost savings, and deep integration with other AWS services",
+      "text_lemmatized": "User was informed about the benefits of using Amazon Lookout for Vision, including improved quality control, increased efficiency, cost savings, and deep integration with other AWS services",
+      "hash": "2fbc4ef15b73ff075ed73b51b804034c",
+      "created_at": "2026-07-28T14:19:04.444805+00:00",
+      "updated_at": "2026-07-28T14:19:04.444805+00:00"
+    },
+    "c087ff98-98bf-423f-8b6b-4adfb02e7c8c": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "User learned that Amazon Lookout for Vision offers a pay-as-you-go pricing model and provides a powerful algorithm at a simple REST API endpoint",
+      "text_lemmatized": "User learned that Amazon Lookout for Vision offers a pay-as-you-go pricing model and provides a powerful algorithm at a simple REST API endpoint",
+      "hash": "1a7ea6c73fc3c364f662e99f6d989a57",
+      "created_at": "2026-07-28T14:19:04.444805+00:00",
+      "updated_at": "2026-07-28T14:19:04.444805+00:00"
+    },
+    "e57309a5-b69d-4dd1-a84a-636b94371701": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "Amazon Lookout for Vision can detect product defects with limited training data and can be connected to vision camera outputs to implement automatic visual inspection",
+      "text_lemmatized": "Amazon Lookout for Vision can detect product defects with limited training data and can be connected to vision camera outputs to implement automatic visual inspection",
+      "hash": "31488fd0d7fc0af7b1158a921de8d608",
+      "created_at": "2026-07-28T14:19:04.444805+00:00",
+      "updated_at": "2026-07-28T14:19:04.444805+00:00"
+    },
+    "59febb4a-cc50-4266-af0b-7aada18105c0": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "User was provided best practices for Amazon Bedrock, including defining clear goals and objectives, choosing the right model, preparing high-quality training data, using data augmentation techniques, monitoring and evaluating model performance, using human evaluation and feedback, implementing data validation and sanitization, using Bedrock's built-in features, collaborating with domain experts, and continuously updating and refining the model",
+      "text_lemmatized": "User was provided best practices for Amazon Bedrock, including defining clear goals and objectives, choosing the right model, preparing high-quality training data, using data augmentation techniques, monitoring and evaluating model performance, using human evaluation and feedback, implementing data validation and sanitization, using Bedrock's built-in features, collaborating with domain experts, and continuously updating and refining the model",
+      "hash": "d8350dd810f123d667d4e0b5e7fe5b03",
+      "created_at": "2026-07-28T14:20:21.736078+00:00",
+      "updated_at": "2026-07-28T14:20:21.736078+00:00",
+      "attributed_to": "assistant"
+    },
+    "018d14f9-563c-4284-bae5-2ec66bb02703": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "Security best practices for Amazon Bedrock include using IAM roles and permissions, encrypting data in transit and at rest, using VPC endpoints, monitoring and logging activity, and using Bedrock's built-in security features",
+      "text_lemmatized": "Security best practices for Amazon Bedrock include using IAM roles and permissions, encrypting data in transit and at rest, using VPC endpoints, monitoring and logging activity, and using Bedrock's built-in security features",
+      "hash": "7fa5032bfffe6b366357ca5dc3228e8c",
+      "created_at": "2026-07-28T14:20:21.736078+00:00",
+      "updated_at": "2026-07-28T14:20:21.736078+00:00",
+      "attributed_to": "assistant"
+    },
+    "5e1bb2c4-2fd7-4ad0-965c-664cd1498ffd": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "User inquired about the benefits of using Bedrock with Lex on July 28, 2026",
+      "text_lemmatized": "User inquired about the benefits of using Bedrock with Lex on July 28, 2026",
+      "hash": "c7e4609de79a61928fb4df31d315335d",
+      "created_at": "2026-07-28T14:21:02.719566+00:00",
+      "updated_at": "2026-07-28T14:21:02.719566+00:00",
+      "attributed_to": "user"
+    },
+    "5f209e6a-e9f4-481e-b5a7-70513df8edd9": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "The benefits of using Bedrock with Lex include the combination of structured reliability and generative flexibility, reduced infrastructure management, choice and flexibility in model selection, seamless switching between deterministic and generative workflows, democratization of access to generative AI, and balance of deterministic and generative intelligence",
+      "text_lemmatized": "The benefits of using Bedrock with Lex include the combination of structured reliability and generative flexibility, reduced infrastructure management, choice and flexibility in model selection, seamless switching between deterministic and generative workflows, democratization of access to generative AI, and balance of deterministic and generative intelligence",
+      "hash": "c5dfe44d00fd666d8dd33a93fd29fd4b",
+      "created_at": "2026-07-28T14:21:02.719566+00:00",
+      "updated_at": "2026-07-28T14:21:02.719566+00:00",
+      "attributed_to": "assistant"
+    },
+    "e50dfcbe-f948-438f-957e-a8f0b697e8b4": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "Using Bedrock with Lex eliminates the need for teams to manage infrastructure for large language models, as Bedrock handles provisioning GPUs, scaling clusters, and updating models",
+      "text_lemmatized": "Using Bedrock with Lex eliminates the need for teams to manage infrastructure for large language models, as Bedrock handles provisioning GPUs, scaling clusters, and updating models",
+      "hash": "02fabc222605ff21cce09e27f6318281",
+      "created_at": "2026-07-28T14:21:02.719566+00:00",
+      "updated_at": "2026-07-28T14:21:02.719566+00:00",
+      "attributed_to": "assistant"
+    },
+    "da104457-84cd-422d-875b-d6b06d466fbf": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "The integration of Lex and Bedrock enables bots to switch between deterministic workflows and generative flexibility, providing a balance of structured reliability and creative flexibility",
+      "text_lemmatized": "The integration of Lex and Bedrock enables bots to switch between deterministic workflows and generative flexibility, providing a balance of structured reliability and creative flexibility",
+      "hash": "84573a1caa4b10c54b2a14d6806735fc",
+      "created_at": "2026-07-28T14:21:02.719566+00:00",
+      "updated_at": "2026-07-28T14:21:02.719566+00:00",
+      "attributed_to": "assistant"
+    },
+    "8c6ddd3b-1ce4-4e9a-8bdd-64a12c502183": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "The combination of Bedrock and Lex allows small teams to experiment with generative AI capabilities without worrying about infrastructure, democratizing access to innovative technologies",
+      "text_lemmatized": "The combination of Bedrock and Lex allows small teams to experiment with generative AI capabilities without worrying about infrastructure, democratizing access to innovative technologies",
+      "hash": "5388c609ccfb8b7712cf2b96270ecfbf",
+      "created_at": "2026-07-28T14:21:02.719566+00:00",
+      "updated_at": "2026-07-28T14:21:02.719566+00:00",
+      "attributed_to": "assistant"
+    },
+    "38501ed8-7c56-41c2-baa4-03f00d716412": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "The architecture of Bedrock and Lex integration involves Amazon Bedrock, Amazon Lex, an integration layer, foundation models, a Lex bot, and the Bedrock API",
+      "text_lemmatized": "The architecture of Bedrock and Lex integration involves Amazon Bedrock, Amazon Lex, an integration layer, foundation models, a Lex bot, and the Bedrock API",
+      "hash": "aeae42a8c450fb57e235b3aa23e4b8c3",
+      "created_at": "2026-07-31T10:17:21.269559+00:00",
+      "updated_at": "2026-07-31T10:17:21.269559+00:00",
+      "attributed_to": "assistant"
+    },
+    "dfc491d0-b9b8-41ec-867a-c0eed6e8da95": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "The integration layer in Bedrock and Lex integration connects Bedrock and Lex, enabling them to communicate and route user input and responses",
+      "text_lemmatized": "The integration layer in Bedrock and Lex integration connects Bedrock and Lex, enabling them to communicate and route user input and responses",
+      "hash": "67829bcf30539e0ac051ff33b21d5bbb",
+      "created_at": "2026-07-31T10:17:21.269559+00:00",
+      "updated_at": "2026-07-31T10:17:21.269559+00:00",
+      "attributed_to": "assistant"
+    },
+    "4dbc4d8f-d168-4bbc-a703-2c009823c279": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "The foundation models in Bedrock are large language models trained on vast amounts of data, which can be fine-tuned for specific use cases and industries",
+      "text_lemmatized": "The foundation models in Bedrock are large language models trained on vast amounts of data, which can be fine-tuned for specific use cases and industries",
+      "hash": "2dce586adc86c85741622973d5b0dacd",
+      "created_at": "2026-07-31T10:17:21.269559+00:00",
+      "updated_at": "2026-07-31T10:17:21.269559+00:00",
+      "attributed_to": "assistant"
+    },
+    "47da18c7-f0fc-4d33-9f9c-e6d47aec2d3e": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "The Lex bot in Bedrock and Lex integration is the conversational interface built using Lex, which interacts with the user and sends user input to the integration layer",
+      "text_lemmatized": "The Lex bot in Bedrock and Lex integration is the conversational interface built using Lex, which interacts with the user and sends user input to the integration layer",
+      "hash": "023e2e98fbd399dc12459629c4a68d2c",
+      "created_at": "2026-07-31T10:17:21.269559+00:00",
+      "updated_at": "2026-07-31T10:17:21.269559+00:00",
+      "attributed_to": "assistant"
+    },
+    "2cb07b52-707f-455a-9a27-d754eb200790": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "The Bedrock API is used by the integration layer to access the foundation models and generate responses to user input",
+      "text_lemmatized": "The Bedrock API is used by the integration layer to access the foundation models and generate responses to user input",
+      "hash": "9f8ca25bb83b48c5f1d4f7b0185f9e83",
+      "created_at": "2026-07-31T10:17:21.269559+00:00",
+      "updated_at": "2026-07-31T10:17:21.269559+00:00",
+      "attributed_to": "assistant"
+    },
+    "962b1114-2d87-48c1-97ff-7d30bef6b327": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "The architecture of Bedrock and Lex integration provides benefits such as scalability, flexibility, and reliability for conversational interfaces",
+      "text_lemmatized": "The architecture of Bedrock and Lex integration provides benefits such as scalability, flexibility, and reliability for conversational interfaces",
+      "hash": "8175217a90f373f8f8071774c7ef8e64",
+      "created_at": "2026-07-31T10:17:21.269559+00:00",
+      "updated_at": "2026-07-31T10:17:21.269559+00:00",
+      "attributed_to": "assistant"
+    },
+    "8d375aed-68eb-43e7-a5bc-204c886ccbf5": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "User was explained the architecture of Bedrock and Lex integration, which includes Amazon Bedrock, Amazon Lex, an integration layer, foundation models, a Lex bot, and the Bedrock API, and provides benefits such as scalability, flexibility, and reliability",
+      "text_lemmatized": "User was explained the architecture of Bedrock and Lex integration, which includes Amazon Bedrock, Amazon Lex, an integration layer, foundation models, a Lex bot, and the Bedrock API, and provides benefits such as scalability, flexibility, and reliability",
+      "hash": "23220889c65524f6f3fd74613ea1e28e",
+      "created_at": "2026-07-31T10:18:39.098977+00:00",
+      "updated_at": "2026-07-31T10:18:39.098977+00:00"
+    },
+    "01c5deb5-6353-4fba-b68a-1d6459978c65": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "The integration of Bedrock and Lex provides benefits such as improved accuracy, increased flexibility, and reduced development time",
+      "text_lemmatized": "The integration of Bedrock and Lex provides benefits such as improved accuracy, increased flexibility, and reduced development time",
+      "hash": "6fa8779345cd6298fcf800a29b750a6d",
+      "created_at": "2026-07-31T10:18:39.098977+00:00",
+      "updated_at": "2026-07-31T10:18:39.098977+00:00"
+    },
+    "8876e999-d759-4d62-a0c4-1023aeebec84": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "The use of large language models in Bedrock can improve the accuracy of Lex bots, particularly in cases where the user input is ambiguous or unclear",
+      "text_lemmatized": "The use of large language models in Bedrock can improve the accuracy of Lex bots, particularly in cases where the user input is ambiguous or unclear",
+      "hash": "d79e27de4108e1e11c5169891a3694af",
+      "created_at": "2026-07-31T10:18:39.098977+00:00",
+      "updated_at": "2026-07-31T10:18:39.098977+00:00"
+    },
+    "3eda821c-8491-41e1-bac2-f89108183f07": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "The integration of Bedrock and Lex enables developers to build conversational interfaces that can handle a wide range of user input, from simple queries to complex conversations",
+      "text_lemmatized": "The integration of Bedrock and Lex enables developers to build conversational interfaces that can handle a wide range of user input, from simple queries to complex conversations",
+      "hash": "a135efc96e591250af42d38a030db653",
+      "created_at": "2026-07-31T10:18:39.098977+00:00",
+      "updated_at": "2026-07-31T10:18:39.098977+00:00"
+    },
+    "15e627ac-1710-428b-9763-77d525b11b97": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "The use of pre-trained foundation models in Bedrock can reduce the development time for Lex bots, as developers do not need to train their own models from scratch",
+      "text_lemmatized": "The use of pre-trained foundation models in Bedrock can reduce the development time for Lex bots, as developers do not need to train their own models from scratch",
+      "hash": "2ed6f65b6179bdbfaa26a0c982acaeff",
+      "created_at": "2026-07-31T10:18:39.098977+00:00",
+      "updated_at": "2026-07-31T10:18:39.098977+00:00"
+    },
+    "21b67dc6-a74e-4a48-a1f4-7974554f014b": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "User was informed about the challenges and considerations of using Bedrock with Lex, including data quality, model drift, integration complexity, scalability, security, cost, latency, and explainability",
+      "text_lemmatized": "User was informed about the challenges and considerations of using Bedrock with Lex, including data quality, model drift, integration complexity, scalability, security, cost, latency, and explainability",
+      "hash": "8992407175bc0cbf6005fb5a3cb084de",
+      "created_at": "2026-07-31T10:19:32.961144+00:00",
+      "updated_at": "2026-07-31T10:19:32.961144+00:00",
+      "attributed_to": "assistant"
+    },
+    "752e81d9-8eb4-41ff-a17d-44d22e2a4f3a": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "The challenges of using Bedrock with Lex include data quality, model drift, integration complexity, scalability, security, cost, latency, and explainability, as well as considerations such as data preparation, model selection, hyperparameter tuning, monitoring and maintenance, and testing and validation",
+      "text_lemmatized": "The challenges of using Bedrock with Lex include data quality, model drift, integration complexity, scalability, security, cost, latency, and explainability, as well as considerations such as data preparation, model selection, hyperparameter tuning, monitoring and maintenance, and testing and validation",
+      "hash": "20682eae9c33c69c0e9ad7d9b8e2d7dc",
+      "created_at": "2026-07-31T10:19:32.962141+00:00",
+      "updated_at": "2026-07-31T10:19:32.962141+00:00",
+      "attributed_to": "assistant"
+    },
+    "c7d510f5-d0fa-49ab-8509-6d25c28ad280": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "User was informed about the challenges and considerations of using Bedrock with Lex, including data quality, model drift, integration complexity, scalability, security, cost, latency, and explainability, as well as considerations such as data preparation, model selection, hyperparameter tuning, monitoring and maintenance, and testing and validation",
+      "text_lemmatized": "User was informed about the challenges and considerations of using Bedrock with Lex, including data quality, model drift, integration complexity, scalability, security, cost, latency, and explainability, as well as considerations such as data preparation, model selection, hyperparameter tuning, monitoring and maintenance, and testing and validation",
+      "hash": "34b2531661f2f782a385ab6c85acba3c",
+      "created_at": "2026-07-31T10:30:37.959542+00:00",
+      "updated_at": "2026-07-31T10:30:37.959542+00:00",
+      "attributed_to": "user"
+    },
+    "4cb1ba0e-d0d2-40d2-ad03-e8a01444110c": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "The challenges of using Bedrock with Lex include data quality, model drift, integration complexity, scalability, security, cost, latency, and explainability",
+      "text_lemmatized": "The challenges of using Bedrock with Lex include data quality, model drift, integration complexity, scalability, security, cost, latency, and explainability",
+      "hash": "b9e7d3cf0444a6c6ca816fba0006cbc1",
+      "created_at": "2026-07-31T10:30:37.960542+00:00",
+      "updated_at": "2026-07-31T10:30:37.960542+00:00",
+      "attributed_to": "assistant"
+    },
+    "b312877c-9a55-4924-af47-9153c1dfca02": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "The considerations for using Bedrock with Lex include data preparation, model selection, hyperparameter tuning, monitoring and maintenance, and testing and validation",
+      "text_lemmatized": "The considerations for using Bedrock with Lex include data preparation, model selection, hyperparameter tuning, monitoring and maintenance, and testing and validation",
+      "hash": "102b5e5915d0f0cd14004fe593b9df99",
+      "created_at": "2026-07-31T10:30:37.960542+00:00",
+      "updated_at": "2026-07-31T10:30:37.960542+00:00",
+      "attributed_to": "assistant"
+    },
+    "5cad15d3-015e-425f-a724-23ddb313eba3": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "User inquired about the difference between generative AI and conversational AI in the context of Bedrock",
+      "text_lemmatized": "User inquired about the difference between generative AI and conversational AI in the context of Bedrock",
+      "hash": "ba5e71af22f3aadaae992b2f691419e7",
+      "created_at": "2026-08-07T07:55:00.577817+00:00",
+      "updated_at": "2026-08-07T07:55:00.577817+00:00",
+      "attributed_to": "user"
+    },
+    "608e5e8e-9308-4ce5-a3fe-0a68af18c2b0": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "Bedrock combines generative AI and conversational AI to provide a comprehensive way of building conversational interfaces",
+      "text_lemmatized": "Bedrock combines generative AI and conversational AI to provide a comprehensive way of building conversational interfaces",
+      "hash": "0a73dde6e711c3feaa06b7d9ec937854",
+      "created_at": "2026-08-07T07:55:00.578819+00:00",
+      "updated_at": "2026-08-07T07:55:00.578819+00:00",
+      "attributed_to": "assistant"
+    },
+    "ee5d2193-b2cc-47c3-b4cb-148108cab05e": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "Generative AI in Bedrock is used to generate human-like responses to user input, such as answering questions or providing information",
+      "text_lemmatized": "Generative AI in Bedrock is used to generate human-like responses to user input, such as answering questions or providing information",
+      "hash": "ab2eabb7ccfdaefb26a43bd34fe0ec92",
+      "created_at": "2026-08-07T07:55:00.578819+00:00",
+      "updated_at": "2026-08-07T07:55:00.578819+00:00",
+      "attributed_to": "assistant"
+    },
+    "49954368-0452-4783-ab81-3711dfd298e5": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "Conversational AI in Bedrock is used to build conversational interfaces that can understand and respond to user input in a more human-like way",
+      "text_lemmatized": "Conversational AI in Bedrock is used to build conversational interfaces that can understand and respond to user input in a more human-like way",
+      "hash": "2f0b44d84960e7205eed7fe2f48dc962",
+      "created_at": "2026-08-07T07:55:00.578819+00:00",
+      "updated_at": "2026-08-07T07:55:00.578819+00:00",
+      "attributed_to": "assistant"
+    },
+    "8e606b3e-c975-4afe-8be8-87086eb8eddc": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "The key differences between generative AI and conversational AI include purpose, input, output, and context",
+      "text_lemmatized": "The key differences between generative AI and conversational AI include purpose, input, output, and context",
+      "hash": "90ac5da73125f28a26755b0edf309ae3",
+      "created_at": "2026-08-07T07:55:00.578819+00:00",
+      "updated_at": "2026-08-07T07:55:00.578819+00:00",
+      "attributed_to": "assistant"
+    },
+    "e43bf72c-bc00-4753-bdc9-cdf49cca37f7": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "Bedrock's combination of generative AI and conversational AI provides benefits such as improved user experience, increased efficiency, enhanced customer service, and increased scalability",
+      "text_lemmatized": "Bedrock's combination of generative AI and conversational AI provides benefits such as improved user experience, increased efficiency, enhanced customer service, and increased scalability",
+      "hash": "740f24d1575bd5bc0b5fb10dca4b09ba",
+      "created_at": "2026-08-07T07:55:00.578819+00:00",
+      "updated_at": "2026-08-07T07:55:00.578819+00:00",
+      "attributed_to": "assistant"
+    },
+    "fedce26f-f034-47a5-bfd8-cce8c923b2bd": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "User was explained the process of integrating Amazon Bedrock with third-party chatbot platforms, which can be done through API integration, AWS Lambda, Amazon Lex, or using APIs or SDKs for third-party platforms",
+      "text_lemmatized": "User was explained the process of integrating Amazon Bedrock with third-party chatbot platforms, which can be done through API integration, AWS Lambda, Amazon Lex, or using APIs or SDKs for third-party platforms",
+      "hash": "d021499f9eaaae765461549aaea66768",
+      "created_at": "2026-08-07T08:07:49.199733+00:00",
+      "updated_at": "2026-08-07T08:07:49.199733+00:00",
+      "attributed_to": "assistant"
+    },
+    "7dcd9ec6-f7c3-428a-b7f8-c850ae0d1145": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "The benefits of integrating Bedrock with third-party chatbot platforms include improved conversational AI, increased flexibility, enhanced customer experience, and reduced development time",
+      "text_lemmatized": "The benefits of integrating Bedrock with third-party chatbot platforms include improved conversational AI, increased flexibility, enhanced customer experience, and reduced development time",
+      "hash": "d80cb1c3925256b16da485e77aae95c4",
+      "created_at": "2026-08-07T08:07:49.199733+00:00",
+      "updated_at": "2026-08-07T08:07:49.199733+00:00",
+      "attributed_to": "assistant"
+    },
+    "428f65ad-39f9-48b0-97c2-b651ebb74ad8": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "Popular third-party chatbot platforms that can be integrated with Bedrock include Dialogflow, Microsoft Bot Framework, Rasa, and ManyChat",
+      "text_lemmatized": "Popular third-party chatbot platforms that can be integrated with Bedrock include Dialogflow, Microsoft Bot Framework, Rasa, and ManyChat",
+      "hash": "182f4fedaeca047e31aafc6efc55d6c6",
+      "created_at": "2026-08-07T08:07:49.199733+00:00",
+      "updated_at": "2026-08-07T08:07:49.199733+00:00",
+      "attributed_to": "assistant"
+    },
+    "4fca0b7a-be6e-4834-8095-a7f962ff6eee": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "User asked for an explanation of containers and virtual machines (VMs)",
+      "text_lemmatized": "User asked for an explanation of containers and virtual machines (VMs)",
+      "hash": "41916bfa78b7179d6101af8323e80431",
+      "created_at": "2026-08-07T08:17:44.995915+00:00",
+      "updated_at": "2026-08-07T08:17:44.995915+00:00",
+      "attributed_to": "user"
+    },
+    "70481213-854d-4bae-9aa1-ce8a602d7be5": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "A container is a package that includes an application, its dependencies, and system tools, running as a process on the host operating system and sharing the host's kernel",
+      "text_lemmatized": "A container is a package that includes an application, its dependencies, and system tools, running as a process on the host operating system and sharing the host's kernel",
+      "hash": "33ccb272f64184a0158ca7550b5aa1d7",
+      "created_at": "2026-08-07T08:17:44.995915+00:00",
+      "updated_at": "2026-08-07T08:17:44.995915+00:00",
+      "attributed_to": "assistant"
+    },
+    "4680f7cd-e29c-42fd-beb9-743485560b97": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "Containers are lightweight, start quickly, and use less memory than virtual machines",
+      "text_lemmatized": "Containers are lightweight, start quickly, and use less memory than virtual machines",
+      "hash": "c9ac11b643c7904adb36ad9d1aa21964",
+      "created_at": "2026-08-07T08:17:44.995915+00:00",
+      "updated_at": "2026-08-07T08:17:44.995915+00:00",
+      "attributed_to": "assistant"
+    },
+    "9c291958-e1c8-49c4-96af-31d954bc17c5": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "A virtual machine (VM) runs a full operating system on virtualized hardware, with its own kernel, drivers, and resources, separated from the host by a hypervisor",
+      "text_lemmatized": "A virtual machine (VM) runs a full operating system on virtualized hardware, with its own kernel, drivers, and resources, separated from the host by a hypervisor",
+      "hash": "7cad04e7434c67078867414c3690d716",
+      "created_at": "2026-08-07T08:17:44.995915+00:00",
+      "updated_at": "2026-08-07T08:17:44.995915+00:00",
+      "attributed_to": "assistant"
+    },
+    "b5325c66-8fe4-45aa-8b57-e6fd59ce0ef9": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "VMs provide stronger isolation between workloads, but are slower and heavier than containers",
+      "text_lemmatized": "VMs provide stronger isolation between workloads, but are slower and heavier than containers",
+      "hash": "13e2ba3700f7fe0b3d819d53efdc201b",
+      "created_at": "2026-08-07T08:17:44.995915+00:00",
+      "updated_at": "2026-08-07T08:17:44.995915+00:00",
+      "attributed_to": "assistant"
+    },
+    "6e378d86-44df-4fae-b069-1befc7e9dda6": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "Containers are suitable for running trusted code and applications that require speed and efficiency",
+      "text_lemmatized": "Containers are suitable for running trusted code and applications that require speed and efficiency",
+      "hash": "198ec2c6acc4fc9a43dedc0fab9037c1",
+      "created_at": "2026-08-07T08:17:44.995915+00:00",
+      "updated_at": "2026-08-07T08:17:44.995915+00:00",
+      "attributed_to": "assistant"
+    },
+    "3808cbd5-99d2-4ecb-83cd-25f7c9e2bc6f": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "VMs are better suited for running untrusted code or meeting strict security and compliance requirements",
+      "text_lemmatized": "VMs are better suited for running untrusted code or meeting strict security and compliance requirements",
+      "hash": "47c1c7f9f7395193068cd0a99a5f30bf",
+      "created_at": "2026-08-07T08:17:44.995915+00:00",
+      "updated_at": "2026-08-07T08:17:44.995915+00:00",
+      "attributed_to": "assistant"
+    },
+    "c42759cd-eb3b-4dc0-9799-edb35cfd93d8": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "Arjun Mehta is the Chief Executive Officer and co-founder of NovaTech Systems",
+      "text_lemmatized": "Arjun Mehta is the Chief Executive Officer and co-founder of NovaTech Systems",
+      "hash": "7205030eedd5aed22374e6751730f012",
+      "created_at": "2026-08-10T12:57:38.211504+00:00",
+      "updated_at": "2026-08-10T12:57:38.211504+00:00",
+      "attributed_to": "assistant"
+    },
+    "76c2a2b3-ef7b-464f-be1e-f2a1e98f5670": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "User inquired about NovaTech Systems on August 10, 2026",
+      "text_lemmatized": "User inquired about NovaTech Systems on August 10, 2026",
+      "hash": "31df1d81895cdbab38411475183efd14",
+      "created_at": "2026-08-10T12:59:02.855031+00:00",
+      "updated_at": "2026-08-10T12:59:02.855031+00:00",
+      "attributed_to": "user"
+    },
+    "d2cfae33-7b2c-4d9a-9d05-bae308a95038": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "NovaTech Systems' Chief Executive Officer and co-founder is Arjun Mehta",
+      "text_lemmatized": "NovaTech Systems' Chief Executive Officer and co-founder is Arjun Mehta",
+      "hash": "c8549233357066c604a9c6dcd471d9e5",
+      "created_at": "2026-08-10T12:59:02.855031+00:00",
+      "updated_at": "2026-08-10T12:59:02.855031+00:00",
+      "attributed_to": "assistant"
+    },
+    "bd7992c4-e1f0-47ff-b726-d83a0d80fbc8": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "NovaTech Systems provides various systems including NovaCloud, NovaSearch, and NovaGuard as part of their offerings",
+      "text_lemmatized": "NovaTech Systems provides various systems including NovaCloud, NovaSearch, and NovaGuard as part of their offerings",
+      "hash": "0c4dfbef398ed689f59576abd26dec87",
+      "created_at": "2026-08-10T13:03:43.728482+00:00",
+      "updated_at": "2026-08-10T13:03:43.728482+00:00",
+      "attributed_to": "assistant"
+    },
+    "34a23c9e-c13a-413e-8fc7-72c6f4b84cc3": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "NovaCloud is a cloud infrastructure platform by NovaTech Systems that utilizes Kubernetes and Docker technologies for application deployment and management",
+      "text_lemmatized": "NovaCloud is a cloud infrastructure platform by NovaTech Systems that utilizes Kubernetes and Docker technologies for application deployment and management",
+      "hash": "91dec687b6721f15b1641440bd7f9fdd",
+      "created_at": "2026-08-10T13:03:43.728482+00:00",
+      "updated_at": "2026-08-10T13:03:43.728482+00:00",
+      "attributed_to": "assistant"
+    },
+    "d059ef85-b7d9-4823-b333-35294065d6de": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "NovaSearch is a product under NovaTech Systems' enterprise AI division",
+      "text_lemmatized": "NovaSearch is a product under NovaTech Systems' enterprise AI division",
+      "hash": "793e54e0e662dfe71167a2c687e57e4b",
+      "created_at": "2026-08-10T13:03:43.728482+00:00",
+      "updated_at": "2026-08-10T13:03:43.728482+00:00",
+      "attributed_to": "assistant"
+    },
+    "b505174c-1c92-4550-a795-545031c8632c": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "NovaGuard is another product offered by NovaTech Systems",
+      "text_lemmatized": "NovaGuard is another product offered by NovaTech Systems",
+      "hash": "08dde7a4b2017ed73c7c07a199d98c7f",
+      "created_at": "2026-08-10T13:03:43.728482+00:00",
+      "updated_at": "2026-08-10T13:03:43.728482+00:00",
+      "attributed_to": "assistant"
+    },
+    "4cc03020-7a9b-4f77-851c-04c252387648": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "NovaTech Systems' engineering team utilizes technologies such as Python, Java, Docker, Kubernetes, PostgreSQL, Elasticsearch, and Neo4j across different products",
+      "text_lemmatized": "NovaTech Systems' engineering team utilizes technologies such as Python, Java, Docker, Kubernetes, PostgreSQL, Elasticsearch, and Neo4j across different products",
+      "hash": "ab38b238e1f2139b95319177bf44172f",
+      "created_at": "2026-08-10T13:03:43.729481+00:00",
+      "updated_at": "2026-08-10T13:03:43.729481+00:00",
+      "attributed_to": "assistant"
+    },
+    "807e9ae2-fa49-4c45-b81a-c668928fdc1f": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "User inquired about NovaTech Systems' services on August 11, 2026",
+      "text_lemmatized": "User inquired about NovaTech Systems' services on August 11, 2026",
+      "hash": "4a928629dc1b5755ac10fb75d3d12ffb",
+      "created_at": "2026-08-11T08:22:22.824440+00:00",
+      "updated_at": "2026-08-11T08:22:22.824440+00:00",
+      "attributed_to": "user"
+    },
+    "60c33d19-3338-4c5b-bfc2-e88c04e4a9b3": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "User inquired about the ownership of NovaTech Systems on August 11, 2026",
+      "text_lemmatized": "User inquired about the ownership of NovaTech Systems on August 11, 2026",
+      "hash": "d976650e5be715b570d15d20953d2694",
+      "created_at": "2026-08-11T09:26:55.174899+00:00",
+      "updated_at": "2026-08-11T09:26:55.174899+00:00",
+      "attributed_to": "user"
+    },
+    "4cbe2875-7d7c-4d32-8bf1-71a6802a6825": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "Assistant was asked to find information about the ownership of NovaTech Systems",
+      "text_lemmatized": "Assistant was asked to find information about the ownership of NovaTech Systems",
+      "hash": "19c4ad3dc60d6fa2714bef952290a16d",
+      "created_at": "2026-08-11T09:26:55.174899+00:00",
+      "updated_at": "2026-08-11T09:26:55.174899+00:00",
+      "attributed_to": "assistant"
+    },
+    "0fcb37b4-94da-4416-87e4-d6703802de44": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "NovaTech Systems is a private US-based company providing automation and control solutions, but its ownership information is not publicly disclosed",
+      "text_lemmatized": "NovaTech Systems is a private US-based company providing automation and control solutions, but its ownership information is not publicly disclosed",
+      "hash": "241b700aded88a14fba709db21c5e90d",
+      "created_at": "2026-08-11T09:27:34.393180+00:00",
+      "updated_at": "2026-08-11T09:27:34.393180+00:00",
+      "attributed_to": "assistant"
+    },
+    "b19ae308-2795-4ce3-b381-92e01d06a473": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "The ownership information of NovaTech Systems is not publicly disclosed, but Arjun Mehta is the Chief Executive Officer and co-founder",
+      "text_lemmatized": "The ownership information of NovaTech Systems is not publicly disclosed, but Arjun Mehta is the Chief Executive Officer and co-founder",
+      "hash": "b71039a387363295c12b2b2b2aaff8dd",
+      "created_at": "2026-08-11T09:35:46.861525+00:00",
+      "updated_at": "2026-08-11T09:35:46.861525+00:00",
+      "attributed_to": "assistant"
+    },
+    "10d7fb44-6654-415d-a213-4a7b12a6b278": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "The ownership information of NovaTech Systems is not publicly disclosed, but Arjun Mehta is the Chief Executive Officer and co-founder of the company",
+      "text_lemmatized": "The ownership information of NovaTech Systems is not publicly disclosed, but Arjun Mehta is the Chief Executive Officer and co-founder of the company",
+      "hash": "71702e56f7ae785b3565e628bd90df3f",
+      "created_at": "2026-08-11T09:37:06.392210+00:00",
+      "updated_at": "2026-08-11T09:37:06.392210+00:00",
+      "attributed_to": "assistant"
+    },
+    "6f446cf8-db52-4f71-b033-7ca016105090": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "NovaTech Systems was co-founded by Arjun Mehta",
+      "text_lemmatized": "NovaTech Systems was co-founded by Arjun Mehta",
+      "hash": "8f55df2dd6e54698b5d4f92ee8e85c4b",
+      "created_at": "2026-08-11T09:44:00.803275+00:00",
+      "updated_at": "2026-08-11T09:44:00.803275+00:00",
+      "attributed_to": "assistant"
+    },
+    "cf066222-65d9-4d71-a015-61c367898d88": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "User inquired about Rahul Mheta's workplace on August 12, 2026",
+      "text_lemmatized": "User inquired about Rahul Mheta's workplace on August 12, 2026",
+      "hash": "53e2452d45179e66fca4bfe957663ba1",
+      "created_at": "2026-08-12T15:32:28.078846+00:00",
+      "updated_at": "2026-08-12T15:32:28.078846+00:00",
+      "attributed_to": "user"
+    },
+    "c4d1bed4-31bb-4b42-ba43-d5f02bc29340": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "User was informed that there is no available information about Rahul Mheta's workplace",
+      "text_lemmatized": "User was informed that there is no available information about Rahul Mheta's workplace",
+      "hash": "e7c806312103f222382a275826c33753",
+      "created_at": "2026-08-12T15:32:28.078846+00:00",
+      "updated_at": "2026-08-12T15:32:28.078846+00:00",
+      "attributed_to": "assistant"
+    },
+    "6fd100f3-b63c-4256-8066-72385de3f767": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "Priya Sharma works at Acme Technologies",
+      "text_lemmatized": "Priya Sharma works at Acme Technologies",
+      "hash": "d0f624ac80abae47984fb7de72eced82",
+      "created_at": "2026-08-12T15:36:55.600484+00:00",
+      "updated_at": "2026-08-12T15:36:55.600484+00:00",
+      "attributed_to": "assistant"
+    },
+    "56020ab7-b1ad-4a4b-97bc-dd672c612254": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "Rahul Mehta works at Acme Technologies",
+      "text_lemmatized": "Rahul Mehta works at Acme Technologies",
+      "hash": "904a56182580ef0749c58defdd9244f8",
+      "created_at": "2026-08-12T15:36:55.600484+00:00",
+      "updated_at": "2026-08-12T15:36:55.600484+00:00",
+      "attributed_to": "assistant"
+    },
+    "0d9a4397-6b40-4bf4-9271-3e00b2b2634f": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "Ananya Patel works at Acme Technologies",
+      "text_lemmatized": "Ananya Patel works at Acme Technologies",
+      "hash": "8719b89c4af1d3e025cc5c4ad7342be4",
+      "created_at": "2026-08-12T15:36:55.600484+00:00",
+      "updated_at": "2026-08-12T15:36:55.600484+00:00",
+      "attributed_to": "assistant"
+    },
+    "89599f63-de58-49cf-9195-f9d80074ce19": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "User inquired about when to use containers versus virtual machines (VMs)",
+      "text_lemmatized": "User inquired about when to use containers versus virtual machines (VMs)",
+      "hash": "7d43e89c6a88cb8f986af9225b80c1de",
+      "created_at": "2026-08-12T15:38:06.914771+00:00",
+      "updated_at": "2026-08-12T15:38:06.914771+00:00",
+      "attributed_to": "user"
+    },
+    "d7edc63b-ee38-414e-8e1e-036228d9d114": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "Containers are suitable for use cases where speed and efficiency are crucial, such as running trusted code, development and testing, and microservices architecture",
+      "text_lemmatized": "Containers are suitable for use cases where speed and efficiency are crucial, such as running trusted code, development and testing, and microservices architecture",
+      "hash": "7cc58d945230cb8fd554b2acd3b4f36b",
+      "created_at": "2026-08-12T15:38:06.914771+00:00",
+      "updated_at": "2026-08-12T15:38:06.914771+00:00",
+      "attributed_to": "assistant"
+    },
+    "7e2391a2-3447-4326-94b0-33c25a84d05b": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "Virtual Machines (VMs) are suitable for use cases where strong isolation is required, such as running untrusted code, legacy system support, and high-level security requirements",
+      "text_lemmatized": "Virtual Machines (VMs) are suitable for use cases where strong isolation is required, such as running untrusted code, legacy system support, and high-level security requirements",
+      "hash": "b0a67f6402e53b63b14e3f7e9f4f94ec",
+      "created_at": "2026-08-12T15:38:06.914771+00:00",
+      "updated_at": "2026-08-12T15:38:06.914771+00:00",
+      "attributed_to": "assistant"
+    },
+    "1e0d4502-cbf8-4aee-a22f-7b2eb7752651": {
+      "user_id": "f263db69-30b4-45f7-ba22-c6997aa0959f",
+      "data": "User was informed that the choice between containers and VMs depends on specific needs and requirements, and many organizations use a combination of both",
+      "text_lemmatized": "User was informed that the choice between containers and VMs depends on specific needs and requirements, and many organizations use a combination of both",
+      "hash": "8dd24e670c4721b86a08aede3a904f87",
+      "created_at": "2026-08-12T15:38:06.914771+00:00",
+      "updated_at": "2026-08-12T15:38:06.914771+00:00",
+      "attributed_to": "assistant"
+    }
+  },
+  "index_to_id": {
+    "0": "8c86f09d-60b4-47f2-ac5f-fe0b6388ca8b",
+    "1": "548bbfbe-114c-4c76-8036-734a74f6cb99",
+    "2": "31cdbf2a-8f1c-442e-846a-acf8122a32d1",
+    "3": "a1004634-fe6d-4495-bb8b-7b9e66ca1c49",
+    "4": "d26b4f78-87f3-432f-9c75-a055c8117054",
+    "5": "6a366c7c-58b3-480f-a1fb-52f4977e70cf",
+    "6": "6bae6c2b-c398-4198-85fe-06580352322a",
+    "7": "d1320756-8729-4193-bc5d-07383692cab5",
+    "8": "2a0fc62d-bb60-41de-ab90-c58aa427a80d",
+    "9": "2cd92e40-3e81-4040-aa9b-7954d4168b2e",
+    "10": "1f52f7b4-f67d-4595-b4ba-2500d177dbe8",
+    "11": "df29ad49-fb21-45c6-928b-024543ecf4ab",
+    "12": "574aec4f-0044-4b22-a88f-25ad7b12f3b1",
+    "13": "a1071df7-d51c-424c-a448-c5300f4d18cc",
+    "14": "295845cf-4b05-4fbc-81ec-b3dd737d39f7",
+    "15": "a71afc7e-ede1-4d0a-bc94-aa3c1b89c810",
+    "16": "3c429504-b4ee-4d65-9617-116256c69a8f",
+    "17": "97ae8d6a-c2ac-44b9-b170-8b007d124fe0",
+    "18": "27b7c671-4bcb-4cee-80d5-43cdd8044ccd",
+    "19": "dd71af45-b81a-49e2-986b-c13edcf9544c",
+    "20": "08c27708-09f9-4280-9fcf-abea197b6457",
+    "21": "0f824e70-2ddb-4e46-bb55-5f0354d02a60",
+    "22": "af2d8982-37fd-413f-ad63-338bf5f9f15b",
+    "23": "c7575146-7d64-413b-a28a-49fa807b48a4",
+    "24": "3269fdd6-ea06-4ae7-b381-ce7c8223970b",
+    "25": "85fe8c87-443a-47bc-9443-63b8b96a4971",
+    "26": "16f3ec6a-2808-4a1e-b126-d76465e89bc6",
+    "27": "2cda1482-2856-428a-8324-e843a8f7ae44",
+    "28": "f1e5ecdf-4577-4783-a383-28404f534085",
+    "29": "632dea46-dc9b-493f-a296-4f016c7745cc",
+    "30": "6626ca14-cc78-477f-85ad-92abd19561c1",
+    "31": "eace825a-b4e3-4de0-836b-1ef79b9f0eb2",
+    "32": "79a9f01c-12a3-476d-bf8c-c1a800bfcfac",
+    "33": "ac9abe6e-6bf0-4703-b772-1f465152822a",
+    "34": "2479e28d-9649-49ad-87bd-beb762d9cb83",
+    "35": "a1ca0f81-b479-445c-be21-94fd09d81683",
+    "36": "9acd548c-bd78-4713-9759-5ecd76aac95b",
+    "37": "bef5db14-72d7-45a5-b8ea-63c35583b3a1",
+    "38": "a0be5d64-2fee-4a84-ac50-ae5f2ccb0973",
+    "39": "adc5e791-81c6-471b-b790-00fcdf3ef8fe",
+    "40": "a21739c2-c794-49f4-8b53-956649529fdf",
+    "41": "557823ec-b7fe-4c7d-8f0d-786419d803d6",
+    "42": "913be5d8-0c45-41d7-adfb-88ff6d152634",
+    "43": "71391808-795f-44a0-a4c0-569ea6a52d98",
+    "44": "0561a578-5c6d-4fe1-b876-7d70111e18ab",
+    "45": "ab7dddd7-f181-4177-bc84-722c9e344487",
+    "46": "f4782d47-76ce-427e-acff-29996c5adc98",
+    "47": "d5873424-4f57-4d75-9199-ea15247c2419",
+    "48": "9bf365e5-f444-4772-8478-dcbface501ab",
+    "49": "e410b8a7-faa0-4c6c-b4bd-03faa3934db9",
+    "50": "b4e6b986-f802-4a0e-8a39-77873a58244a",
+    "51": "a8f07aa1-71ee-4377-b121-41f58cf38fd7",
+    "52": "8a34e25e-efed-41f3-9596-6cd9a1f024b4",
+    "53": "7bd3e2ee-c2c9-440c-ad71-7189f897179c",
+    "54": "f1640356-9ff6-4573-bb73-63bdf4cee260",
+    "55": "7a384bb6-955f-44eb-9f90-3752164c5f56",
+    "56": "33616bf2-fecb-4bbc-a8f1-986492173c45",
+    "57": "7e2be7ab-cf33-4100-a0ee-051c875d1095",
+    "58": "18fbaeed-624a-44d5-a828-a9b33d7d35a6",
+    "59": "c5a724ad-118d-448b-883c-f0283d251315",
+    "60": "89d82585-7664-4a82-8426-77de8b87e363",
+    "61": "7e191012-bb89-40e4-9a18-6896acd7a643",
+    "62": "612326cb-ee00-4e86-bfc3-3b0e8c1b8fea",
+    "63": "c0eee57a-abe3-42c5-a39a-a8040a7f40f6",
+    "64": "c00e983c-b3a6-49ba-ab98-28bb18022988",
+    "65": "5e6aac07-5bae-467d-bf21-ad01cb099961",
+    "66": "2a1e3304-bcac-4326-8c1a-eb3f797ab7ef",
+    "67": "5b964c04-c754-44f6-b6eb-4fc16344917d",
+    "68": "1e72f621-1782-41ec-8b74-6aeb8c39a3e4",
+    "69": "7f6d692c-9e13-49c4-b6dc-c418ee712a8e",
+    "70": "26a25cdb-2574-46a0-95a2-d6839548a091",
+    "71": "56ccf26f-107f-4d95-858c-29f7ee53e66d",
+    "72": "18946af5-1e65-400a-b1d8-870c8de14ce2",
+    "73": "04a991fb-9a12-43da-8003-7b5f2052052f",
+    "74": "0150f4b9-6d62-4c86-bb5b-84275c0b2c85",
+    "75": "91677ae8-1210-4a21-a02c-bb93aeea73ea",
+    "76": "5ee9f3e0-6e9f-4ae5-8af7-ea788a5e8da7",
+    "77": "583362f2-509d-4c03-997e-9bb67b5c64d7",
+    "78": "c62e861d-1479-4cf3-8154-9712ff6d20a3",
+    "79": "70402a77-72ad-423b-9dff-a57820fbf8a5",
+    "80": "3898337a-bb70-4fd7-aad6-f21a832c77e5",
+    "81": "b542d984-5f1b-4de3-aa31-0af899a28cd0",
+    "82": "491f075a-74a3-44b4-9b48-e6157e65ceec",
+    "83": "3049e121-ad30-4011-a0f2-66e59a548257",
+    "84": "5b2edb0a-3208-4b25-91f5-9e0a907b461f",
+    "85": "6c243013-945f-4d3e-ae1a-7be26b785323",
+    "86": "9ad7ac78-0592-4600-8833-5327be2a4a3d",
+    "87": "1937b377-d3d4-4ab8-bdf3-68d3a584c345",
+    "88": "747899e5-d095-4fc1-b890-c58c6609e439",
+    "89": "c087ff98-98bf-423f-8b6b-4adfb02e7c8c",
+    "90": "e57309a5-b69d-4dd1-a84a-636b94371701",
+    "91": "59febb4a-cc50-4266-af0b-7aada18105c0",
+    "92": "018d14f9-563c-4284-bae5-2ec66bb02703",
+    "93": "5e1bb2c4-2fd7-4ad0-965c-664cd1498ffd",
+    "94": "5f209e6a-e9f4-481e-b5a7-70513df8edd9",
+    "95": "e50dfcbe-f948-438f-957e-a8f0b697e8b4",
+    "96": "da104457-84cd-422d-875b-d6b06d466fbf",
+    "97": "8c6ddd3b-1ce4-4e9a-8bdd-64a12c502183",
+    "98": "38501ed8-7c56-41c2-baa4-03f00d716412",
+    "99": "dfc491d0-b9b8-41ec-867a-c0eed6e8da95",
+    "100": "4dbc4d8f-d168-4bbc-a703-2c009823c279",
+    "101": "47da18c7-f0fc-4d33-9f9c-e6d47aec2d3e",
+    "102": "2cb07b52-707f-455a-9a27-d754eb200790",
+    "103": "962b1114-2d87-48c1-97ff-7d30bef6b327",
+    "104": "8d375aed-68eb-43e7-a5bc-204c886ccbf5",
+    "105": "01c5deb5-6353-4fba-b68a-1d6459978c65",
+    "106": "8876e999-d759-4d62-a0c4-1023aeebec84",
+    "107": "3eda821c-8491-41e1-bac2-f89108183f07",
+    "108": "15e627ac-1710-428b-9763-77d525b11b97",
+    "109": "21b67dc6-a74e-4a48-a1f4-7974554f014b",
+    "110": "752e81d9-8eb4-41ff-a17d-44d22e2a4f3a",
+    "111": "c7d510f5-d0fa-49ab-8509-6d25c28ad280",
+    "112": "4cb1ba0e-d0d2-40d2-ad03-e8a01444110c",
+    "113": "b312877c-9a55-4924-af47-9153c1dfca02",
+    "114": "5cad15d3-015e-425f-a724-23ddb313eba3",
+    "115": "608e5e8e-9308-4ce5-a3fe-0a68af18c2b0",
+    "116": "ee5d2193-b2cc-47c3-b4cb-148108cab05e",
+    "117": "49954368-0452-4783-ab81-3711dfd298e5",
+    "118": "8e606b3e-c975-4afe-8be8-87086eb8eddc",
+    "119": "e43bf72c-bc00-4753-bdc9-cdf49cca37f7",
+    "120": "fedce26f-f034-47a5-bfd8-cce8c923b2bd",
+    "121": "7dcd9ec6-f7c3-428a-b7f8-c850ae0d1145",
+    "122": "428f65ad-39f9-48b0-97c2-b651ebb74ad8",
+    "123": "4fca0b7a-be6e-4834-8095-a7f962ff6eee",
+    "124": "70481213-854d-4bae-9aa1-ce8a602d7be5",
+    "125": "4680f7cd-e29c-42fd-beb9-743485560b97",
+    "126": "9c291958-e1c8-49c4-96af-31d954bc17c5",
+    "127": "b5325c66-8fe4-45aa-8b57-e6fd59ce0ef9",
+    "128": "6e378d86-44df-4fae-b069-1befc7e9dda6",
+    "129": "3808cbd5-99d2-4ecb-83cd-25f7c9e2bc6f",
+    "130": "c42759cd-eb3b-4dc0-9799-edb35cfd93d8",
+    "131": "76c2a2b3-ef7b-464f-be1e-f2a1e98f5670",
+    "132": "d2cfae33-7b2c-4d9a-9d05-bae308a95038",
+    "133": "bd7992c4-e1f0-47ff-b726-d83a0d80fbc8",
+    "134": "34a23c9e-c13a-413e-8fc7-72c6f4b84cc3",
+    "135": "d059ef85-b7d9-4823-b333-35294065d6de",
+    "136": "b505174c-1c92-4550-a795-545031c8632c",
+    "137": "4cc03020-7a9b-4f77-851c-04c252387648",
+    "138": "807e9ae2-fa49-4c45-b81a-c668928fdc1f",
+    "139": "60c33d19-3338-4c5b-bfc2-e88c04e4a9b3",
+    "140": "4cbe2875-7d7c-4d32-8bf1-71a6802a6825",
+    "141": "0fcb37b4-94da-4416-87e4-d6703802de44",
+    "142": "b19ae308-2795-4ce3-b381-92e01d06a473",
+    "143": "10d7fb44-6654-415d-a213-4a7b12a6b278",
+    "144": "6f446cf8-db52-4f71-b033-7ca016105090",
+    "145": "cf066222-65d9-4d71-a015-61c367898d88",
+    "146": "c4d1bed4-31bb-4b42-ba43-d5f02bc29340",
+    "147": "6fd100f3-b63c-4256-8066-72385de3f767",
+    "148": "56020ab7-b1ad-4a4b-97bc-dd672c612254",
+    "149": "0d9a4397-6b40-4bf4-9271-3e00b2b2634f",
+    "150": "89599f63-de58-49cf-9195-f9d80074ce19",
+    "151": "d7edc63b-ee38-414e-8e1e-036228d9d114",
+    "152": "7e2391a2-3447-4326-94b0-33c25a84d05b",
+    "153": "1e0d4502-cbf8-4aee-a22f-7b2eb7752651"
+  }
+}

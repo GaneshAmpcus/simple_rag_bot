@@ -1,0 +1,227 @@
+# =========================================================
+# Python / FastAPI
+# =========================================================
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+.env/
+.finalvenv/
+
+# Environment variables / secrets
+.env
+.env.*
+!.env.example
+
+# Python packaging
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Testing / coverage
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+
+# Type checking / linting
+.mypy_cache/
+.pyre/
+.ruff_cache/
+
+# Jupyter
+.ipynb_checkpoints/
+
+
+# =========================================================
+# FastAPI / Application generated files
+# =========================================================
+
+*.log
+logs/
+
+# SQLite databases
+*.sqlite
+*.sqlite3
+*.db
+
+# Uploaded files
+uploads/
+media/
+
+# Temporary files
+tmp/
+temp/
+
+
+# =========================================================
+# LangChain / RAG / Vector Stores
+# =========================================================
+
+# FAISS / vector indexes
+faiss_index/
+vector_store/
+data/index/
+index/
+
+# Chroma
+chroma/
+chroma_db/
+.chroma/
+
+# Qdrant local storage
+qdrant_storage/
+
+# LanceDB
+.lancedb/
+
+# Generated embeddings / RAG data
+embeddings/
+vector_data/
+
+# LangChain cache
+.langchain/
+
+
+# =========================================================
+# Neo4j / Graph RAG
+# =========================================================
+
+neo4j_data/
+neo4j/
+.graphiti/
+
+
+# =========================================================
+# Model / HuggingFace cache
+# =========================================================
+
+# HuggingFace cache
+.cache/
+huggingface/
+hf_cache/
+
+# Sentence Transformers
+sentence-transformers/
+
+# Local downloaded models
+models/
+*.safetensors
+*.bin
+*.pt
+*.pth
+
+
+# =========================================================
+# React / Vite
+# =========================================================
+
+# Node dependencies
+node_modules/
+
+# Vite build output
+dist/
+build/
+
+# Vite cache
+.vite/
+
+# React environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Keep example environment file
+!.env.example
+
+# npm
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Package manager caches
+.npm/
+.yarn/
+.pnpm-store/
+
+
+# =========================================================
+# IDE / Editors
+# =========================================================
+
+.vscode/
+.idea/
+
+# VS Code local history
+.history/
+
+# JetBrains
+*.iml
+
+# Vim
+*.swp
+*.swo
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+
+# =========================================================
+# OS
+# =========================================================
+
+.DS_Store
+
+
+# =========================================================
+# Archives / generated project files
+# =========================================================
+
+*.zip
+*.tar
+*.tar.gz
+*.rar
+
+
+# =========================================================
+# Secrets / credentials
+# =========================================================
+
+*.pem
+*.key
+*.crt
+
+credentials.json
+service-account.json
+secrets.json
+
+# API keys / local configuration
+secrets/
+config.local.*
+
+
+# =========================================================
+# Application generated files
+# =========================================================
+
+*.tmp
+*.temp
+*.bak
+
+# Python generated reports
+*.html
+*.csv

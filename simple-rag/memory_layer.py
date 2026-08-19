@@ -23,7 +23,7 @@ memory write shouldn't take down a chat response.
 
 import os
 from pathlib import Path
-
+from groq import APIStatusError
 from dotenv import load_dotenv
 
 BASE_DIR = Path(__file__).resolve().parent
@@ -48,7 +48,7 @@ _MEM0_INDEX_PATH.mkdir(parents=True, exist_ok=True)
 # Same model llm.py's get_llm() uses by default. Kept as a plain literal
 # here rather than imported -- mem0 wants a model name string in its own
 # config dict, not a ChatGroq instance; it builds its own client.
-_LLM_MODEL = "llama-3.3-70b-versatile"
+_LLM_MODEL = "qwen/qwen3.6-27b"
 
 # Must match embeddings.py's EMBEDDER model exactly -- a dimension
 # mismatch between mem0's FAISS index and the embedder breaks it
@@ -110,5 +110,13 @@ def add_turn(user_message: str, assistant_message: str, user_id: str) -> None:
             user_id=user_id,
         )
        
-    except Exception:
-        log.exception("memory_layer.add_turn: mem0 add failed for user_id=%s", user_id)
+    except Exception as e:
+        cause = e.__cause__
+        if isinstance(cause, APIStatusError) and cause.status_code == 413:
+            log.warning("mem0 add: token limit hit, storing without inference")
+            try:
+                memory.add(messages=[...], user_id=user_id, infer=False)
+            except Exception:
+                log.exception("mem0 fallback add also failed for user_id=%s", user_id)
+        else:
+            log.exception("memory_layer.add_turn: mem0 add failed for user_id=%s", user_id)

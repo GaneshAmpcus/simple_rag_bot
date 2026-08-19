@@ -1,29 +1,16 @@
 models:
   - type: main
-    engine: openai                   # Groq's API is OpenAI-wire-compatible, so we
-    model: openai/gpt-oss-20b  # point the built-in "openai" client at it --
-    api_key_env_var: GROQ_GUARDRAILS_API_KEY    # top-level field, sibling of engine/model/
-                                      # parameters -- NOT nested inside parameters.
-                                      # Nested, NeMo silently ignores it and falls
-                                      # back to looking for OPENAI_API_KEY instead.
+    engine: openai
+    model: openai/gpt-oss-20b
+    api_key_env_var: GROQ_GUARDRAILS_API_KEY
     parameters:
       base_url: https://api.groq.com/openai/v1
 
 rails:
-  config:
-    sensitive_data_detection:
-      input:
-        entities:
-          - EMAIL_ADDRESS
-          - PHONE_NUMBER
-          - PERSON
-          - CREDIT_CARD
-
   input:
     flows:
       - self check input
       - persona override
-      - mask sensitive data on input
 
 prompts:
   - task: self_check_input

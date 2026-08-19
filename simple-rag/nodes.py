@@ -5,6 +5,7 @@ Graph node functions. Each node is a plain function of
 
 import json
 import re
+import uuid
 
 from langchain_core.messages import SystemMessage, HumanMessage, AIMessage, ToolMessage
 from langchain_core.exceptions import OutputParserException
@@ -16,7 +17,7 @@ from prompts import (
     build_chat_system_prompt,
     build_agent_system_prompt,
 )
-from guardrails_layer import check_input_sync, scan_tool_output_sync
+from guardrails_layer import check_input_sync, scan_tool_output_sync, mask_pii
 from memory_layer import memory
 from config.logging_config import get_logger
 
@@ -32,74 +33,66 @@ def _last_human_text(messages) -> str:
     return ""
 
 
-# def build_pre_rails_node():
-#     """Step 1+2 of the guardrails plan: normalize obfuscated input and
-#     run it through NeMo's input rails (self-check + persona-override
-#     flow), before anything reaches intent/agent/chat. Runs first in the
-#     graph -- everything downstream only ever sees traffic that passed
-#     this gate."""
-
-#     def pre_rails_node(state: dict) -> dict:
-#         user_text = _last_human_text(state["messages"])
-#         if not user_text:
-#             return {"blocked": False}
-
-#         allowed, refusal = check_input_sync(user_text)
-#         if not allowed:
-#             log.info("pre_rails_node: blocked user_text=%r", user_text)
-#             return {"blocked": True, "messages": [AIMessage(content=refusal)]}
-
-#         return {"blocked": False}
-
-#     return pre_rails_node
-
 def build_pre_rails_node():
-    """Normalize, mask PII, and run NeMo input rails before anything
-    reaches memory/intent/agent/chat."""
+    """Step 1+2 of the guardrails plan: normalize obfuscated input and
+    run it through NeMo's input rails (self-check + persona-override
+    flow), before anything reaches intent/agent/chat. Runs first in the
+    graph -- everything downstream only ever sees traffic that passed
+    this gate."""
 
     def pre_rails_node(state: dict) -> dict:
-        messages = state["messages"]
-        user_text = _last_human_text(messages)
-
+        user_text = _last_human_text(state["messages"])
         if not user_text:
             return {"blocked": False}
 
-        allowed, refusal, sanitized_text = check_input_sync(user_text)
-
+        allowed, refusal = check_input_sync(user_text)
         if not allowed:
             log.info("pre_rails_node: blocked user_text=%r", user_text)
-            return {
-                "blocked": True,
-                "messages": [AIMessage(content=refusal)],
-            }
+            return {"blocked": True, "messages": [AIMessage(content=refusal)]}
 
-        # Find the latest HumanMessage and replace it with
-        # the sanitized version using the same message ID.
-        for message in reversed(messages):
-            if isinstance(message, HumanMessage):
-                if message.content != sanitized_text:
-                    sanitized_message = HumanMessage(
-                        content=sanitized_text
-                    )
-
-                    # Preserve the original message ID so
-                    # add_messages replaces rather than duplicates it.
-                    sanitized_message.id = message.id
-
-                    log.info(
-                        "pre_rails_node: PII was masked before downstream nodes"
-                    )
-
-                    return {
-                        "blocked": False,
-                        "messages": [sanitized_message],
-                    }
-
-                break
+        masked_text = mask_pii(user_text)
+        if masked_text != user_text:
+            log.info("pre_rails_node: masked PII in user input")
+            last_human_msg = next(
+                m for m in reversed(state["messages"]) if isinstance(m, HumanMessage)
+            )
+            replacement = HumanMessage(content=masked_text)
+            replacement.id = last_human_msg.id  # same id -> add_messages replaces in place
+            return {"blocked": False, "messages": [replacement]}
 
         return {"blocked": False}
 
     return pre_rails_node
+
+
+def build_output_rails_node():
+    """Runs once, after the tool-calling loop has fully finished --
+    NOT on every agent/tools/tool_scan iteration. Masks PII in the
+    final assistant response only. Wired in graph.py so both the
+    agent's no-more-tool-calls branch and chat_node's direct answer
+    route through here before reaching END; tool_scan_node stays
+    per-iteration since it scans retrieved content, a different job."""
+
+    def output_rails_node(state: dict) -> dict:
+        messages = state["messages"]
+        if not messages:
+            return {}
+
+        last = messages[-1]
+        if not isinstance(last, AIMessage) or not last.content:
+            return {}
+
+        masked = mask_pii(last.content)
+        if masked == last.content:
+            return {}
+
+        log.info("output_rails_node: masked PII in final response")
+        replacement = AIMessage(content=masked)
+        replacement.id = last.id
+        return {"messages": [replacement]}
+
+    return output_rails_node
+
 
 def route_after_pre_rails(state: dict) -> str:
     return "blocked" if state.get("blocked") else "ok"
@@ -118,7 +111,7 @@ def build_memory_recall_node():
             return {"user_memories": ""}
 
         try:
-            result = memory.search(query=user_text, filters={"user_id": user_id}, limit=5)
+            result = memory.search(query=user_text, user_id=user_id, limit=5)
             entries = result.get("results", []) if isinstance(result, dict) else result
             memories_str = "\n".join(f"- {e['memory']}" for e in entries)
         except Exception:
@@ -135,10 +128,7 @@ def build_intent_node():
     """Cheap classification step: does this message need tools, or is
     it plain conversation? Falls back to 'tool_needed' on any parse
     failure -- see prompts.py for rationale."""
-    intent_llm = intent_llm = get_llm(
-            model="llama-3.1-8b-instant",
-            api_key_env="GROQ_INTENT_API_KEY",
-        ) # small/fast model recommended if you have one
+    intent_llm = get_llm(model="openai/gpt-oss-120b",api_key_env="GROQ_INTENT_API_KEY")  # small/fast model recommended if you have one
 
     def intent_node(state: dict) -> dict:
         user_text = _last_human_text(state["messages"])
@@ -170,6 +160,38 @@ def route_by_intent(state: dict) -> str:
     return state.get("intent", "tool_needed")
 
 
+# Recovers a malformed tool call from Groq's error payload. Llama
+# occasionally emits its tool call in a non-standard pythonic form --
+# "<function=name{...json...}></function>" -- instead of the structured
+# format Groq's parser expects. The call itself is usually well-formed
+# intent, just wrapped wrong; Groq's 400 response includes that string
+# verbatim in `failed_generation`, so we can recover the intended tool
+# name + args ourselves rather than silently falling back to a
+# no-tools answer that never actually used the tool the model meant to.
+_FAILED_TOOL_CALL_RE = re.compile(r"<function=([A-Za-z_][A-Za-z0-9_]*)(\{.*\})\s*>", re.DOTALL)
+
+
+def _recover_tool_call_from_error(e: Exception):
+    raw = None
+    body = getattr(e, "body", None)
+    if isinstance(body, dict):
+        raw = body.get("error", {}).get("failed_generation")
+    if not raw:
+        raw = str(e)
+
+    match = _FAILED_TOOL_CALL_RE.search(raw or "")
+    if not match:
+        return None
+
+    tool_name, args_json = match.group(1), match.group(2)
+    try:
+        args = json.loads(args_json)
+    except json.JSONDecodeError:
+        log.warning("_recover_tool_call_from_error: matched but args weren't valid JSON: %r", args_json)
+        return None
+
+    return tool_name, args
+
 
 def build_agent_node(tools: list):
     # NOTE: system prompt is no longer built once here -- it now depends
@@ -177,15 +199,10 @@ def build_agent_node(tools: list):
     # to be rebuilt inside agent_node() on every call. Only the
     # tool-bound LLM clients stay fixed at build time (tools don't
     # change per request).
-    llm_with_tools = llm_with_tools = get_llm(
-                    model="llama-3.3-70b-versatile",
-                    api_key_env="GROQ_AGENT_API_KEY",
-                ).bind_tools(tools, parallel_tool_calls=False)
-    
-    llm_no_tools = llm_no_tools = get_llm(
-                model="llama-3.3-70b-versatile",
-                api_key_env="GROQ_AGENT_API_KEY",
-            ) # fallback, same model, no tools bound
+    llm_with_tools = get_llm(model="openai/gpt-oss-20b",
+                    api_key_env="GROQ_AGENT_API_KEY").bind_tools(tools, parallel_tool_calls=False)
+    llm_no_tools = get_llm(model="openai/gpt-oss-20b",
+                    api_key_env="GROQ_AGENT_API_KEY")  # fallback, same model, no tools bound
 
     def agent_node(state: dict) -> dict:
         messages = state["messages"]
@@ -218,12 +235,10 @@ def build_agent_node(tools: list):
         except GroqBadRequestError as e:
             # Groq's own tool-call parser occasionally rejects a
             # malformed function-call the model generated (e.g. the
-            # non-JSON "<function=name{...}</function>" pythonic form
+            # non-JSON "<function=name{...}></function>" pythonic form
             # instead of a structured tool call) as a 400
             # "tool_use_failed". This is a stochastic generation
-            # hiccup, not a permanent error -- retry once, same
-            # pattern as the OutputParserException branch above,
-            # before giving up on tools for this turn.
+            # hiccup, not a permanent error -- retry once first.
             log.warning(
                 "agent_node: Groq rejected malformed tool call, retrying once. err=%s",
                 e,
@@ -231,6 +246,35 @@ def build_agent_node(tools: list):
 
             try:
                 response = llm_with_tools.invoke(messages)
+
+            except GroqBadRequestError as e2:
+                # Retry also failed the same way. Before giving up on
+                # tools entirely, try to recover the intended call from
+                # the error payload itself -- often more reliable than
+                # a third stochastic attempt, since the payload usually
+                # contains a well-formed, parseable tool name + args.
+                recovered = _recover_tool_call_from_error(e2)
+                if recovered:
+                    tool_name, args = recovered
+                    log.warning(
+                        "agent_node: recovered malformed tool call from error payload: %s(%s)",
+                        tool_name, args,
+                    )
+                    response = AIMessage(
+                        content="",
+                        tool_calls=[{
+                            "name": tool_name,
+                            "args": args,
+                            "id": f"recovered-{uuid.uuid4().hex[:8]}",
+                        }],
+                    )
+                else:
+                    log.error(
+                        "agent_node: retry failed and could not recover tool call, "
+                        "falling back to no-tools answer. err=%s",
+                        e2,
+                    )
+                    response = llm_no_tools.invoke(messages)
 
             except Exception as e2:
                 log.error(
@@ -302,7 +346,7 @@ def build_chat_node():
     # System prompt is rebuilt inside chat_node() per call, same reason
     # as agent_node -- it now depends on state["user_memories"].
     llm = get_llm(
-            model="llama-3.3-70b-versatile",
+            model="openai/gpt-oss-120b",
             api_key_env="GROQ_AGENT_API_KEY",
         )
 

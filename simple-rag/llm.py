@@ -28,7 +28,7 @@ Answer:"""
 
 
 def get_llm(
-    model: str = "llama-3.3-70b-versatile",
+    model: str = "openai/gpt-oss-20b",
     api_key_env: str = "GROQ_AGENT_API_KEY",
     temperature: float = 0.0,
 ):

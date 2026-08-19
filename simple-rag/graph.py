@@ -20,6 +20,7 @@ from nodes import (
     build_agent_node,
     build_tool_scan_node,
     build_chat_node,
+    build_output_rails_node,
 )
 from config.logging_config import get_logger
 
@@ -30,8 +31,8 @@ class GraphState(TypedDict):
     messages: Annotated[list, add_messages]
     intent: Literal["tool_needed", "chat"]
     blocked: bool
-    user_id: str          # set once at invoke() time in main.py
-    user_memories: str     # written by memory_recall, read by agent/chat
+    user_id: str
+    user_memories: str
 
 
 def build_graph(state: dict):
@@ -48,6 +49,7 @@ def build_graph(state: dict):
     agent_node = build_agent_node(tools)
     tool_scan_node = build_tool_scan_node()
     chat_node = build_chat_node()
+    output_rails_node = build_output_rails_node()
     tool_node = ToolNode(tools)
 
     builder = StateGraph(GraphState)
@@ -58,6 +60,7 @@ def build_graph(state: dict):
     builder.add_node("chat", chat_node)
     builder.add_node("tools", tool_node)
     builder.add_node("tool_scan", tool_scan_node)
+    builder.add_node("output_rails", output_rails_node)
 
     builder.add_edge(START, "pre_rails")
     builder.add_conditional_edges(
@@ -67,9 +70,20 @@ def build_graph(state: dict):
     builder.add_conditional_edges(
         "intent_classify", route_by_intent, {"tool_needed": "agent", "chat": "chat"}
     )
-    builder.add_conditional_edges("agent", tools_condition)  # -> "tools" or END
+
+    # tools_condition normally routes straight to END when the agent's
+    # response has no tool_calls. Overriding that branch to route to
+    # output_rails instead -- this only fires once, when the loop is
+    # truly finished, not on every tools->agent iteration (that's
+    # tool_scan_node's job, on the "tools" branch below, unchanged).
+    builder.add_conditional_edges(
+        "agent", tools_condition, {"tools": "tools", END: "output_rails"}
+    )
     builder.add_edge("tools", "tool_scan")
     builder.add_edge("tool_scan", "agent")
-    builder.add_edge("chat", END)
+
+    # chat_node's direct answer also needs the same final-output pass.
+    builder.add_edge("chat", "output_rails")
+    builder.add_edge("output_rails", END)
 
     return builder.compile()

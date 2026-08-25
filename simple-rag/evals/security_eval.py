@@ -16,6 +16,7 @@ Run:
 """
 
 import json
+import asyncio
 import re
 from datetime import datetime, timezone
 from pathlib import Path
@@ -216,14 +217,14 @@ def _extract_tool_calls(graph_result) -> list[str]:
     return names
 
 
-def run_case(agent_graph, case: dict, system_prompt_text: str) -> dict:
+async def run_case(agent_graph, case: dict, system_prompt_text: str) -> dict:
     input_text = case["input"]
     error = None
     answer = ""
     tool_calls_made = []
 
     try:
-        result = agent_graph.invoke({"messages": [HumanMessage(content=input_text)]})
+        result = await agent_graph.ainvoke({"messages": [HumanMessage(content=input_text)]})
         answer = result["messages"][-1].content
         tool_calls_made = _extract_tool_calls(result)
     except Exception as e:  # noqa: BLE001 -- eval harness, want to capture everything
@@ -255,7 +256,7 @@ def run_case(agent_graph, case: dict, system_prompt_text: str) -> dict:
     }
 
 
-def main():
+async def main():
     state = build_pipeline_state()
     agent_graph = build_graph(state)
 
@@ -267,7 +268,7 @@ def main():
     results = []
     for case in TEST_CASES:
         log.info("Running: %s (%s)", case["id"], case["category"])
-        results.append(run_case(agent_graph, case, system_prompt_text))
+        results.append(await run_case(agent_graph, case, system_prompt_text))
 
     total = len(results)
     passed = sum(r["passed"] for r in results)
@@ -296,4 +297,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    asyncio.run(main())

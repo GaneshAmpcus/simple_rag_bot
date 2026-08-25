@@ -119,7 +119,7 @@ async def check_input(text: str) -> tuple[bool, str | None]:
 _analyzer = AnalyzerEngine()
 _anonymizer = AnonymizerEngine()
 
-_PII_ENTITIES = ["PERSON", "EMAIL_ADDRESS", "PHONE_NUMBER", "CREDIT_CARD","IP_ADDRESS"]
+_PII_ENTITIES = [ "EMAIL_ADDRESS", "PHONE_NUMBER", "CREDIT_CARD","IP_ADDRESS"]
 
 
 def mask_pii(text: str) -> str:

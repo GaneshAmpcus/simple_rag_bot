@@ -20,10 +20,15 @@ class User(Base):
     created_at = Column(DateTime, default=datetime.utcnow)
 
     sessions = relationship("ChatSession", back_populates="user", cascade="all, delete-orphan")
+    mcp_connection = relationship(
+        "McpConnection", back_populates="user", uselist=False, cascade="all, delete-orphan"
+    )
+    gmail_connection = relationship(
+        "GmailConnection", back_populates="user", uselist=False, cascade="all, delete-orphan"
+    )
 
 
 class ChatSession(Base):
-    """One conversation thread for a user (e.g. one chat window)."""
     __tablename__ = "chat_sessions"
 
     id = Column(String, primary_key=True, default=gen_uuid)
@@ -36,13 +41,45 @@ class ChatSession(Base):
 
 
 class Message(Base):
-    """A single message (user or assistant) within a chat session."""
     __tablename__ = "messages"
 
     id = Column(String, primary_key=True, default=gen_uuid)
     session_id = Column(String, ForeignKey("chat_sessions.id"), nullable=False)
-    role = Column(String, nullable=False)  # "user" | "assistant" | "system"
+    role = Column(String, nullable=False)
     content = Column(Text, nullable=False)
     created_at = Column(DateTime, default=datetime.utcnow)
 
     session = relationship("ChatSession", back_populates="messages")
+
+
+class McpConnection(Base):
+    """One row per user's connection to the Horizon-hosted MCP server."""
+    __tablename__ = "mcp_connections"
+
+    id = Column(String, primary_key=True, default=gen_uuid)
+    user_id = Column(String, ForeignKey("users.id"), nullable=False, unique=True)
+    token_json = Column(Text, nullable=True)
+    client_info_json = Column(Text, nullable=True)
+    selected_tools_json = Column(Text, nullable=True, default="[]")
+    created_at = Column(DateTime, default=datetime.utcnow)
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+
+    user = relationship("User", back_populates="mcp_connection")
+
+
+class GmailConnection(Base):
+    """One row per user's Gmail OAuth connection. Plain Google OAuth2,
+    not MCP -- see gmail_oauth.py for why that's the right call for a
+    tool this app both owns and is the sole consumer of."""
+    __tablename__ = "gmail_connections"
+
+    id = Column(String, primary_key=True, default=gen_uuid)
+    user_id = Column(String, ForeignKey("users.id"), nullable=False, unique=True)
+    access_token = Column(Text, nullable=True)
+    refresh_token = Column(Text, nullable=True)
+    token_expiry = Column(DateTime, nullable=True)
+    email_address = Column(String, nullable=True)
+    created_at = Column(DateTime, default=datetime.utcnow)
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+
+    user = relationship("User", back_populates="gmail_connection")

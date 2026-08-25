@@ -96,4 +96,34 @@ export function ingestDocument(token, file) {
   return request('/ingest', { method: 'POST', token, body: form, isForm: true })
 }
 
+// ---- MCP ----
+export function authorizeMcp(token) {
+  return request('/mcp/authorize', { method: 'POST', token })
+}
+
+export function getMcpStatus(token) {
+  return request('/mcp/status', { token })
+}
+
+export function getMcpTools(token) {
+  return request('/mcp/tools', { token })
+}
+
+export function selectMcpTools(token, toolNames) {
+  return request('/mcp/tools/select', {
+    method: 'POST',
+    token,
+    body: { tool_names: toolNames },
+  })
+}
+
+// ---- Gmail ----
+export function authorizeGmail(token) {
+  return request('/gmail/authorize', { method: 'POST', token })
+}
+
+export function getGmailStatus(token) {
+  return request('/gmail/status', { token })
+}
+
 export { ApiError }

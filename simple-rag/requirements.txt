@@ -53,6 +53,7 @@ humanfriendly==10.0
 hyperframe==6.1.0
 idna==3.18
 instructor==1.15.4
+itsdangerous==2.2.0
 Jinja2==3.1.6
 jiter==0.14.0
 joblib==1.5.3
@@ -63,6 +64,7 @@ langchain-community==0.3.31
 langchain-core==0.3.86
 langchain-groq==0.3.8
 langchain-huggingface==0.3.1
+langchain-mcp-adapters==0.1.9
 langchain-openai==0.3.35
 langchain-text-splitters==0.3.11
 langfuse==4.14.1
@@ -75,6 +77,7 @@ loguru==0.7.3
 markdown-it-py==4.2.0
 MarkupSafe==3.0.3
 marshmallow==3.26.2
+mcp==1.29.0
 mdurl==0.1.2
 mem0ai==2.0.14
 ml_dtypes==0.5.4

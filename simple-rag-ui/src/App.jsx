@@ -3,6 +3,9 @@ import { useAuth } from './context/AuthContext.jsx'
 import Login from './components/Login.jsx'
 import Register from './components/Register.jsx'
 import Workspace from './components/Workspace.jsx'
+import McpTools from './components/McpTools.jsx'
+import McpConnected from './components/McpConnected.jsx'
+import GmailConnected from './components/GmailConnected.jsx'
 
 function FullScreenNotice({ children }) {
   return (
@@ -50,6 +53,30 @@ export default function App() {
         element={
           <RequireAuth>
             <Workspace />
+          </RequireAuth>
+        }
+      />
+      <Route
+        path="/mcp/tools"
+        element={
+          <RequireAuth>
+            <McpTools />
+          </RequireAuth>
+        }
+      />
+      <Route
+        path="/mcp/connected"
+        element={
+          <RequireAuth>
+            <McpConnected />
+          </RequireAuth>
+        }
+      />
+      <Route
+        path="/gmail/connected"
+        element={
+          <RequireAuth>
+            <GmailConnected />
           </RequireAuth>
         }
       />

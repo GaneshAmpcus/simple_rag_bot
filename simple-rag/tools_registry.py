@@ -30,19 +30,21 @@ def _wrap_untrusted(source_label: str, content: str) -> str:
     )
 
 
-def build_kb_tool(store, kb_name: str = "knowledge_base", top_k: int = 3) -> BaseTool:
-    """Build a retrieval tool bound to a given knowledge base store."""
+def build_kb_tool(state: dict, kb_name: str = "knowledge_base", top_k: int = 3) -> BaseTool:
+    """Build a retrieval tool bound to a given pipeline state's vector
+    store. Generalized: works for any state/store, so multiple KBs can
+    be added by calling this multiple times with different state/kb_name."""
 
     @tool(name_or_callable=f"{kb_name}_search",
-          description=(
+              description=(
         f"Search the '{kb_name}' knowledge base for information "
         "relevant to the user's question."
     ))
     def kb_search(query: str) -> str:
         log.info("kb_search[%s] query=%r", kb_name, query)
-        if count(store) == 0:
+        if count(state["store"]) == 0:
             return _wrap_untrusted(kb_name, "No documents have been ingested yet.")
-        results = search(store, query, top_k=top_k)
+        results = search(state["store"], query, top_k=top_k)
         if not results:
             return _wrap_untrusted(kb_name, "No relevant information found.")
         body = "\n\n".join(f"[{i+1}] {r['text']}" for i, r in enumerate(results))
@@ -207,13 +209,25 @@ def build_default_tools(state: dict) -> list[BaseTool]:
     """The full tool set for this app. To add a new tool later (a second
     KB, a calculator, an API wrapper, etc.), just append a builder call
     here -- nothing else in the codebase needs to change."""
-    tools = []
-    for kb_name, store in state.get("stores", {}).items():
-        tools.append(build_kb_tool(store, kb_name=kb_name))
-    tools.append(build_duckduckgo_tool())
+    selected_mcp_tools = state.get("mcp_tools", [])
+    mcp_selected = state.get("mcp_selected", bool(selected_mcp_tools))
+    tools = [build_kb_tool(state, kb_name="knowledge_base")]
 
     graph_tool = build_graph_query_tool(state.get("graph"))
     if graph_tool is not None:
         tools.append(graph_tool)
+
+    # A selected remote MCP tool is the user's explicit integration choice.
+    # Keep DuckDuckGo as the default fallback for users without MCP, but do
+    # not let it compete with a selected MCP tool such as weather lookup.
+    if not mcp_selected:
+        tools.append(build_duckduckgo_tool())
+
+    # Per-user MCP tools -- only present when main.py built a per-user
+    # graph (state["mcp_tools"]) because that specific user has
+    # authorized + selected some. The shared, always-on agent_graph
+    # never has this key, so this is a no-op for every user who hasn't
+    # touched MCP -- existing behavior is unaffected.
+    tools.extend(selected_mcp_tools)
 
     return tools

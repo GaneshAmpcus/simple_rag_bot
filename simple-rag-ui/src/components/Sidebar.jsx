@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext.jsx'
 import { listSessions, ApiError } from '../api/client'
 
@@ -17,6 +18,7 @@ function relativeTime(isoString) {
 
 export default function Sidebar({ activeSessionId, onSelectSession, onNewChat, version }) {
   const { token, user, logout } = useAuth()
+  const navigate = useNavigate()
   const [sessions, setSessions] = useState([])
   const [loadState, setLoadState] = useState('loading') // loading | ready | error
 
@@ -91,6 +93,13 @@ export default function Sidebar({ activeSessionId, onSelectSession, onNewChat, v
       </div>
 
       <div className="border-t border-line p-3">
+        <button
+          onClick={() => navigate('/mcp/tools')}
+          className="mb-3 flex w-full items-center justify-between rounded-sm border border-line bg-paper px-3 py-2 text-left text-xs font-medium text-ink transition hover:border-accent hover:text-accent"
+        >
+          <span>MCP integration</span>
+          <span aria-hidden="true">→</span>
+        </button>
         <div className="flex items-center justify-between gap-2">
           <div className="min-w-0">
             <p className="truncate text-sm font-medium text-ink">{user?.email}</p>

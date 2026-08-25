@@ -17,7 +17,7 @@ from prompts import (
     build_chat_system_prompt,
     build_agent_system_prompt,
 )
-from guardrails_layer import check_input_sync, scan_tool_output_sync, mask_pii
+from guardrails_layer import check_input, scan_tool_output, mask_pii
 from memory_layer import memory
 from config.logging_config import get_logger
 
@@ -40,12 +40,12 @@ def build_pre_rails_node():
     graph -- everything downstream only ever sees traffic that passed
     this gate."""
 
-    def pre_rails_node(state: dict) -> dict:
+    async def pre_rails_node(state: dict) -> dict:
         user_text = _last_human_text(state["messages"])
         if not user_text:
             return {"blocked": False}
 
-        allowed, refusal = check_input_sync(user_text)
+        allowed, refusal = await check_input(user_text)
         if not allowed:
             log.info("pre_rails_node: blocked user_text=%r", user_text)
             return {"blocked": True, "messages": [AIMessage(content=refusal)]}
@@ -307,7 +307,7 @@ def build_tool_scan_node():
     as <untrusted_data> in tools_registry.py -- this is a second,
     content-aware layer on top of that static wrapper."""
 
-    def tool_scan_node(state: dict) -> dict:
+    async def tool_scan_node(state: dict) -> dict:
         messages = state["messages"]
 
         trailing_tool_msgs = []
@@ -323,7 +323,7 @@ def build_tool_scan_node():
 
         updated = []
         for m in trailing_tool_msgs:
-            safe_content = scan_tool_output_sync(m.content, source_label=m.name or "tool")
+            safe_content = await scan_tool_output(m.content, source_label=m.name or "tool")
             if safe_content != m.content:
                 new_msg = ToolMessage(
                     content=safe_content, tool_call_id=m.tool_call_id, name=m.name

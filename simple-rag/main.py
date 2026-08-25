@@ -3,12 +3,9 @@ FastAPI backend for the LangChain-based RAG pipeline.
 
 Run with:
     uvicorn main:app --reload
-
-Then try (ingest is now a real file upload, e.g. via curl):
-    curl -F "files=@report.pdf" -F "files=@notes.docx" http://localhost:8000/ingest
-    POST /query   {"question": "what is ...?", "top_k": 3}
 """
 
+import asyncio
 import shutil
 import tempfile
 from pathlib import Path
@@ -26,53 +23,150 @@ from config.logging_config import get_logger
 from config.database import Base, engine, get_db
 from routers import auth as auth_router
 from routers import sessions as sessions_router
-from routers.sessions import _get_owned_session  # reusing the ownership-check helper
+from routers import mcp as mcp_router
+from routers import gmail as gmail_router
+from routers.sessions import _get_owned_session
 from security import get_current_user
 from models import User, ChatSession, Message
 from schemas import ChatRequest, ChatResponse, QueryRequest
+import mcp_tools
+import gmail_oauth
+from tools.gmail_tool import GMAIL_TOOL_NAMES, build_gmail_tools
 from fastapi.middleware.cors import CORSMiddleware
+
 log = get_logger(__name__)
 
 
 load_dotenv()
 
-# Create auth/session tables if they don't exist yet.
-# (For anything beyond local dev, prefer Alembic migrations over this.)
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="Simple RAG API (LangChain)")
 
-# CORS configuration
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Allow requests from any origin
-    allow_credentials=False,
-    allow_methods=["*"],  # Allow GET, POST, PUT, DELETE, OPTIONS, etc.
-    allow_headers=["*"],  # Allow all request headers
+    allow_origins=[
+        "http://localhost:5173",
+        "http://127.0.0.1:5173",
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
-
 
 app.include_router(auth_router.router)
 app.include_router(sessions_router.router)
+app.include_router(mcp_router.router)
+app.include_router(gmail_router.router)
 
-# Module-level dict instead of a class instance -- built once at import time.
 state = build_pipeline_state()
 
-agent_graph = build_graph(state)  # same state as /ingest and /query
+agent_graph = build_graph(state)  # the default graph every user gets unless
+# they've authorized/selected MCP tools or connected Gmail. Never mutated
+# by the per-user code path below.
 
-# How many prior user/assistant exchanges to feed back in as context.
-# Tune based on your model's context window and latency/cost budget --
-# this is exchanges (user+assistant pairs), not raw message count.
 HISTORY_TURN_LIMIT = 5
 
-# Maps DB-stored role strings to the LangChain message classes the graph
-# expects. "system" is included for completeness (e.g. if a session was
-# ever seeded with a system row) even though nothing currently writes one.
 _ROLE_TO_MESSAGE_CLASS = {
     "user": HumanMessage,
     "assistant": AIMessage,
     "system": SystemMessage,
 }
+
+# Per-user graphs, only for users with MCP tools selected and/or Gmail
+# connected. Keyed by user_id -> (selection_key, compiled_graph), where
+# selection_key changes whenever their MCP selection or Gmail
+# connection status changes, so a request cheaply detects "nothing
+# changed, reuse the cached graph" without re-fetching anything.
+# In-memory, single-process only -- won't share across multiple
+# uvicorn/gunicorn workers; needs a shared cache before scaling out.
+_user_agent_graphs: dict[str, tuple[tuple, object]] = {}
+
+
+async def _get_graph_for_user(user_id: str):
+    """Builds (or reuses a cached) per-user agent graph.
+
+    Gmail tools (list_gmail_messages / get_gmail_message /
+    send_gmail_message) are selected the same way as any other MCP
+    tool -- via /mcp/tools/select, and they show up in /mcp/tools
+    because they're just regular tools on the MCP server. What's
+    special about them is auth: they need a fresh per-user Google
+    token attached on every call (tools/gmail_tool.py), so a user with
+    any gmail_* tool selected always gets a freshly-built graph below
+    instead of reusing _user_agent_graphs -- avoids ever calling Gmail
+    with a token that went stale while the graph sat cached across
+    chat turns. Costs a rebuild per chat message for those users;
+    fine at this app's scale, revisit if that becomes a bottleneck.
+    """
+    selected_mcp_names = await mcp_tools.get_selected_tool_names(user_id)
+    if not selected_mcp_names:
+        return agent_graph
+
+    selected_names = set(selected_mcp_names)
+    selected_gmail_names = GMAIL_TOOL_NAMES & selected_names
+    selected_other_names = selected_names - GMAIL_TOOL_NAMES
+
+    gmail_connected = False
+    if selected_gmail_names:
+        gmail_connected = await asyncio.to_thread(gmail_oauth.has_valid_connection, user_id)
+
+    skip_cache = bool(selected_gmail_names)
+
+    key = (frozenset(selected_mcp_names), gmail_connected)
+    if not skip_cache:
+        cached = _user_agent_graphs.get(user_id)
+        if cached and cached[0] == key:
+            return cached[1]
+
+    extra_tools = []
+
+    if selected_other_names:
+        try:
+            extra_tools.extend(
+                await mcp_tools.get_selected_tools(user_id, exclude_names=GMAIL_TOOL_NAMES)
+            )
+        except mcp_tools.ReauthorizationRequired:
+            log.warning(
+                "chat_route: MCP authorization expired for user_id=%s, continuing without tools",
+                user_id,
+            )
+        except Exception:
+            log.exception(
+                "chat_route: MCP tool fetch raised for user_id=%s, continuing without them",
+                user_id,
+            )
+
+    if selected_gmail_names:
+        if not gmail_connected:
+            log.info(
+                "chat_route: user_id=%s selected gmail tool(s) %s but Gmail isn't connected -- "
+                "skipping, tools will still no-op gracefully if called anyway",
+                user_id, selected_gmail_names,
+            )
+        try:
+            extra_tools.extend(await build_gmail_tools(user_id, selected_gmail_names))
+        except Exception:
+            log.exception(
+                "chat_route: Gmail tool build raised for user_id=%s, continuing without them",
+                user_id,
+            )
+
+    if not extra_tools:
+        return agent_graph
+
+    user_state = dict(state)
+    # "mcp_tools" is a generic per-user extra-tools bucket now, not
+    # MCP-specific -- tools_registry.py just appends whatever's here
+    # regardless of source (MCP-selected, Gmail, future additions).
+    user_state["mcp_tools"] = extra_tools
+    compiled = build_graph(user_state)
+    if not skip_cache:
+        _user_agent_graphs[user_id] = (key, compiled)
+    log.info(
+        "chat_route: built per-user graph for user_id=%s (mcp=%s, gmail=%s)",
+        user_id, bool(selected_other_names), bool(selected_gmail_names) and gmail_connected,
+    )
+    return compiled
 
 
 @app.post("/ingest")
@@ -80,8 +174,6 @@ async def ingest_route(
     files: list[UploadFile] = File(...),
     current_user: User = Depends(get_current_user),
 ):
-    # Uploaded files arrive as streams -- write each to a temp dir so the
-    # LangChain loaders (which expect a file path) can read them.
     tmp_dir = Path(tempfile.mkdtemp())
     tmp_paths = []
     for f in files:
@@ -91,10 +183,6 @@ async def ingest_route(
         tmp_paths.append(str(dest))
 
     try:
-        # ingest() now returns a dict ({"chunks_added", "graph"}), not
-        # just a chunk count -- graph_store.py's knowledge-graph
-        # ingestion runs on the same chunks right after the vector
-        # store add.
         result = ingest(state, tmp_paths)
     except ValueError as e:
         raise HTTPException(400, str(e))
@@ -113,10 +201,7 @@ async def ingest_route(
 def query_route(req: QueryRequest, current_user: User = Depends(get_current_user)):
     if count(state["store"]) == 0:
         raise HTTPException(400, "No documents ingested yet. Call /ingest first.")
-    try:
-        return query(state, req.question, req.top_k, req.kb_name)
-    except ValueError as e:
-        raise HTTPException(400, str(e))
+    return query(state, req.question, req.top_k)
 
 
 @app.get("/health")
@@ -125,16 +210,13 @@ def health():
 
 
 @app.post("/chat", response_model=ChatResponse)
-def chat_route(
+async def chat_route(
     req: ChatRequest,
     db: Session = Depends(get_db),
     current_user: User = Depends(get_current_user),
 ):
     log.info("chat_route: user=%s session_id=%r message=%r", current_user.id, req.session_id, req.message)
 
-    # Load or create the session, same ownership check routers/sessions.py
-    # already uses -- a session_id that doesn't belong to this user 404s
-    # rather than silently attaching to it.
     if req.session_id:
         session = _get_owned_session(req.session_id, db, current_user)
     else:
@@ -143,16 +225,11 @@ def chat_route(
         db.commit()
         db.refresh(session)
 
-    # Explicit order_by rather than relying on session.messages -- the
-    # relationship in models.py has no order_by, so its iteration order
-    # isn't guaranteed to be chronological. Query newest-first with a
-    # LIMIT (bounding the query itself, not just slicing after loading
-    # everything), then reverse back to chronological order.
     prior_rows = (
         db.query(Message)
         .filter(Message.session_id == session.id)
         .order_by(Message.created_at.desc())
-        .limit(HISTORY_TURN_LIMIT * 2)  # *2: each exchange is a user + assistant row
+        .limit(HISTORY_TURN_LIMIT * 2)
         .all()
     )
     prior_rows.reverse()
@@ -163,33 +240,20 @@ def chat_route(
     ]
     history.append(HumanMessage(content=req.message))
 
-    # graph.py/nodes.py need no changes for seeding history: pre_rails/
-    # intent both locate the newest turn via the last HumanMessage in
-    # the list. user_id IS new state, though -- memory_recall_node reads
-    # it to scope mem0's search to this user.
-    result = agent_graph.invoke({"messages": history, "user_id": current_user.id})
+    graph_to_use = await _get_graph_for_user(current_user.id)
+    result = graph_to_use.invoke({"messages": history, "user_id": current_user.id})
     answer = result["messages"][-1].content
 
-    # Step 5 backstop: pre_rails/persona-override already caught most
-    # attempts on the way in, but re-check the outgoing text in case
-    # anything (e.g. an LLM improvising past its system prompt) slipped
-    # through 1-4.
     answer = check_output_sync(answer)
 
     db.add(Message(session_id=session.id, role="user", content=req.message))
     db.add(Message(session_id=session.id, role="assistant", content=answer))
 
-    # First exchange in a fresh session: give it a real title instead of
-    # the "New Chat" default. Purely cosmetic, safe to skip if unwanted.
     if session.title == "New Chat" and not prior_rows:
         session.title = req.message[:60]
 
     db.commit()
 
-    # Long-term memory write -- only for turns that weren't blocked by
-    # pre_rails. A refused jailbreak attempt isn't a fact worth
-    # remembering about the user. add_turn() fails open internally, so
-    # a flaky mem0 call never breaks the response that's about to return.
     if not result.get("blocked"):
         add_turn(req.message, answer, current_user.id)
 

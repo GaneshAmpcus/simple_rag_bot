@@ -15,7 +15,7 @@ from sqlalchemy.orm import Session
 from rag import build_pipeline_state, ingest, query
 from vector_store import count
 from graph import build_graph
-from guardrails_layer import check_output_sync
+from guardrails_layer import check_output
 from memory_layer import add_turn
 from langchain_core.messages import HumanMessage, AIMessage, SystemMessage
 from config.logging_config import get_logger
@@ -241,10 +241,10 @@ async def chat_route(
     history.append(HumanMessage(content=req.message))
 
     graph_to_use = await _get_graph_for_user(current_user.id)
-    result = graph_to_use.invoke({"messages": history, "user_id": current_user.id})
+    result = await graph_to_use.ainvoke({"messages": history, "user_id": current_user.id})
     answer = result["messages"][-1].content
 
-    answer = check_output_sync(answer)
+    answer = await check_output(answer)
 
     db.add(Message(session_id=session.id, role="user", content=req.message))
     db.add(Message(session_id=session.id, role="assistant", content=answer))

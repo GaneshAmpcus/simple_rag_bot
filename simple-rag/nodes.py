@@ -111,7 +111,7 @@ def build_memory_recall_node():
             return {"user_memories": ""}
 
         try:
-            result = memory.search(query=user_text, user_id=user_id, limit=5)
+            result = memory.search(query=user_text, filters={"user_id": user_id}, limit=5)
             entries = result.get("results", []) if isinstance(result, dict) else result
             memories_str = "\n".join(f"- {e['memory']}" for e in entries)
         except Exception:

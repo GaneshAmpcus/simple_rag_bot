@@ -18,12 +18,13 @@ from prompts import (
     build_agent_system_prompt,
 )
 from guardrails_layer import check_input, scan_tool_output, mask_pii
-from memory_layer import memory
+from memory_layer import memory, memory_key
 from config.logging_config import get_logger
 
 log = get_logger(__name__)
 
 _JSON_RE = re.compile(r"\{.*\}", re.DOTALL)
+_KB_REQUEST_PREFIX_RE = re.compile(r"^\s*answer\s+from\s+(?:the\s+)?kb\s*[:\n-]*", re.IGNORECASE)
 
 
 def _last_human_text(messages) -> str:
@@ -102,23 +103,35 @@ def build_memory_recall_node():
     """Reads relevant long-term facts about this user from mem0 before
     intent/agent/chat run. Placed after pre_rails -- a blocked message
     never triggers a memory lookup. Needs state["user_id"], set by
-    main.py at invoke() time."""
+    main.py at invoke() time.
+
+    README.md Phase 5: also reads state["bot_id"] (None for a bot-less
+    session, same as pre-Phase-5) and searches under that (user, bot)
+    pair's own isolated mem0 key (memory_layer.memory_key) instead of
+    the plain user_id -- so a bot only ever recalls memories written
+    under its own key, never another bot's or (unless it's the same
+    key) the pre-Phase-5 "no bot" bucket's."""
 
     def memory_recall_node(state: dict) -> dict:
         user_text = _last_human_text(state["messages"])
         user_id = state.get("user_id")
+        bot_id = state.get("bot_id")
         if not user_text or not user_id:
             return {"user_memories": ""}
 
+        key = memory_key(user_id, bot_id)
         try:
-            result = memory.search(query=user_text, filters={"user_id": user_id}, limit=5)
+            result = memory.search(query=user_text, filters={"user_id": key}, limit=5)
             entries = result.get("results", []) if isinstance(result, dict) else result
             memories_str = "\n".join(f"- {e['memory']}" for e in entries)
         except Exception:
             log.exception("memory_recall_node: mem0 search failed, continuing without memory")
             memories_str = ""
 
-        log.info("memory_recall_node: user_id=%s recalled_chars=%d", user_id, len(memories_str))
+        log.info(
+            "memory_recall_node: user_id=%s bot_id=%s recalled_chars=%d",
+            user_id, bot_id, len(memories_str),
+        )
         return {"user_memories": memories_str}
 
     return memory_recall_node
@@ -132,9 +145,19 @@ def build_intent_node():
 
     def intent_node(state: dict) -> dict:
         user_text = _last_human_text(state["messages"])
+        kb_request = bool(_KB_REQUEST_PREFIX_RE.match(user_text))
+        classification_text = _KB_REQUEST_PREFIX_RE.sub("", user_text, count=1).strip()
+
+        # An explicit KB request must not depend on a probabilistic intent
+        # classification, especially when the request includes a command
+        # prefix such as "answer from kb".
+        if kb_request:
+            log.info("intent_node: explicit KB request -> intent=tool_needed")
+            return {"intent": "tool_needed"}
+
         response = intent_llm.invoke([
             SystemMessage(content=INTENT_SYSTEM_PROMPT),
-            HumanMessage(content=INTENT_USER_TEMPLATE.format(message=user_text)),
+            HumanMessage(content=INTENT_USER_TEMPLATE.format(message=classification_text)),
         ])
 
         intent = "tool_needed"  # safe default
@@ -207,7 +230,12 @@ def build_agent_node(tools: list):
     def agent_node(state: dict) -> dict:
         messages = state["messages"]
         system_prompt = SystemMessage(
-            content=build_agent_system_prompt(tools, memories=state.get("user_memories", ""))
+            content=build_agent_system_prompt(
+                tools,
+                memories=state.get("user_memories", ""),
+                bot_instructions=state.get("bot_instructions", ""),
+                intent=state.get("intent", "tool_needed"),
+            )
         )
 
         if not messages or not isinstance(messages[0], SystemMessage):
@@ -353,7 +381,10 @@ def build_chat_node():
     def chat_node(state: dict) -> dict:
         messages = state["messages"]
         chat_system_prompt = SystemMessage(
-            content=build_chat_system_prompt(memories=state.get("user_memories", ""))
+            content=build_chat_system_prompt(
+                memories=state.get("user_memories", ""),
+                bot_instructions=state.get("bot_instructions", ""),
+            )
         )
         if not messages or not isinstance(messages[0], SystemMessage):
             messages = [chat_system_prompt] + messages

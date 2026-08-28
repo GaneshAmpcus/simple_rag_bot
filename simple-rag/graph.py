@@ -32,7 +32,9 @@ class GraphState(TypedDict):
     intent: Literal["tool_needed", "chat"]
     blocked: bool
     user_id: str
+    bot_id: str | None  # README.md Phase 5: scopes memory_recall_node's mem0 lookup
     user_memories: str
+    bot_instructions: str
 
 
 # def build_graph(state: dict):

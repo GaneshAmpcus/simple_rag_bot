@@ -97,26 +97,51 @@ _config = {
 memory = Memory.from_config(_config)
 
 
-def add_turn(user_message: str, assistant_message: str, user_id: str) -> None:
+def memory_key(user_id: str, bot_id: str | None = None) -> str:
+    """README.md Phase 5: mem0 has no schema to migrate (its `user_id`
+    filter is just an opaque string), so per-bot scoping is done by
+    composing that string instead of adding a column, mirroring
+    rag.py's bot_kb_name(). bot_id=None (the default) returns
+    `user_id` UNCHANGED -- this is the "no bot" fallback bucket, the
+    same pattern as McpConnection/GmailConnection/CalendarConnection's
+    bot_id=NULL rows: every memory written before Phase 5, and every
+    bot-less session's memory, lives under this exact key, untouched
+    by this change (README principle #5). bot_id="<id>" gets its own
+    isolated key, f"{user_id}:{bot_id}", so two different bots for the
+    same user never recall each other's memories -- README's Phase 5
+    product decision (per-bot scoping, confirmed 2026-08-28)."""
+    return f"{user_id}:{bot_id}" if bot_id else user_id
+
+
+def add_turn(
+    user_message: str, assistant_message: str, user_id: str, bot_id: str | None = None
+) -> None:
     """Write side: call once per non-blocked turn, after the final
     (guardrails-checked) answer. Failures are logged and swallowed --
-    losing a memory write should never fail the user's chat response."""
+    losing a memory write should never fail the user's chat response.
+
+    bot_id (README.md Phase 5): which bot's isolated memory bucket to
+    write into -- see memory_key(). None writes to the same "no bot"
+    bucket every turn used before Phase 5."""
+    key = memory_key(user_id, bot_id)
+    messages = [
+        {"role": "user", "content": user_message},
+        {"role": "assistant", "content": assistant_message},
+    ]
     try:
-        memory.add(
-            messages=[
-                {"role": "user", "content": user_message},
-                {"role": "assistant", "content": assistant_message},
-            ],
-            user_id=user_id,
-        )
-       
+        memory.add(messages=messages, user_id=key)
+
     except Exception as e:
         cause = e.__cause__
         if isinstance(cause, APIStatusError) and cause.status_code == 413:
             log.warning("mem0 add: token limit hit, storing without inference")
             try:
-                memory.add(messages=[...], user_id=user_id, infer=False)
+                # NOTE: previously called with a placeholder `messages=[...]`
+                # (a literal Ellipsis-in-a-list, not real content) -- fixed
+                # to reuse the same turn's messages while dropping fact
+                # inference, matching what the comment always intended.
+                memory.add(messages=messages, user_id=key, infer=False)
             except Exception:
-                log.exception("mem0 fallback add also failed for user_id=%s", user_id)
+                log.exception("mem0 fallback add also failed for user_id=%s bot_id=%s", user_id, bot_id)
         else:
-            log.exception("memory_layer.add_turn: mem0 add failed for user_id=%s", user_id)
+            log.exception("memory_layer.add_turn: mem0 add failed for user_id=%s bot_id=%s", user_id, bot_id)

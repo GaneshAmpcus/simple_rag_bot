@@ -6,6 +6,9 @@ import Workspace from './components/Workspace.jsx'
 import McpTools from './components/McpTools.jsx'
 import McpConnected from './components/McpConnected.jsx'
 import GmailConnected from './components/GmailConnected.jsx'
+import CalendarConnected from './components/CalendarConnected.jsx'
+import BotsPage from './components/BotsPage.jsx'
+import BotEditor from './components/BotEditor.jsx'
 
 function FullScreenNotice({ children }) {
   return (
@@ -65,6 +68,14 @@ export default function App() {
         }
       />
       <Route
+        path="/bots/:botId/mcp/tools"
+        element={
+          <RequireAuth>
+            <McpTools />
+          </RequireAuth>
+        }
+      />
+      <Route
         path="/mcp/connected"
         element={
           <RequireAuth>
@@ -77,6 +88,30 @@ export default function App() {
         element={
           <RequireAuth>
             <GmailConnected />
+          </RequireAuth>
+        }
+      />
+      <Route
+        path="/calendar/connected"
+        element={
+          <RequireAuth>
+            <CalendarConnected />
+          </RequireAuth>
+        }
+      />
+      <Route
+        path="/bots"
+        element={
+          <RequireAuth>
+            <BotsPage />
+          </RequireAuth>
+        }
+      />
+      <Route
+        path="/bots/:botId"
+        element={
+          <RequireAuth>
+            <BotEditor />
           </RequireAuth>
         }
       />

@@ -9,7 +9,7 @@ function isAccepted(file) {
   return ACCEPTED_EXT.some((ext) => name.endsWith(ext))
 }
 
-export default function KBPanel() {
+export default function KBPanel({ botId, embedded = false }) {
   const { token } = useAuth()
   const inputRef = useRef(null)
   const [isDragging, setIsDragging] = useState(false)
@@ -29,7 +29,7 @@ export default function KBPanel() {
         setUploads((prev) => [{ id, name: file.name, status: 'uploading' }, ...prev])
 
         try {
-          await ingestDocument(token, file)
+          await ingestDocument(token, file, botId)
           setUploads((prev) =>
             prev.map((u) => (u.id === id ? { ...u, status: 'done' } : u)),
           )
@@ -53,7 +53,7 @@ export default function KBPanel() {
         ])
       }
     },
-    [token],
+    [token, botId],
   )
 
   function handleDrop(e) {
@@ -67,16 +67,20 @@ export default function KBPanel() {
     e.target.value = ''
   }
 
-  return (
-    <aside className="flex w-80 shrink-0 flex-col border-l border-line bg-surface">
-      <div className="border-b border-line px-4 py-4">
-        <h2 className="font-display text-sm font-semibold text-ink">Knowledge base</h2>
-        <p className="mt-0.5 text-xs text-muted">
-          Documents added here are available to every thread.
-        </p>
-      </div>
+  const body = (
+    <>
+      {!embedded && (
+        <div className="border-b border-line px-4 py-4">
+          <h2 className="font-display text-sm font-semibold text-ink">Knowledge base</h2>
+          <p className="mt-0.5 text-xs text-muted">
+            {botId
+              ? "Documents added here are only available to this bot's chats."
+              : 'Documents added here are available to every thread using the default assistant.'}
+          </p>
+        </div>
+      )}
 
-      <div className="px-4 py-4">
+      <div className={embedded ? '' : 'px-4 py-4'}>
         <div
           onDragOver={(e) => {
             e.preventDefault()
@@ -104,7 +108,7 @@ export default function KBPanel() {
       </div>
 
       {uploads.length > 0 && (
-        <div className="flex-1 overflow-y-auto border-t border-line px-4 py-3">
+        <div className={embedded ? 'mt-4' : 'flex-1 overflow-y-auto border-t border-line px-4 py-3'}>
           <p className="mb-2 text-xs font-medium uppercase tracking-wide text-muted">
             This session's uploads
           </p>
@@ -137,7 +141,7 @@ export default function KBPanel() {
         </div>
       )}
 
-      <div className="mt-auto border-t border-line px-4 py-4">
+      <div className={embedded ? 'mt-4' : 'mt-auto border-t border-line px-4 py-4'}>
         <div className="rounded-md border border-line bg-paper px-3 py-3">
           <p className="text-xs font-medium text-ink">Manage documents</p>
           <p className="mt-1 text-xs text-muted">
@@ -147,6 +151,12 @@ export default function KBPanel() {
           </p>
         </div>
       </div>
-    </aside>
+    </>
+  )
+
+  if (embedded) return <div className="flex flex-col">{body}</div>
+
+  return (
+    <aside className="flex w-80 shrink-0 flex-col border-l border-line bg-surface">{body}</aside>
   )
 }

@@ -39,12 +39,14 @@ class TokenData(BaseModel):
 
 class SessionCreate(BaseModel):
     title: str | None = "New Chat"
+    bot_id: str | None = None
 
 
 class SessionOut(BaseModel):
     model_config = ConfigDict(from_attributes=True)
     id: str
     title: str
+    bot_id: str | None = None
     created_at: datetime
 
 
@@ -73,8 +75,33 @@ class QueryRequest(BaseModel):
 class ChatRequest(BaseModel):
     session_id: str | None = None  # omit to start a new session
     message: str
+    bot_id: str | None = None  # only used when starting a new session
 
 
 class ChatResponse(BaseModel):
     session_id: str
     answer: str
+
+
+# ---- Bots ----
+
+class BotCreate(BaseModel):
+    name: str
+    description: str | None = None
+    system_prompt: str | None = None
+
+
+class BotUpdate(BaseModel):
+    name: str | None = None
+    description: str | None = None
+    system_prompt: str | None = None
+
+
+class BotOut(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+    id: str
+    name: str
+    description: str | None = None
+    system_prompt: str | None = None
+    created_at: datetime
+    updated_at: datetime

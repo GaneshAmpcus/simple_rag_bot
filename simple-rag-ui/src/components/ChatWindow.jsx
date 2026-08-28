@@ -12,7 +12,7 @@ function normalizeMessage(raw, fallbackId) {
   }
 }
 
-export default function ChatWindow({ sessionId, onSessionCreated }) {
+export default function ChatWindow({ sessionId, botId, onSessionCreated }) {
   const { token } = useAuth()
   const [messages, setMessages] = useState([])
   const [historyState, setHistoryState] = useState(sessionId ? 'loading' : 'ready')
@@ -62,7 +62,7 @@ export default function ChatWindow({ sessionId, onSessionCreated }) {
     setSending(true)
 
     try {
-      const res = await sendChatMessage(token, { sessionId, message: text })
+      const res = await sendChatMessage(token, { sessionId, message: text, botId })
       setMessages((prev) => [
         ...prev,
         { id: `local-${Date.now()}-a`, role: 'assistant', content: res.answer },

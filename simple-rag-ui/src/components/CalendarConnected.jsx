@@ -1,27 +1,26 @@
 import { Link, useSearchParams } from 'react-router-dom'
 
-export default function McpConnected() {
+export default function CalendarConnected() {
   const [searchParams] = useSearchParams()
   const success = searchParams.get('status') === 'success'
-  // README.md Phase 3: the backend includes bot_id in this redirect
-  // when the authorization that just completed was for a specific
-  // bot (see routers/mcp.py's /callback/{flow_id}), so "Choose tools"
-  // can send the user back to that bot's own integrations page
-  // instead of the generic/user-level one.
+  // README.md Phase 4: bot_id is included in this redirect when the
+  // Calendar authorization that just completed was for a specific bot
+  // (see routers/calendar.py's /callback), so "Choose tools" routes
+  // back to that bot's own integrations page instead of the generic one.
   const botId = searchParams.get('bot_id')
   const toolsPath = botId ? `/bots/${botId}/mcp/tools` : '/mcp/tools'
 
   return (
     <main className="flex min-h-screen items-center justify-center bg-paper px-5 py-8 text-ink">
       <section className="w-full max-w-md rounded-md border border-line bg-surface p-6 text-center">
-        <p className="font-mono text-xs uppercase tracking-wider text-accent">MCP connection</p>
+        <p className="font-mono text-xs uppercase tracking-wider text-accent">Calendar connection</p>
         <h1 className="mt-3 font-display text-xl font-semibold">
-          {success ? 'MCP connected' : 'MCP connection failed'}
+          {success ? 'Calendar connected' : 'Calendar connection failed'}
         </h1>
         <p className="mt-2 text-sm leading-6 text-muted">
           {success
-            ? 'The MCP server is connected. Choose the tools you want to use in chat.'
-            : 'The authorization did not complete. You can return to the app and try again.'}
+            ? 'Your Google Calendar account is connected. Select the Calendar and Meet tools you want to use in chat.'
+            : 'The Calendar authorization did not complete. You can return to the app and try again.'}
         </p>
         <div className="mt-6 flex justify-center gap-3">
           <Link to="/" className="rounded-md border border-line px-4 py-2.5 text-sm font-medium text-ink transition hover:border-accent hover:text-accent">

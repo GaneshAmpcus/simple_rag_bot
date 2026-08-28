@@ -2,7 +2,7 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 
 from config.database import get_db
-from models import User, ChatSession, Message
+from models import User, ChatSession, Message, Bot
 from schemas import SessionCreate, SessionOut, MessageCreate, MessageOut
 from security import get_current_user
 
@@ -15,7 +15,17 @@ def create_session(
     db: Session = Depends(get_db),
     current_user: User = Depends(get_current_user),
 ):
-    session = ChatSession(user_id=current_user.id, title=payload.title)
+    bot_id = payload.bot_id
+    if bot_id is not None:
+        owned = (
+            db.query(Bot)
+            .filter(Bot.id == bot_id, Bot.user_id == current_user.id)
+            .first()
+        )
+        if not owned:
+            raise HTTPException(status_code=404, detail="Bot not found")
+
+    session = ChatSession(user_id=current_user.id, title=payload.title, bot_id=bot_id)
     db.add(session)
     db.commit()
     db.refresh(session)

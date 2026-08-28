@@ -30,24 +30,35 @@ def _kb_index_path(kb_name: str) -> Path:
     return INDEX_PATH / kb_name
 
 
-def _discover_stores(embedder) -> dict:
-    stores = {}
-    stores["knowledge_base"] = load_or_create_store(embedder, index_path=INDEX_PATH)
-    if INDEX_PATH.exists():
-        for child in sorted(INDEX_PATH.iterdir()):
-            if not child.is_dir():
-                continue
-            kb_name = child.name
-            if kb_name == "knowledge_base":
-                continue
-            store = load_or_create_store(embedder, index_path=child)
-            if store is not None:
-                stores[kb_name] = store
-    return stores
+def bot_kb_name(bot_id: str) -> str:
+    """The kb_name a given bot's knowledge base is stored/looked up
+    under. Phase 2 of README.md's multi-bot plan: no separate KB table
+    -- a bot's id IS its KB's key, one KB per bot for now (see the
+    README's open-questions section for the 'multiple KBs per bot'
+    deferral)."""
+    return f"bot_{bot_id}"
 
 
 def _get_kb_store(state: dict, kb_name: str) -> object | None:
-    return state["stores"].get(kb_name)
+    """Lazily loads a KB's store into state["stores"] on first use if
+    it isn't already resident, instead of requiring every KB to be
+    discovered/loaded eagerly at process startup. This is what makes
+    per-bot KBs (Phase 2) safe to grow without bound -- a process only
+    ever loads the bots it's actually asked to serve, not every bot
+    that's ever been created. Returns None if no index exists on disk
+    yet for this kb_name (a brand-new, never-ingested-into bot/KB)."""
+    if kb_name not in state["stores"]:
+        state["stores"][kb_name] = load_or_create_store(
+            state["embedder"], index_path=_kb_index_path(kb_name)
+        )
+    return state["stores"][kb_name]
+
+
+def get_kb_store(state: dict, kb_name: str) -> object | None:
+    """Public accessor for _get_kb_store -- used by main.py to resolve
+    a bot's own store (via bot_kb_name()) when building that bot's
+    agent graph."""
+    return _get_kb_store(state, kb_name)
 
 
 def chunk_documents(documents: list) -> list:
@@ -59,20 +70,27 @@ def chunk_documents(documents: list) -> list:
 def build_pipeline_state() -> dict:
     """Create the shared state dict used by ingest()/query().
 
+    Only the single global default KB ("knowledge_base") is loaded
+    eagerly here -- everything else (per-bot KBs, Phase 2 of
+    README.md's multi-bot plan) loads lazily on first use via
+    _get_kb_store()/get_kb_store(), so this stays cheap regardless of
+    how many bots/KBs exist. Previously this eagerly scanned and loaded
+    every subdirectory under data/index/ at startup, which doesn't
+    scale once KBs are created per-bot rather than by hand.
+
     "graph"/"graph_transformer" are None when NEO4J_* env vars aren't
     set -- ingest() checks for that and skips graph ingestion, so this
     stays a no-op addition until Neo4j is actually configured.
     """
     embedder = get_embedder()
     llm = get_llm(model='openai/gpt-oss-120b')
-    stores = _discover_stores(embedder)
     default_kb = "knowledge_base"
-    if default_kb not in stores and stores:
-        default_kb = next(iter(stores))
+    default_store = load_or_create_store(embedder, index_path=INDEX_PATH)
+    stores = {default_kb: default_store}
     return {
         "embedder": embedder,
         "llm": llm,
-        "store": stores.get(default_kb),
+        "store": default_store,
         "stores": stores,
         "default_kb": default_kb,
         "graph": get_neo4j_graph(),

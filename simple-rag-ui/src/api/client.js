@@ -72,8 +72,11 @@ export function listSessions(token) {
   return request('/sessions', { token })
 }
 
-export function createSession(token, title) {
-  return request('/sessions', { method: 'POST', token, body: title ? { title } : {} })
+export function createSession(token, { title, botId } = {}) {
+  const body = {}
+  if (title) body.title = title
+  if (botId) body.bot_id = botId
+  return request('/sessions', { method: 'POST', token, body })
 }
 
 export function getSessionMessages(token, sessionId) {
@@ -81,36 +84,100 @@ export function getSessionMessages(token, sessionId) {
 }
 
 // ---- Chat ----
-export function sendChatMessage(token, { sessionId, message }) {
+export function sendChatMessage(token, { sessionId, message, botId }) {
+  const body = { session_id: sessionId, message }
+  if (!sessionId && botId) body.bot_id = botId
   return request('/chat', {
     method: 'POST',
     token,
-    body: { session_id: sessionId, message },
+    body,
   })
 }
 
 // ---- Knowledge base ----
-export function ingestDocument(token, file) {
+export function ingestDocument(token, file, botId) {
   const form = new FormData()
   form.append('files', file)
+  if (botId) form.append('bot_id', botId)
   return request('/ingest', { method: 'POST', token, body: form, isForm: true })
 }
 
-// ---- MCP ----
-export function authorizeMcp(token) {
-  return request('/mcp/authorize', { method: 'POST', token })
+// ---- Bots ----
+export function listBots(token) {
+  return request('/bots', { token })
 }
 
-export function getMcpStatus(token) {
-  return request('/mcp/status', { token })
+export function createBot(token, { name, description, systemPrompt }) {
+  return request('/bots', {
+    method: 'POST',
+    token,
+    body: { name, description: description || null, system_prompt: systemPrompt || null },
+  })
 }
 
-export function getMcpTools(token) {
-  return request('/mcp/tools', { token })
+export function getBot(token, botId) {
+  return request(`/bots/${botId}`, { token })
 }
 
-export function selectMcpTools(token, toolNames) {
-  return request('/mcp/tools/select', {
+export function updateBot(token, botId, { name, description, systemPrompt } = {}) {
+  const body = {}
+  if (name !== undefined) body.name = name
+  if (description !== undefined) body.description = description
+  if (systemPrompt !== undefined) body.system_prompt = systemPrompt
+  return request(`/bots/${botId}`, { method: 'PATCH', token, body })
+}
+
+export function deleteBot(token, botId) {
+  return request(`/bots/${botId}`, { method: 'DELETE', token })
+}
+
+// ---- MCP (generic multi-server) ----
+// The server catalog (add/remove/list) is always user-scoped -- a
+// server a user adds is shared across all their bots, see
+// mcp_tools.py's module docstring. Only the CONNECTION (authorize/
+// status/tools/select) is bot-scoped, per README.md Phase 3: pass an
+// optional botId to route to that bot's own connection instead of the
+// user-level ("no bot") one. Omitting botId (or passing null/undefined)
+// keeps hitting the original /mcp/... routes, unchanged.
+export function listMcpServers(token, botId) {
+  return request(botId ? `/bots/${botId}/mcp/servers` : '/mcp/servers', { token })
+}
+
+export function addMcpServer(token, { name, url }) {
+  // Adding a server is never bot-scoped -- see module docstring above.
+  return request('/mcp/servers', { method: 'POST', token, body: { name, url } })
+}
+
+export function removeMcpServer(token, serverId) {
+  return request(`/mcp/servers/${serverId}`, { method: 'DELETE', token })
+}
+
+export function authorizeMcpServer(token, serverId, botId) {
+  const path = botId
+    ? `/bots/${botId}/mcp/servers/${serverId}/authorize`
+    : `/mcp/servers/${serverId}/authorize`
+  return request(path, { method: 'POST', token })
+}
+
+export function getMcpServerStatus(token, serverId, botId) {
+  const path = botId
+    ? `/bots/${botId}/mcp/servers/${serverId}/status`
+    : `/mcp/servers/${serverId}/status`
+  return request(path, { token })
+}
+
+export function getMcpServerTools(token, serverId, botId) {
+  const path = botId
+    ? `/bots/${botId}/mcp/servers/${serverId}/tools`
+    : `/mcp/servers/${serverId}/tools`
+  return request(path, { token })
+}
+
+export function selectMcpServerTools(token, serverId, toolNames, botId) {
+  const path = botId
+    ? `/bots/${botId}/mcp/servers/${serverId}/tools/select`
+    : `/mcp/servers/${serverId}/tools/select`
+  return request(path, {
     method: 'POST',
     token,
     body: { tool_names: toolNames },
@@ -118,12 +185,28 @@ export function selectMcpTools(token, toolNames) {
 }
 
 // ---- Gmail ----
-export function authorizeGmail(token) {
-  return request('/gmail/authorize', { method: 'POST', token })
+// README.md Phase 4: same botId-optional pattern as MCP above -- omit
+// botId for the user-level ("no bot") connection, pass it for a
+// specific bot's own independent Gmail connection.
+export function authorizeGmail(token, botId) {
+  const path = botId ? `/bots/${botId}/gmail/authorize` : '/gmail/authorize'
+  return request(path, { method: 'POST', token })
 }
 
-export function getGmailStatus(token) {
-  return request('/gmail/status', { token })
+export function getGmailStatus(token, botId) {
+  const path = botId ? `/bots/${botId}/gmail/status` : '/gmail/status'
+  return request(path, { token })
+}
+
+// ---- Calendar / Meet ----
+export function authorizeCalendar(token, botId) {
+  const path = botId ? `/bots/${botId}/calendar/authorize` : '/calendar/authorize'
+  return request(path, { method: 'POST', token })
+}
+
+export function getCalendarStatus(token, botId) {
+  const path = botId ? `/bots/${botId}/calendar/status` : '/calendar/status'
+  return request(path, { token })
 }
 
 export { ApiError }

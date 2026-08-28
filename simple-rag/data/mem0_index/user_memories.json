@@ -1377,6 +1377,204 @@
       "created_at": "2026-08-12T15:38:06.914771+00:00",
       "updated_at": "2026-08-12T15:38:06.914771+00:00",
       "attributed_to": "assistant"
+    },
+    "4f3e02fb-1519-4081-9812-63aedf629a03": {
+      "user_id": "29215106-e416-423f-85ee-3635b745efd2:6bb7f840-7732-424b-8d3e-fa60b60603e7",
+      "role": "user",
+      "data": "My production application is completely down. What severity is this?",
+      "hash": "66b8be780ed92976f56e5986a3bd8032",
+      "created_at": "2026-08-28T09:33:19.888710+00:00",
+      "updated_at": "2026-08-28T09:33:19.888710+00:00",
+      "text_lemmatized": "production application completely severity"
+    },
+    "840b093b-eb6e-478b-9cb5-c3d19f4bd2bf": {
+      "user_id": "29215106-e416-423f-85ee-3635b745efd2:6bb7f840-7732-424b-8d3e-fa60b60603e7",
+      "role": "assistant",
+      "data": "**Severity:** **Critical**\n\nA production application that is completely down is considered a *Critical* issue because it impacts all users and business operations. If you need help diagnosing or restoring service, let me know and I can guide you through the next steps.",
+      "hash": "63abe4f2b345c47004d9fe8f37a68b98",
+      "created_at": "2026-08-28T09:33:20.292905+00:00",
+      "updated_at": "2026-08-28T09:33:20.292905+00:00",
+      "text_lemmatized": "severity critical production application completely consider critical issue impact user business operation need help diagnose diagnosing restore restoring service let know guide step"
+    },
+    "90a77008-20d8-4281-ba63-b2d9806da266": {
+      "user_id": "29215106-e416-423f-85ee-3635b745efd2:6bb7f840-7732-424b-8d3e-fa60b60603e7",
+      "role": "user",
+      "data": "What should I check for an HTTP 500 error?",
+      "hash": "394c114066347e0c187e7cdc88b52611",
+      "created_at": "2026-08-28T09:36:21.843652+00:00",
+      "updated_at": "2026-08-28T09:36:21.843652+00:00",
+      "text_lemmatized": "check http 500 error"
+    },
+    "140b3c57-4e61-451c-bc79-53d8bab66643": {
+      "user_id": "29215106-e416-423f-85ee-3635b745efd2:6bb7f840-7732-424b-8d3e-fa60b60603e7",
+      "role": "assistant",
+      "data": "**Problem summary**  \nYour application is returning HTTP\u202f500 (Internal Server Error) responses.\n\n**Likely causes** (common ones to check first)  \n1. Unhandled exception or runtime error in the application code.  \n2. Misconfiguration of the web server or application framework (e.g., bad connection string, missing environment variables).  \n3. Dependency failure \u2013 database, external API, or service that the app calls is unavailable or returning errors.  \n4. Resource exhaustion \u2013 out\u2011of\u2011memory, disk space, or thread pool limits.  \n\n**Severity**  \nUsually **Medium** (affects users but the service is still reachable). If the 500 error is affecting all traffic in production, you may want to treat it as **High**.\n\n**Recommended next steps**\n\n1. **Check recent logs**  \n   - Look at the application/server error logs (e.g., `error.log`, `stacktrace`, or cloud\u2011provider logs) for the timestamp of the first 500 response.  \n   - Identify any exception messages or stack traces.\n\n2. **Verify recent deployments or config changes**  \n   - Did you push new code, update environment variables, or change connection strings? Roll back or revert the change if possible.\n\n3. **Test dependencies**  \n   - Ping the database, cache, or external APIs the app uses.  \n   - Ensure they are reachable and not returning errors.\n\n4. **Inspect resource usage**  \n   - Check CPU, memory, and disk usage on the host.  \n   - Look for out\u2011of\u2011memory kills or disk\u2011full conditions.\n\n5. **Enable detailed error output (temporarily)**  \n   - If safe, turn on verbose error pages or debugging mode to see the exact exception.  \n   - Remember to disable it after troubleshooting to avoid exposing details.\n\n6. **Restart the service**  \n   - A quick restart can clear transient states (e.g., stuck threads, corrupted caches).  \n   - Monitor logs after restart to see if the error persists.\n\n7. **If the error persists**  \n   - Capture a reproducible request (URL, headers, payload).  \n   - Provide the relevant log excerpt or stack trace so we can narrow down the root cause.\n\nLet me know which of these you\u2019ve already tried or if you need help digging into a specific log or dependency.",
+      "hash": "47bebf94c2c43d9c1e1ef384d30c6363",
+      "created_at": "2026-08-28T09:36:22.655146+00:00",
+      "updated_at": "2026-08-28T09:36:22.655146+00:00",
+      "text_lemmatized": "problem summary application return returning http 500 internal server error response likely cause common one check 1 unhandle exception runtime error application code 2 misconfiguration web server application framework bad connection string miss missing environment variable 3 dependency failure database external api service app call unavailable return returning error 4 resource exhaustion disk space thread pool limit severity usually medium affect user service reachable 500 error affect affecting traffic production want treat high recommend step 1 check recent log look application server error log stacktrace log timestamp 500 response identify exception message stack trace 2 verify recent deployment config change push new code update environment variable change connection string roll revert change possible 3 test dependency pe ping database cache external apis app use ensure reachable return returning error 4 inspect resource usage check cpu memory disk usage host look kill condition 5 enable detailed error output temporarily safe turn verbose error page debug debugging mode exact exception remember disable troubleshoot troubleshooting avoid expose exposing detail 6 restart service quick restart clear transient state stuck thread corrupted cache monitor log restart error persist 7 error persist capture reproducible request url header payload provide relevant log excerpt stack trace narrow root cause let know try need help dig digging specific log dependency"
+    },
+    "a67faf87-7ce6-4246-9055-0e9033c652cb": {
+      "user_id": "29215106-e416-423f-85ee-3635b745efd2:6bb7f840-7732-424b-8d3e-fa60b60603e7",
+      "role": "user",
+      "data": "How should I troubleshoot stale data?",
+      "hash": "e95bb88e34de4d88fb251a64052eb2b3",
+      "created_at": "2026-08-28T09:36:34.840848+00:00",
+      "updated_at": "2026-08-28T09:36:34.840848+00:00",
+      "text_lemmatized": "troubleshoot stale datum"
+    },
+    "d9f4e900-e554-420b-84c1-e171fc803a1e": {
+      "user_id": "29215106-e416-423f-85ee-3635b745efd2:6bb7f840-7732-424b-8d3e-fa60b60603e7",
+      "role": "assistant",
+      "data": "**Problem summary**  \nYou\u2019re seeing stale (out\u2011of\u2011date) data being returned to users or downstream systems.\n\n**Likely causes** (common sources of stale data)  \n1. **Caching layer** \u2013 application\u2011level cache, CDN, reverse proxy, or in\u2011memory store not being invalidated.  \n2. **Database replication lag** \u2013 read replicas are behind the primary.  \n3. **Event\u2011driven pipelines** \u2013 message queues or stream processors are delayed or have failed jobs.  \n4. **Configuration drift** \u2013 environment variables or feature flags that control cache TTLs were changed.  \n5. **Data\u2011store write failures** \u2013 writes are succeeding on the client side but are rolled back or dropped.  \n\n**Severity**  \nUsually **Medium** (users receive outdated information but the service is still up). If the stale data affects critical business transactions (e.g., financial balances, inventory), treat it as **High**.\n\n**Recommended next steps**\n\n1. **Identify where the stale data originates**  \n   - Is it coming from an API response, a UI page, a report, etc.?  \n   - Note the exact request (URL, parameters, headers) and the expected vs. actual data.\n\n2. **Check caching layers**  \n   - **Application cache** (e.g., Redis, Memcached): verify TTL settings, eviction policies, and whether the key is being refreshed after updates.  \n   - **CDN / reverse proxy** (e.g., CloudFront, Varnish): look for `Cache\u2011Control`, `ETag`, or `Surrogate\u2011Key` headers that might be set too aggressively.  \n   - **Browser cache**: ensure `no\u2011cache` or appropriate `max\u2011age` directives are sent for dynamic content.\n\n3. **Inspect database replication**  \n   - Run `SHOW SLAVE STATUS` (MySQL) or check replica lag metrics (PostgreSQL, Aurora, etc.).  \n   - If lag > a few seconds/minutes, reads from replicas may be stale; consider routing critical reads to the primary or reducing the lag.\n\n4. **Review data\u2011pipeline health**  \n   - Check the status of message queues (Kafka, RabbitMQ) and stream processors (Flink, Spark).  \n   - Look for failed jobs, back\u2011pressure, or consumer offsets that haven\u2019t advanced.\n\n5. **Validate write paths**  \n   - Confirm that the write operation returns success and that the transaction is committed.  \n   - Examine application logs for errors or rollbacks around the time of the write.\n\n6. **Examine recent configuration changes**  \n   - Search deployment logs or config\u2011management history for changes to cache TTLs, feature flags, or routing rules.  \n   - If a change coincides with the onset of staleness, revert it temporarily to test.\n\n7. **Monitor metrics**  \n   - Enable or review existing metrics for cache hit/miss rates, replica lag, queue depth, and error rates.  \n   - Correlate spikes with the time you first noticed stale data.\n\n8. **Perform a controlled test**  \n   - Update a known record (e.g., change a field value).  \n   - Immediately request the data through each layer (bypass cache, read from primary, read from replica) to see where the update stops propagating.\n\n9. **If the issue persists**  \n   - Capture a reproducible example (request details, timestamps, relevant log excerpts).  \n   - Provide those details so we can narrow down the root cause or decide whether to escalate to engineering.\n\nLet me know which of these areas you\u2019ve already examined or if you need step\u2011by\u2011step help with a specific layer (e.g., Redis cache invalidation, replica lag diagnostics, etc.).",
+      "hash": "2fb3c480aed0615f4ccb984ca9f251f2",
+      "created_at": "2026-08-28T09:36:35.658112+00:00",
+      "updated_at": "2026-08-28T09:36:35.658112+00:00",
+      "text_lemmatized": "problem summary see seeing stale datum return user downstream system likely cause common source stale datum 1 cache caching layer cache cdn reverse proxy store invalidate 2 database replication lag read replica primary 3 pipeline message queue stream processor delay fail job 4 configuration drift environment variable feature flag control cache ttls change 5 write failure write succeed succeeding client roll drop severity usually medium user receive outdated information service stale data affect critical business transaction financial balance inventory treat high recommend step 1 identify stale data originate come coming api response ui page report etc note exact request url parameter header expect actual datum 2 check cache caching layer application cache redi memcache verify ttl setting eviction policy key refresh update cdn reverse proxy cloudfront varnish look etag header set aggressively browser cache ensure appropriate directive send dynamic content 3 inspect database replication run slave status mysql check replica lag metric postgresql aurora etc lag second minute read replica stale consider rout routing critical read primary reduce reducing lag 4 review health check status message queue kafka rabbitmq stream processor flink spark look fail job consumer offset advance 5 validate write path confirm write operation return success transaction commit examine application log error rollback time write 6 examine recent configuration change search deployment log history change cache ttls feature flag rout routing rule change coincide onset staleness revert temporarily test 7 monitor metric enable review exist existing metric cache hit miss rate replica lag queue depth error rate correlate spike time notice stale datum 8 perform control test update know record change field value immediately request datum layer bypass cache read primary read replica update stop propagate propagating 9 issue persist capture reproducible example request detail timestamp relevant log excerpt provide detail narrow root cause decide escalate engineering let know area examine need help specific layer redis cache invalidation replica lag diagnostic etc"
+    },
+    "2bf59b26-08e7-4292-a270-68c23e5a312d": {
+      "user_id": "29215106-e416-423f-85ee-3635b745efd2:6bb7f840-7732-424b-8d3e-fa60b60603e7",
+      "role": "user",
+      "data": "A user thinks their account was accessed by someone else. What should I do?",
+      "hash": "529d1cdc5a80779a0aac648f1d60da69",
+      "created_at": "2026-08-28T09:36:45.957455+00:00",
+      "updated_at": "2026-08-28T09:36:45.957455+00:00",
+      "text_lemmatized": "user think account access"
+    },
+    "f3ae5419-f470-4121-958d-9ee0319b8507": {
+      "user_id": "29215106-e416-423f-85ee-3635b745efd2:6bb7f840-7732-424b-8d3e-fa60b60603e7",
+      "role": "assistant",
+      "data": "**Problem summary**  \nA user suspects that their account was accessed by an unauthorized party.\n\n**Likely cause**  \n- Unauthorized login (e.g., credential compromise, phishing, or brute\u2011force attack).  \n- Account sharing or accidental credential disclosure.  \n- Insider misuse or a bug that exposes session data.\n\n**Severity**  \n- **High** if the account holds sensitive data, financial information, or privileged access.  \n- **Medium** if it\u2019s a standard user account with limited impact.\n\n**Recommended next steps**\n\n1. **Verify recent activity**  \n   - Check login logs for the user\u2019s account: timestamps, IP addresses, device types, and geolocations.  \n   - Look for logins from unfamiliar locations or devices.\n\n2. **Confirm the user\u2019s observations**  \n   - Ask the user to describe what made them suspect unauthorized access (e.g., unfamiliar emails, changes to profile, unexpected actions).  \n   - Request any screenshots or error messages.\n\n3. **Secure the account immediately**  \n   - Force a password reset for the user.  \n   - If your system supports it, require the user to re\u2011authenticate with multi\u2011factor authentication (MFA).  \n   - If MFA is already enabled, consider temporarily disabling the account until you can verify the user\u2019s identity.\n\n4. **Audit related permissions**  \n   - Review any recent changes to the user\u2019s roles or permissions.  \n   - Check for any new API keys, OAuth tokens, or third\u2011party integrations that were added recently.\n\n5. **Check for data exfiltration**  \n   - Look for unusual data downloads, exports, or API calls that could indicate data theft.  \n   - If your system logs outbound traffic, review for suspicious patterns.\n\n6. **Notify relevant teams**  \n   - If you have a security or incident response team, alert them with the findings.  \n   - Provide them with the login logs, IP addresses, and any other evidence.\n\n7. **Communicate with the user**  \n   - Inform the user that you\u2019re investigating and that you\u2019ve taken steps to secure the account.  \n   - Advise them to monitor their email and other accounts for suspicious activity.\n\n8. **Document the incident**  \n   - Record the user\u2019s report, the steps you took, and any findings.  \n   - If you\u2019re required to report the incident (e.g., GDPR, HIPAA), prepare the necessary documentation.\n\n**Follow\u2011up questions**\n\n- What platform or service is the account on (e.g., web app, SaaS, internal portal)?  \n- Do you have access to login or audit logs for that account?  \n- Has the user enabled MFA on their account?  \n- Are there any recent changes to the user\u2019s permissions or connected services?  \n\nLet me know the answers to these questions or if you need help pulling specific logs or configuring MFA.",
+      "hash": "8c9489c90df3303ec1747fefb8d2dac2",
+      "created_at": "2026-08-28T09:36:46.686469+00:00",
+      "updated_at": "2026-08-28T09:36:46.686469+00:00",
+      "text_lemmatized": "problem summary user suspect account access unauthorized party likely cause unauthorized login credential compromise phishing attack account sharing accidental credential disclosure insider misuse bug expose session datum severity high account hold sensitive datum financial information privileged access medium standard user account limited impact recommend step 1 verify recent activity check login log user account timestamp ip address device type geolocation look login unfamiliar location device 2 confirm user observation ask user describe suspect unauthorized access unfamiliar email change profile unexpected action request screenshot error message 3 secure account immediately force password reset user system support require user authentication mfa mfa enable consider temporarily disable disabling account verify user identity 4 audit relate permission review recent change user role permission check new api key oauth token integration add recently 5 check datum exfiltration look unusual datum download export api call indicate datum theft system log outbound traffic review suspicious pattern 6 notify relevant team security incident response team alert finding provide login log ip address evidence 7 communicate user inform user investigate investigating take step secure account advise monitor email account suspicious activity 8 document incident record user report step take finding require report incident gdpr hipaa prepare necessary documentation question platform service account web app saas internal portal access login audit log account user enable mfa account recent change user permission connected service let know answer question need help pull pulling specific log configure configuring mfa"
+    },
+    "42df3cac-e848-4ca2-afb9-ff3d232b694d": {
+      "user_id": "29215106-e416-423f-85ee-3635b745efd2",
+      "role": "user",
+      "data": "My production application is completely down. What severity is this?",
+      "hash": "66b8be780ed92976f56e5986a3bd8032",
+      "created_at": "2026-08-28T09:47:10.603697+00:00",
+      "updated_at": "2026-08-28T09:47:10.603697+00:00",
+      "text_lemmatized": "production application completely severity"
+    },
+    "39059d71-51b7-4922-b59d-853457ff6b08": {
+      "user_id": "29215106-e416-423f-85ee-3635b745efd2",
+      "role": "assistant",
+      "data": "That\u2019s a **Severity\u202f1** incident. A production application that\u2019s completely down is the highest priority.",
+      "hash": "985b1818a2cb748cfaff1c37ff3fdde1",
+      "created_at": "2026-08-28T09:47:10.838923+00:00",
+      "updated_at": "2026-08-28T09:47:10.838923+00:00",
+      "text_lemmatized": "severity 1 incident production application completely high priority"
+    },
+    "953a3d65-23db-4193-98ef-267c9c463c3d": {
+      "user_id": "29215106-e416-423f-85ee-3635b745efd2:6bb7f840-7732-424b-8d3e-fa60b60603e7",
+      "role": "user",
+      "data": "hello my name is ganesh and i work as google",
+      "hash": "0fb9800320e8fd552c83b3fad8e03348",
+      "created_at": "2026-08-28T09:47:58.436031+00:00",
+      "updated_at": "2026-08-28T09:47:58.436031+00:00",
+      "text_lemmatized": "hello ganesh work google"
+    },
+    "d0e6ba61-f479-4944-8298-80f0ed6f62e6": {
+      "user_id": "29215106-e416-423f-85ee-3635b745efd2:6bb7f840-7732-424b-8d3e-fa60b60603e7",
+      "role": "assistant",
+      "data": "Hello Ganesh! How can I assist you today?",
+      "hash": "945a5b54352a3705f3af2378ed6ea7cc",
+      "created_at": "2026-08-28T09:47:58.591820+00:00",
+      "updated_at": "2026-08-28T09:47:58.591820+00:00",
+      "text_lemmatized": "hello ganesh assist today"
+    },
+    "793100ac-9e8e-4b3e-8b97-8186c465394d": {
+      "user_id": "29215106-e416-423f-85ee-3635b745efd2:6bb7f840-7732-424b-8d3e-fa60b60603e7",
+      "role": "user",
+      "data": "My production application is completely down. What severity is this?",
+      "hash": "66b8be780ed92976f56e5986a3bd8032",
+      "created_at": "2026-08-28T09:48:09.501841+00:00",
+      "updated_at": "2026-08-28T09:48:09.501841+00:00",
+      "text_lemmatized": "production application completely severity"
+    },
+    "67f30212-b8c8-4840-98c5-619e158c5d10": {
+      "user_id": "29215106-e416-423f-85ee-3635b745efd2:6bb7f840-7732-424b-8d3e-fa60b60603e7",
+      "role": "assistant",
+      "data": "Your production application being completely down is a **Critical** issue. This means it impacts all users and business operations, and it should be treated as a top\u2011priority incident.",
+      "hash": "d517673026781798113fe5dc29bfe766",
+      "created_at": "2026-08-28T09:48:09.704200+00:00",
+      "updated_at": "2026-08-28T09:48:09.704200+00:00",
+      "text_lemmatized": "production application completely critical issue mean impact user business operation treat incident"
+    },
+    "464f71e4-9924-4121-8e47-719da5eb744c": {
+      "user_id": "29215106-e416-423f-85ee-3635b745efd2:6bb7f840-7732-424b-8d3e-fa60b60603e7",
+      "role": "user",
+      "data": "What should I check for an HTTP 500 error?",
+      "hash": "394c114066347e0c187e7cdc88b52611",
+      "created_at": "2026-08-28T09:48:30.835540+00:00",
+      "updated_at": "2026-08-28T09:48:30.835540+00:00",
+      "text_lemmatized": "check http 500 error"
+    },
+    "ab23dbb1-97c9-47ce-8eac-86710e1f2277": {
+      "user_id": "29215106-e416-423f-85ee-3635b745efd2:6bb7f840-7732-424b-8d3e-fa60b60603e7",
+      "role": "assistant",
+      "data": "**Problem summary**  \nYour application is returning HTTP\u202f500 (Internal Server Error) responses.\n\n**Likely causes** (common ones to check first)  \n1. Unhandled exception or runtime error in the application code.  \n2. Misconfiguration of the web server or application framework (e.g., bad connection string, missing environment variables).  \n3. Dependency failure \u2013 database, external API, or other service the app calls is unavailable or returning errors.  \n4. Resource exhaustion \u2013 out\u2011of\u2011memory, disk\u2011full, or thread\u2011pool limits.  \n\n**Severity**  \nUsually **Medium** (users see errors but the service is still reachable). If the 500 error is affecting all traffic in production, treat it as **High**.\n\n**Recommended next steps**\n\n1. **Check recent logs**  \n   - Look at application/server error logs (e.g., `error.log`, stack traces, cloud\u2011provider logs) for the timestamp of the first 500 response.  \n   - Identify any exception messages or stack traces.\n\n2. **Verify recent deployments or config changes**  \n   - Did you push new code, update environment variables, or change connection strings?  \n   - If possible, roll back or revert the change to see if the error disappears.\n\n3. **Test external dependencies**  \n   - Ping the database, cache, or any third\u2011party APIs the app uses.  \n   - Ensure they are reachable and not returning errors.\n\n4. **Inspect resource usage**  \n   - Check CPU, memory, and disk usage on the host.  \n   - Look for out\u2011of\u2011memory kills, disk\u2011full conditions, or thread\u2011pool exhaustion.\n\n5. **Enable detailed error output (temporarily)**  \n   - If safe, turn on verbose error pages or debugging mode to see the exact exception.  \n   - Remember to disable it after troubleshooting to avoid exposing details.\n\n6. **Restart the service**  \n   - A quick restart can clear transient states (stuck threads, corrupted caches).  \n   - Monitor logs after restart to see if the 500 error persists.\n\n7. **If the error persists**  \n   - Capture a reproducible request (URL, headers, payload).  \n   - Provide the relevant log excerpt or stack trace so we can narrow down the root cause or decide whether to escalate to engineering.",
+      "hash": "8e5614f309cfe7574ebd4798728e2675",
+      "created_at": "2026-08-28T09:48:31.038188+00:00",
+      "updated_at": "2026-08-28T09:48:31.038188+00:00",
+      "text_lemmatized": "problem summary application return returning http 500 internal server error response likely cause common one check 1 unhandle exception runtime error application code 2 misconfiguration web server application framework bad connection string miss missing environment variable 3 dependency failure database external api service app call unavailable return returning error 4 resource exhaustion limit severity usually medium user error service reachable 500 error affect affecting traffic production treat high recommend step 1 check recent log look application server error log stack trace log timestamp 500 response identify exception message stack trace 2 verify recent deployment config change push new code update environment variable change connection string possible roll revert change error disappear 3 test external dependency pe ping database cache apis app use ensure reachable return returning error 4 inspect resource usage check cpu memory disk usage host look kill condition exhaustion 5 enable detailed error output temporarily safe turn verbose error page debug debugging mode exact exception remember disable troubleshoot troubleshooting avoid expose exposing detail 6 restart service quick restart clear transient state stuck thread corrupted cache monitor log restart 500 error persist 7 error persist capture reproducible request url header payload provide relevant log excerpt stack trace narrow root cause decide escalate engineering"
+    },
+    "e07a8057-c031-4f17-b30b-b1496f84238b": {
+      "user_id": "29215106-e416-423f-85ee-3635b745efd2:6bb7f840-7732-424b-8d3e-fa60b60603e7",
+      "role": "user",
+      "data": "answer from kb\nWhat should I check for an HTTP 500 error?",
+      "hash": "87a7e01bce2f7002b88243534c141b23",
+      "created_at": "2026-08-28T09:51:23.595162+00:00",
+      "updated_at": "2026-08-28T09:51:23.595162+00:00",
+      "text_lemmatized": "answer kb check http 500 error"
+    },
+    "30427ccd-597a-4b95-aa59-d335d770aa04": {
+      "user_id": "29215106-e416-423f-85ee-3635b745efd2:6bb7f840-7732-424b-8d3e-fa60b60603e7",
+      "role": "assistant",
+      "data": "**Problem summary**  \nYour application is returning HTTP\u202f500\u202f(Internal Server Error) responses.\n\n**Likely causes** (common first\u2011check items)  \n1. Unhandled exception or runtime error in the code.  \n2. Misconfiguration (bad connection string, missing env\u2011var, web\u2011server settings).  \n3. Dependency failure (database, cache, external API).  \n4. Resource exhaustion (out\u2011of\u2011memory, disk\u2011full, thread\u2011pool limits).\n\n**Severity**  \nUsually **Medium** (users see errors but the service is still reachable).  \nIf the 500 error affects all traffic in production, treat it as **High**.\n\n**Recommended next\u2011step checklist**\n\n1. **Review error logs** \u2013 Look for stack traces or exception messages at the time of the first 500 response.  \n2. **Check recent deployments/config changes** \u2013 Roll back or revert anything new (code, env vars, connection strings).  \n3. **Validate dependencies** \u2013 Ping the database, cache, and any external APIs the app calls; ensure they are healthy.  \n4. **Inspect resource usage** \u2013 CPU, memory, disk, and thread\u2011pool metrics; watch for OOM kills or disk\u2011full alerts.  \n5. **Enable detailed error output (temporarily)** \u2013 Turn on verbose/debug mode or detailed error pages to see the exact exception (disable after troubleshooting).  \n6. **Restart the service** \u2013 Clears transient states; monitor logs after restart to see if the error persists.  \n7. **If still failing** \u2013 Capture a reproducible request (URL, headers, payload) and the relevant log excerpt; share those details for deeper analysis or escalation.",
+      "hash": "82c7bfb17c3c7035d8653162d76d20ce",
+      "created_at": "2026-08-28T09:51:24.299774+00:00",
+      "updated_at": "2026-08-28T09:51:24.299774+00:00",
+      "text_lemmatized": "problem summary application return returning http 500 internal server error response likely cause common item 1 unhandle exception runtime error code 2 misconfiguration bad connection string miss missing setting 3 dependency failure database cache external api 4 resource exhaustion limit severity usually medium user error service reachable 500 error affect traffic production treat high recommend checklist 1 review error log look stack trace exception message time 500 response 2 check recent deployment config change roll revert new code env var connection string 3 validate dependency pe ping database cache external apis app call ensure healthy 4 inspect resource usage cpu memory disk metric watch oom kill alert 5 enable detailed error output temporarily turn verbose debug mode detailed error page exact exception disable troubleshoot troubleshooting 6 restart service clear transient state monitor log restart error persist 7 fail failing capture reproducible request url header payload relevant log excerpt share detail deep analysis escalation"
+    },
+    "6fbe8433-f710-4ba3-adef-0a1839dc26b0": {
+      "user_id": "29215106-e416-423f-85ee-3635b745efd2:6bb7f840-7732-424b-8d3e-fa60b60603e7",
+      "role": "user",
+      "data": "answer from kb\nWhat should I check for an HTTP 500 error?",
+      "hash": "87a7e01bce2f7002b88243534c141b23",
+      "created_at": "2026-08-28T09:57:37.521026+00:00",
+      "updated_at": "2026-08-28T09:57:37.521026+00:00",
+      "text_lemmatized": "answer kb check http 500 error"
+    },
+    "b63a5e98-a2ce-456e-a8aa-e764421eec4b": {
+      "user_id": "29215106-e416-423f-85ee-3635b745efd2:6bb7f840-7732-424b-8d3e-fa60b60603e7",
+      "role": "assistant",
+      "data": "**Answer from the knowledge base**\n\n- **Capture the request details** \u2013 endpoint, timestamp, request parameters, and the exact error response.  \n- **Check application logs** \u2013 look for stack traces or exception messages around the time the 500 was returned.  \n- **Review recent deployments or configuration changes** \u2013 any new code, environment variables, or connection\u2011string updates that could have introduced the error.  \n\nThese steps help separate a suspected cause from a confirmed root cause and determine the appropriate severity.",
+      "hash": "0dc448c3f748632d608370084a8f2d5f",
+      "created_at": "2026-08-28T09:57:37.597709+00:00",
+      "updated_at": "2026-08-28T09:57:37.597709+00:00",
+      "text_lemmatized": "answer knowledge base capture request detail endpoint timestamp request parameter exact error response check application log look stack trace exception message time 500 return review recent deployment configuration change new code environment variable update introduce error step help separate suspect cause confirm root cause determine appropriate severity"
+    },
+    "22878580-d127-4c25-9477-9d72aeccf830": {
+      "user_id": "29215106-e416-423f-85ee-3635b745efd2:6bb7f840-7732-424b-8d3e-fa60b60603e7",
+      "role": "user",
+      "data": "could create an email for an asking the status of the project and send it  to the ganeshgodsetemp@gmail.com along with google meet link time should at 5 pm today and also create an even in claender .",
+      "hash": "9a713b4d768b4c2f2915efd47a372b18",
+      "created_at": "2026-08-28T10:19:05.445386+00:00",
+      "updated_at": "2026-08-28T10:19:05.445386+00:00",
+      "text_lemmatized": "create email ask asking status project send google meet link time 5 pm today create claender"
+    },
+    "53416841-3dbd-44d4-a4a4-f110967d5377": {
+      "user_id": "29215106-e416-423f-85ee-3635b745efd2:6bb7f840-7732-424b-8d3e-fa60b60603e7",
+      "role": "assistant",
+      "data": "I\u2019ve created a Google\u202fMeet event for **5\u202fPM today** and sent an email to\u202f<EMAIL_ADDRESS> asking for a project status update. Let me know if you need anything else!",
+      "hash": "b749776763f3143c304bd8ef60b34592",
+      "created_at": "2026-08-28T10:19:05.852113+00:00",
+      "updated_at": "2026-08-28T10:19:05.852113+00:00",
+      "text_lemmatized": "create google meet event 5 pm today send email ask asking project status update let know need"
     }
   },
   "index_to_id": {
@@ -1533,6 +1731,28 @@
     "150": "89599f63-de58-49cf-9195-f9d80074ce19",
     "151": "d7edc63b-ee38-414e-8e1e-036228d9d114",
     "152": "7e2391a2-3447-4326-94b0-33c25a84d05b",
-    "153": "1e0d4502-cbf8-4aee-a22f-7b2eb7752651"
+    "153": "1e0d4502-cbf8-4aee-a22f-7b2eb7752651",
+    "154": "4f3e02fb-1519-4081-9812-63aedf629a03",
+    "155": "840b093b-eb6e-478b-9cb5-c3d19f4bd2bf",
+    "156": "90a77008-20d8-4281-ba63-b2d9806da266",
+    "157": "140b3c57-4e61-451c-bc79-53d8bab66643",
+    "158": "a67faf87-7ce6-4246-9055-0e9033c652cb",
+    "159": "d9f4e900-e554-420b-84c1-e171fc803a1e",
+    "160": "2bf59b26-08e7-4292-a270-68c23e5a312d",
+    "161": "f3ae5419-f470-4121-958d-9ee0319b8507",
+    "162": "42df3cac-e848-4ca2-afb9-ff3d232b694d",
+    "163": "39059d71-51b7-4922-b59d-853457ff6b08",
+    "164": "953a3d65-23db-4193-98ef-267c9c463c3d",
+    "165": "d0e6ba61-f479-4944-8298-80f0ed6f62e6",
+    "166": "793100ac-9e8e-4b3e-8b97-8186c465394d",
+    "167": "67f30212-b8c8-4840-98c5-619e158c5d10",
+    "168": "464f71e4-9924-4121-8e47-719da5eb744c",
+    "169": "ab23dbb1-97c9-47ce-8eac-86710e1f2277",
+    "170": "e07a8057-c031-4f17-b30b-b1496f84238b",
+    "171": "30427ccd-597a-4b95-aa59-d335d770aa04",
+    "172": "6fbe8433-f710-4ba3-adef-0a1839dc26b0",
+    "173": "b63a5e98-a2ce-456e-a8aa-e764421eec4b",
+    "174": "22878580-d127-4c25-9477-9d72aeccf830",
+    "175": "53416841-3dbd-44d4-a4a4-f110967d5377"
   }
 }

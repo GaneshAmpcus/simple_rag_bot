@@ -3,6 +3,12 @@ import { Link, useSearchParams } from 'react-router-dom'
 export default function GmailConnected() {
   const [searchParams] = useSearchParams()
   const success = searchParams.get('status') === 'success'
+  // README.md Phase 4: bot_id is included in this redirect when the
+  // Gmail authorization that just completed was for a specific bot
+  // (see routers/gmail.py's /callback), so "Choose tools" routes back
+  // to that bot's own integrations page instead of the generic one.
+  const botId = searchParams.get('bot_id')
+  const toolsPath = botId ? `/bots/${botId}/mcp/tools` : '/mcp/tools'
 
   return (
     <main className="flex min-h-screen items-center justify-center bg-paper px-5 py-8 text-ink">
@@ -21,7 +27,7 @@ export default function GmailConnected() {
             Back to chat
           </Link>
           {success && (
-            <Link to="/mcp/tools" className="rounded-md bg-accent px-4 py-2.5 text-sm font-medium text-white transition hover:bg-accent-deep">
+            <Link to={toolsPath} className="rounded-md bg-accent px-4 py-2.5 text-sm font-medium text-white transition hover:bg-accent-deep">
               Choose tools
             </Link>
           )}

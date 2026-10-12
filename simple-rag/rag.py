@@ -83,7 +83,7 @@ def build_pipeline_state() -> dict:
     stays a no-op addition until Neo4j is actually configured.
     """
     embedder = get_embedder()
-    llm = get_llm(model='openai/gpt-oss-120b')
+    llm = get_llm(model='openai/gpt-oss-120b', role="rag")
     default_kb = "knowledge_base"
     default_store = load_or_create_store(embedder, index_path=INDEX_PATH)
     stores = {default_kb: default_store}

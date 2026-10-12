@@ -10,7 +10,12 @@ import uuid
 from langchain_core.messages import SystemMessage, HumanMessage, AIMessage, ToolMessage
 from langchain_core.exceptions import OutputParserException
 from groq import BadRequestError as GroqBadRequestError
-from llm import get_llm
+from openai import BadRequestError as OpenAIBadRequestError  # raised via LiteLLM proxy / ChatOpenAI
+from llm import get_llm, bind_agent_tools, answered_by
+
+# Malformed-tool-call 400s can come from Groq directly or, when routed
+# through the LiteLLM proxy, as an OpenAI-style BadRequestError.
+_TOOL_CALL_BAD_REQUEST = (GroqBadRequestError, OpenAIBadRequestError)
 from prompts import (
     INTENT_SYSTEM_PROMPT,
     INTENT_USER_TEMPLATE,
@@ -141,7 +146,7 @@ def build_intent_node():
     """Cheap classification step: does this message need tools, or is
     it plain conversation? Falls back to 'tool_needed' on any parse
     failure -- see prompts.py for rationale."""
-    intent_llm = get_llm(model="openai/gpt-oss-120b",api_key_env="GROQ_INTENT_API_KEY")  # small/fast model recommended if you have one
+    intent_llm = get_llm(model="openai/gpt-oss-120b",api_key_env="GROQ_INTENT_API_KEY", role="intent")  # small/fast model recommended if you have one
 
     def intent_node(state: dict) -> dict:
         user_text = _last_human_text(state["messages"])
@@ -222,10 +227,13 @@ def build_agent_node(tools: list):
     # to be rebuilt inside agent_node() on every call. Only the
     # tool-bound LLM clients stay fixed at build time (tools don't
     # change per request).
-    llm_with_tools = get_llm(model="openai/gpt-oss-20b",
-                    api_key_env="GROQ_AGENT_API_KEY").bind_tools(tools, parallel_tool_calls=False)
+    llm_with_tools = bind_agent_tools(
+        get_llm(model="openai/gpt-oss-20b",
+                api_key_env="GROQ_AGENT_API_KEY", role="agent"),
+        tools,
+    )
     llm_no_tools = get_llm(model="openai/gpt-oss-20b",
-                    api_key_env="GROQ_AGENT_API_KEY")  # fallback, same model, no tools bound
+                api_key_env="GROQ_AGENT_API_KEY", role="agent")  # fallback, same model, no tools bound
 
     def agent_node(state: dict) -> dict:
         messages = state["messages"]
@@ -260,7 +268,7 @@ def build_agent_node(tools: list):
                 )
                 response = llm_no_tools.invoke(messages)
 
-        except GroqBadRequestError as e:
+        except _TOOL_CALL_BAD_REQUEST as e:
             # Groq's own tool-call parser occasionally rejects a
             # malformed function-call the model generated (e.g. the
             # non-JSON "<function=name{...}></function>" pythonic form
@@ -275,7 +283,7 @@ def build_agent_node(tools: list):
             try:
                 response = llm_with_tools.invoke(messages)
 
-            except GroqBadRequestError as e2:
+            except _TOOL_CALL_BAD_REQUEST as e2:
                 # Retry also failed the same way. Before giving up on
                 # tools entirely, try to recover the intended call from
                 # the error payload itself -- often more reliable than
@@ -318,8 +326,9 @@ def build_agent_node(tools: list):
             response = llm_no_tools.invoke(messages)
 
         log.info(
-            "agent_node: tool_calls=%s",
+            "agent_node: tool_calls=%s model=%s",
             [tc["name"] for tc in getattr(response, "tool_calls", [])] or "none",
+            answered_by(response),
         )
 
         return {"messages": [response]}
@@ -376,6 +385,7 @@ def build_chat_node():
     llm = get_llm(
             model="openai/gpt-oss-120b",
             api_key_env="GROQ_AGENT_API_KEY",
+            role="chat",
         )
 
     def chat_node(state: dict) -> dict:
@@ -389,7 +399,7 @@ def build_chat_node():
         if not messages or not isinstance(messages[0], SystemMessage):
             messages = [chat_system_prompt] + messages
         response = llm.invoke(messages)
-        log.info("chat_node: answered directly (no tools)")
+        log.info("chat_node: answered directly (no tools) model=%s", answered_by(response))
         return {"messages": [response]}
 
     return chat_node

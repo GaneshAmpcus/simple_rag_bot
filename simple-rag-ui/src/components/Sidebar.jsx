@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext.jsx'
 import { listSessions, listBots, ApiError } from '../api/client'
+import ThemeToggle from './ThemeToggle.jsx'
 
 function relativeTime(isoString) {
   const then = new Date(isoString).getTime()
@@ -231,12 +232,15 @@ export default function Sidebar({ activeSessionId, onSelectSession, onNewChat, v
           <div className="min-w-0">
             <p className="truncate text-sm font-medium text-ink">{user?.email}</p>
           </div>
-          <button
-            onClick={logout}
-            className="shrink-0 rounded-sm px-2 py-1 text-xs font-medium text-muted transition hover:bg-paper hover:text-danger"
-          >
-            Log out
-          </button>
+          <div className="flex shrink-0 items-center gap-1">
+            <ThemeToggle />
+            <button
+              onClick={logout}
+              className="rounded-sm px-2 py-1 text-xs font-medium text-muted transition hover:bg-paper hover:text-danger"
+            >
+              Log out
+            </button>
+          </div>
         </div>
       </div>
     </aside>

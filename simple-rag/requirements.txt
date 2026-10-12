@@ -168,3 +168,15 @@ wrapt==2.3.0
 xxhash==3.8.1
 yarl==1.24.5
 zstandard==0.25.0
+
+# --- LLM failover: Groq -> AWS Bedrock (see llm.py, provider groq_bedrock) ---
+boto3==1.43.108
+botocore==1.43.108
+s3transfer==0.19.2
+jmespath==1.1.0
+# langchain-aws 0.2.x declares numpy<2 for Python<3.12, but this app runs
+# numpy 2.x (neo4j-graphrag needs >=2). Installing it normally makes pip
+# downgrade numpy and break that. Install it LAST, without dependency
+# resolution, then run `python scripts/check_failover.py`:
+#   pip install --no-deps langchain-aws==0.2.35
+# langchain-aws==0.2.35

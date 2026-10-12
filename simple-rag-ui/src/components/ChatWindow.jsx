@@ -20,6 +20,12 @@ export default function ChatWindow({ sessionId, botId, onSessionCreated }) {
   const [sending, setSending] = useState(false)
   const [error, setError] = useState('')
   const scrollRef = useRef(null)
+  const textareaRef = useRef(null)
+
+  // Ids of assistant messages created during THIS session (as opposed
+  // to loaded from history) -- only these get the typewriter reveal in
+  // MessageBubble, so re-opening an old thread doesn't replay it.
+  const [animatedIds, setAnimatedIds] = useState(() => new Set())
 
   useEffect(() => {
     let cancelled = false
@@ -50,6 +56,15 @@ export default function ChatWindow({ sessionId, botId, onSessionCreated }) {
     scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: 'smooth' })
   }, [messages, sending])
 
+  function autoGrow() {
+    const el = textareaRef.current
+    if (!el) return
+    el.style.height = 'auto'
+    el.style.height = `${Math.min(el.scrollHeight, 160)}px`
+  }
+
+  useEffect(autoGrow, [draft])
+
   async function handleSend(e) {
     e.preventDefault()
     const text = draft.trim()
@@ -63,10 +78,9 @@ export default function ChatWindow({ sessionId, botId, onSessionCreated }) {
 
     try {
       const res = await sendChatMessage(token, { sessionId, message: text, botId })
-      setMessages((prev) => [
-        ...prev,
-        { id: `local-${Date.now()}-a`, role: 'assistant', content: res.answer },
-      ])
+      const assistantId = `local-${Date.now()}-a`
+      setMessages((prev) => [...prev, { id: assistantId, role: 'assistant', content: res.answer }])
+      setAnimatedIds((prev) => new Set(prev).add(assistantId))
       if (!sessionId && res.session_id) {
         onSessionCreated(res.session_id)
       }
@@ -81,9 +95,9 @@ export default function ChatWindow({ sessionId, botId, onSessionCreated }) {
   }
 
   return (
-    <main className="flex min-w-0 flex-1 flex-col">
+    <main className="flex min-w-0 flex-1 flex-col bg-paper">
       <div ref={scrollRef} className="flex-1 overflow-y-auto px-6 py-6">
-        <div className="mx-auto flex max-w-2xl flex-col gap-3">
+        <div className="mx-auto flex max-w-2xl flex-col gap-4">
           {historyState === 'loading' && (
             <p className="text-center text-xs text-muted font-mono">loading thread…</p>
           )}
@@ -91,7 +105,10 @@ export default function ChatWindow({ sessionId, botId, onSessionCreated }) {
             <p className="text-center text-xs text-danger">Couldn't load this thread.</p>
           )}
           {historyState === 'ready' && messages.length === 0 && (
-            <div className="mt-24 text-center">
+            <div className="mt-24 animate-fade-in text-center">
+              <div className="mx-auto mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-accent-soft">
+                <div className="h-2.5 w-2.5 rounded-full bg-accent" />
+              </div>
               <p className="font-display text-lg font-semibold text-ink">Start a new thread</p>
               <p className="mt-1 text-sm text-muted">
                 Ask a question — answers draw on the shared knowledge base.
@@ -99,11 +116,19 @@ export default function ChatWindow({ sessionId, botId, onSessionCreated }) {
             </div>
           )}
           {messages.map((m) => (
-            <MessageBubble key={m.id} role={m.role} content={m.content} />
+            <MessageBubble
+              key={m.id}
+              role={m.role}
+              content={m.content}
+              animate={animatedIds.has(m.id)}
+            />
           ))}
           {sending && (
-            <div className="flex justify-start">
-              <div className="rounded-lg border border-line bg-surface px-4 py-2.5">
+            <div className="flex animate-fade-in items-start gap-2.5">
+              <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-accent-soft">
+                <div className="h-2 w-2 rounded-full bg-accent" />
+              </div>
+              <div className="rounded-lg border border-line bg-surface px-4 py-3 shadow-soft">
                 <span className="flex gap-1">
                   <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-muted [animation-delay:-0.3s]" />
                   <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-muted [animation-delay:-0.15s]" />
@@ -116,29 +141,35 @@ export default function ChatWindow({ sessionId, botId, onSessionCreated }) {
       </div>
 
       <div className="border-t border-line bg-surface px-6 py-4">
-        <form onSubmit={handleSend} className="mx-auto flex max-w-2xl items-end gap-2">
-          <textarea
-            value={draft}
-            onChange={(e) => setDraft(e.target.value)}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter' && !e.shiftKey) {
-                e.preventDefault()
-                handleSend(e)
-              }
-            }}
-            rows={1}
-            placeholder="Message simple-rag…"
-            className="max-h-32 flex-1 resize-none rounded-md border border-line bg-paper px-3 py-2.5 text-sm text-ink outline-none focus:border-accent"
-          />
-          <button
-            type="submit"
-            disabled={sending || !draft.trim()}
-            className="shrink-0 rounded-md bg-accent px-4 py-2.5 text-sm font-medium text-white transition hover:bg-accent-deep disabled:opacity-50"
-          >
-            Send
-          </button>
+        <form onSubmit={handleSend} className="mx-auto max-w-2xl">
+          <div className="flex items-end gap-2 rounded-md border border-line bg-paper px-1 py-1 transition focus-within:border-accent focus-within:shadow-glow">
+            <textarea
+              ref={textareaRef}
+              value={draft}
+              onChange={(e) => setDraft(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                  e.preventDefault()
+                  handleSend(e)
+                }
+              }}
+              rows={1}
+              placeholder="Message simple-rag…"
+              className="max-h-40 flex-1 resize-none bg-transparent px-2.5 py-2 text-sm text-ink outline-none placeholder:text-muted"
+            />
+            <button
+              type="submit"
+              disabled={sending || !draft.trim()}
+              className="mb-0.5 mr-0.5 shrink-0 rounded-sm bg-accent px-4 py-2 text-sm font-medium text-white transition hover:bg-accent-deep disabled:opacity-40"
+            >
+              Send
+            </button>
+          </div>
+          <p className="mt-1.5 px-1 text-[11px] text-muted">
+            Enter to send · Shift + Enter for a new line
+          </p>
         </form>
-        {error && <p className="mx-auto mt-2 max-w-2xl text-xs text-danger">{error}</p>}
+        {error && <p className="mx-auto mt-1 max-w-2xl px-1 text-xs text-danger">{error}</p>}
       </div>
     </main>
   )

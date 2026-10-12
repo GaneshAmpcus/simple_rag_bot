@@ -1,0 +1,66 @@
+# LiteLLM proxy config for simple-rag.
+#
+# One alias per app role (llm.py uses "<role>-llm" by default), so each role
+# keeps its own Groq key / rate-limit bucket exactly like the current
+# GROQ_*_API_KEY split. Each alias falls back to Bedrock on errors/429s.
+#
+# Bedrock fallback model: Claude Haiku 4.5 via a cross-region inference profile.
+# Verify this id in YOUR account/region first:
+#   aws bedrock list-inference-profiles --region us-east-1
+# and make sure the model is enabled under Bedrock > Model access.
+# If your region needs a different prefix (e.g. global. / eu. / apac.), change it here.
+
+model_list:
+  # ---------------- Groq (primary) ----------------
+  - model_name: agent-llm
+    litellm_params:
+      model: groq/openai/gpt-oss-20b
+      api_key: os.environ/GROQ_AGENT_API_KEY
+
+  - model_name: intent-llm
+    litellm_params:
+      model: groq/openai/gpt-oss-120b
+      api_key: os.environ/GROQ_INTENT_API_KEY
+
+  - model_name: chat-llm
+    litellm_params:
+      model: groq/openai/gpt-oss-120b
+      api_key: os.environ/GROQ_AGENT_API_KEY
+
+  - model_name: rag-llm
+    litellm_params:
+      model: groq/openai/gpt-oss-120b
+      api_key: os.environ/GROQ_AGENT_API_KEY
+
+  - model_name: guardrails-llm
+    litellm_params:
+      model: groq/openai/gpt-oss-20b
+      api_key: os.environ/GROQ_AGENT_API_KEY
+
+  # ---------------- AWS Bedrock (fallback) ----------------
+  # Credentials come from AWS_ACCESS_KEY_ID / AWS_SECRET_ACCESS_KEY (or the
+  # container's IAM role) -- never put keys in this file.
+  - model_name: bedrock-fallback
+    litellm_params:
+      model: bedrock/us.anthropic.claude-haiku-4-5-20251001-v1:0
+      aws_region_name: os.environ/AWS_REGION
+
+router_settings:
+  num_retries: 2
+  timeout: 60
+  fallbacks:
+    - agent-llm: ["bedrock-fallback"]
+    - intent-llm: ["bedrock-fallback"]
+    - chat-llm: ["bedrock-fallback"]
+    - rag-llm: ["bedrock-fallback"]
+    - guardrails-llm: ["bedrock-fallback"]
+
+litellm_settings:
+  # Drop params a provider doesn't support (e.g. parallel_tool_calls on
+  # Bedrock) instead of failing the request.
+  drop_params: true
+
+general_settings:
+  master_key: os.environ/LITELLM_MASTER_KEY
+  # For virtual keys / spend tracking, add a Postgres DB:
+  # database_url: os.environ/LITELLM_DATABASE_URL

@@ -154,7 +154,7 @@ _CLASSIFY_SYSTEM = (
 
 
 async def _classify(question: str) -> bool:
-    llm = get_llm()
+    llm = get_llm(role="guardrails")
     response = await llm.ainvoke(
         [
             {"role": "system", "content": _CLASSIFY_SYSTEM},

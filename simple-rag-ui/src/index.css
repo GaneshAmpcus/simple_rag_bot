@@ -2,18 +2,65 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ---------------------------------------------------------------------
+ * Color tokens, as R G B triplets (no commas -- required for Tailwind's
+ * rgb(var(--x) / <alpha-value>) opacity-modifier syntax in tailwind.config.js).
+ * Light is the app's original identity: warm paper, deep forest sage.
+ * Dark keeps the same hue family, re-tuned for contrast on a warm
+ * charcoal (not pure black) background -- an extension of the existing
+ * palette, not a different one.
+ * ------------------------------------------------------------------- */
+:root {
+  --color-ink: 23 27 25; /* #171B19 */
+  --color-paper: 245 246 242; /* #F5F6F2 */
+  --color-surface: 255 255 255; /* #FFFFFF */
+  --color-muted: 110 118 111; /* #6E766F */
+  --color-line: 226 229 222; /* #E2E5DE */
+  --color-accent: 47 111 94; /* #2F6F5E */
+  --color-accent-soft: 221 234 228; /* #DDEAE4 */
+  --color-accent-deep: 31 74 62; /* #1F4A3E */
+  --color-danger: 178 58 52; /* #B23A34 */
+  --scrollbar-thumb: #c9cfc5;
+}
+
+.dark {
+  --color-ink: 232 234 227; /* #E8EAE3 */
+  --color-paper: 19 22 20; /* #131614 */
+  --color-surface: 27 31 28; /* #1B1F1C */
+  --color-muted: 141 149 138; /* #8D958A */
+  --color-line: 42 47 43; /* #2A2F2B */
+  --color-accent: 79 169 138; /* #4FA98A -- brightened for dark-bg legibility */
+  --color-accent-soft: 30 51 43; /* #1E332B -- tinted wash instead of light wash */
+  --color-accent-deep: 111 194 164; /* #6FC2A4 -- lighter reads as "more vivid" on dark */
+  --color-danger: 224 108 100; /* #E06C64 -- softened for dark bg */
+  --scrollbar-thumb: #33392f;
+}
+
 * {
   scrollbar-width: thin;
-  scrollbar-color: #C9CFC5 transparent;
+  scrollbar-color: var(--scrollbar-thumb) transparent;
 }
 
 *:focus-visible {
-  outline: 2px solid #2F6F5E;
+  outline: 2px solid rgb(var(--color-accent));
   outline-offset: 2px;
+}
+
+html {
+  color-scheme: light;
+}
+html.dark {
+  color-scheme: dark;
 }
 
 body {
   -webkit-font-smoothing: antialiased;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+::selection {
+  background: rgb(var(--color-accent-soft));
+  color: rgb(var(--color-accent-deep));
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -21,4 +68,126 @@ body {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* ---------------------------------------------------------------------
+ * Assistant message markdown. Scoped to .md-content so plain user
+ * bubbles are unaffected. Deliberately restrained: no heading-scale
+ * drama, this text sits in a chat thread, not a document.
+ * ------------------------------------------------------------------- */
+.md-content {
+  font-size: 0.875rem;
+  line-height: 1.65;
+  color: rgb(var(--color-ink));
+}
+.md-content > *:first-child {
+  margin-top: 0;
+}
+.md-content > *:last-child {
+  margin-bottom: 0;
+}
+.md-content p {
+  margin: 0.6em 0;
+}
+.md-content h1,
+.md-content h2,
+.md-content h3 {
+  font-family: 'Sora', sans-serif;
+  font-weight: 600;
+  color: rgb(var(--color-ink));
+  margin: 1.1em 0 0.4em;
+  line-height: 1.3;
+}
+.md-content h1 {
+  font-size: 1.05rem;
+}
+.md-content h2 {
+  font-size: 0.98rem;
+}
+.md-content h3 {
+  font-size: 0.9rem;
+}
+.md-content strong {
+  font-weight: 600;
+  color: rgb(var(--color-ink));
+}
+.md-content em {
+  font-style: italic;
+}
+.md-content ul,
+.md-content ol {
+  margin: 0.5em 0;
+  padding-left: 1.3em;
+}
+.md-content ul {
+  list-style: disc;
+}
+.md-content ol {
+  list-style: decimal;
+}
+.md-content li {
+  margin: 0.25em 0;
+}
+.md-content li::marker {
+  color: rgb(var(--color-accent));
+}
+.md-content a {
+  color: rgb(var(--color-accent));
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-color: rgb(var(--color-accent) / 0.4);
+}
+.md-content a:hover {
+  color: rgb(var(--color-accent-deep));
+}
+.md-content code {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8em;
+  background: rgb(var(--color-accent-soft));
+  color: rgb(var(--color-accent-deep));
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+}
+.md-content pre {
+  margin: 0.7em 0;
+  padding: 0.75em 0.9em;
+  border-radius: 8px;
+  background: rgb(var(--color-ink) / 0.05);
+  border: 1px solid rgb(var(--color-line));
+  overflow-x: auto;
+}
+.md-content pre code {
+  background: none;
+  color: inherit;
+  padding: 0;
+  font-size: 0.78em;
+  line-height: 1.55;
+}
+.md-content blockquote {
+  margin: 0.6em 0;
+  padding-left: 0.8em;
+  border-left: 2px solid rgb(var(--color-accent));
+  color: rgb(var(--color-muted));
+}
+.md-content hr {
+  border: none;
+  border-top: 1px solid rgb(var(--color-line));
+  margin: 1em 0;
+}
+
+/* Typewriter reveal caret, shown only while an assistant message is
+   still being progressively revealed client-side. */
+.type-caret {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  margin-left: 1px;
+  vertical-align: text-bottom;
+  background: rgb(var(--color-accent));
+  animation: caret-blink 0.9s steps(1) infinite;
+}
+@keyframes caret-blink {
+  0%, 45% { opacity: 1; }
+  50%, 95% { opacity: 0; }
+  100% { opacity: 1; }
 }

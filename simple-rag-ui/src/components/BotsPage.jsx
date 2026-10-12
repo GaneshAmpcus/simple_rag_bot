@@ -181,7 +181,7 @@ export default function BotsPage() {
             {bots.map((bot) => (
               <li
                 key={bot.id}
-                className="flex flex-col rounded-md border border-line bg-surface p-4"
+                className="flex animate-fade-up flex-col rounded-md border border-line bg-surface p-4 shadow-soft transition hover:shadow-lifted"
               >
                 <div className="min-w-0 flex-1">
                   <p className="truncate font-medium text-ink">{bot.name}</p>

@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext.jsx'
 import { ApiError } from '../api/client'
+import ThemeToggle from './ThemeToggle.jsx'
 
 export default function Register() {
   const { register } = useAuth()
@@ -32,7 +33,8 @@ export default function Register() {
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-paper px-4">
-      <div className="w-full max-w-sm">
+      <ThemeToggle className="fixed right-4 top-4" />
+      <div className="w-full max-w-sm animate-fade-up">
         <div className="mb-8 text-center">
           <div className="mx-auto mb-3 h-9 w-9 rounded-md bg-accent" />
           <h1 className="font-display text-xl font-semibold text-ink">simple-rag</h1>
@@ -41,7 +43,7 @@ export default function Register() {
 
         <form
           onSubmit={handleSubmit}
-          className="rounded-lg border border-line bg-surface p-6 shadow-sm"
+          className="rounded-lg border border-line bg-surface p-6 shadow-lifted"
         >
           <label className="mb-1 block text-xs font-medium text-muted">Email</label>
           <input

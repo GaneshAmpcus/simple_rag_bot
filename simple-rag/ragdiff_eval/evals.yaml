@@ -1,0 +1,19 @@
+# RagDiff config for simple-rag. Run from the simple-rag folder:
+#   ragdiff compare --config ragdiff_eval/evals.yaml --base baseline --head candidate
+app: ragdiff_eval.adapter:run
+metrics_factory: ragdiff_eval.metrics:build_metrics
+dataset: ragdiff_eval/dataset_smoke.jsonl   # 3 questions; use dataset.jsonl for all 11
+repeats: 1
+metrics: [context_recall, faithfulness]
+thresholds:
+  context_recall: -0.1
+  faithfulness: -0.1
+tracked_config:
+  retrieval: [chunk_size, chunk_overlap, top_k]
+  prompt: [prompt]
+  model: [llm_model]
+variants:
+  - name: baseline            # what rag.py uses today
+    config: {chunk_size: 800, chunk_overlap: 160, top_k: 3}
+  - name: candidate           # smaller chunks, fewer of them
+    config: {chunk_size: 200, chunk_overlap: 40, top_k: 1}

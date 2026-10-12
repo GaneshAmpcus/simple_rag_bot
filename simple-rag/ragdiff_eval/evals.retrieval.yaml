@@ -1,0 +1,19 @@
+# Retrieval-only RagDiff run: no LLM / Groq key needed.
+#   ragdiff compare --config ragdiff_eval/evals.retrieval.yaml --base baseline --head candidate
+app: ragdiff_eval.adapter:run
+dataset: ragdiff_eval/dataset.jsonl          # all 11 questions
+repeats: 1
+metrics: [context_contains_reference]        # free: token recall of the reference in the contexts
+thresholds:
+  context_contains_reference: -0.05
+tracked_config:
+  retrieval: [chunk_size, chunk_overlap, top_k]
+  prompt: [prompt]
+  model: [llm_model]
+variants:
+  - name: baseline
+    config: {llm_model: none, chunk_size: 800, chunk_overlap: 160, top_k: 3}
+  - name: candidate
+    config: {llm_model: none, chunk_size: 200, chunk_overlap: 40, top_k: 1}
+  - name: harmless              # same retrieval, only a different overlap
+    config: {llm_model: none, chunk_size: 800, chunk_overlap: 100, top_k: 3}

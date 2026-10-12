@@ -1,0 +1,24 @@
+# Run from this folder, reading secrets from the app's .env:
+#   docker compose --env-file ../.env up -d
+#   curl http://localhost:4000/health/liveliness
+#
+# Pin the image to a specific released version before production (check the
+# LiteLLM release notes / security advisories first) instead of a moving tag.
+services:
+  litellm:
+    image: ghcr.io/berriai/litellm:main-stable
+    container_name: simple-rag-litellm
+    command: ["--config", "/app/config.yaml", "--port", "4000"]
+    ports:
+      - "4000:4000"
+    volumes:
+      - ./config.yaml:/app/config.yaml:ro
+    environment:
+      LITELLM_MASTER_KEY: ${LITELLM_MASTER_KEY}
+      GROQ_AGENT_API_KEY: ${GROQ_AGENT_API_KEY}
+      GROQ_INTENT_API_KEY: ${GROQ_INTENT_API_KEY}
+      AWS_REGION: ${AWS_REGION:-us-east-1}
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID:-}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY:-}
+      AWS_SESSION_TOKEN: ${AWS_SESSION_TOKEN:-}
+    restart: unless-stopped
